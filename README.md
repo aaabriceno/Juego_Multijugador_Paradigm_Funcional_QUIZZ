@@ -1,4 +1,4 @@
-# Trivia Crack Quiz Multiplayer
+# Preguntados: Trivia Crack Quiz Multiplayer
 
 Juego multijugador de preguntas inspirado en Trivia Crack: Brain Quiz Games,
 desarrollado en Elixir con paradigma funcional y procesos ligeros de OTP.
