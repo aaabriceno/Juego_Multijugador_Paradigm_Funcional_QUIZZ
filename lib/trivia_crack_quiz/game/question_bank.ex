@@ -28,6 +28,22 @@ defmodule TriviaCrackQuiz.QuestionBank do
         text: "Que lenguaje funcional corre sobre la maquina virtual de Erlang?",
         options: [],
         answer: "Elixir"
+      },
+      %{
+        id: 4,
+        type: :multiple_choice,
+        category: :culture,
+        text: "Cual es la capital de Peru?",
+        options: ["Cusco", "Lima", "Arequipa", "Trujillo"],
+        answer: "Lima"
+      },
+      %{
+        id: 5,
+        type: :true_false,
+        category: :sports,
+        text: "Un partido de futbol profesional tiene dos tiempos principales.",
+        options: ["Verdadero", "Falso"],
+        answer: "Verdadero"
       }
     ]
   end
