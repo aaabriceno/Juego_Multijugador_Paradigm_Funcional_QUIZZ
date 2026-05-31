@@ -1,34 +1,42 @@
-# Preguntados: Trivia Crack Quiz Multiplayer
+# Trivia Crack Quiz Multiplayer
 
-Juego multijugador de preguntas inspirado en Trivia Crack: Brain Quiz Games,
-desarrollado en Elixir con paradigma funcional y procesos ligeros de OTP.
+Juego multijugador de preguntas desarrollado en Elixir, Phoenix LiveView y OTP.
+La partida usa un `GameServer` supervisado para coordinar jugadores, rondas,
+temporizadores y puntajes mediante paso de mensajes.
 
-## Objetivo
+## Estructura principal
 
-Implementar una trivia interactiva para minimo 3 jugadores simultaneos. Cada
-jugador responde preguntas de distintas categorias y el servidor mantiene un
-estado coherente de la partida usando estructuras inmutables, funciones puras y
-paso de mensajes entre procesos.
+- `lib/trivia_crack_quiz/game/`: dominio del juego, funciones puras, banco de
+  preguntas y actor OTP.
+- `lib/trivia_crack_quiz_web/live/`: interfaz grafica en Phoenix LiveView.
+- `docs/`: avances, diagramas y documentos del proyecto.
+- `assets/`: estilos y JavaScript de Phoenix.
 
-## Avance 1
+## Instalacion
 
-La definicion del juego, el lenguaje elegido y el borrador del diagrama de
-estructura estan en:
+Guia detallada para los integrantes:
 
-- [docs/avance_1.md](docs/avance_1.md)
-
-## Requisitos
-
-- Elixir 1.17 o compatible
-- Erlang/OTP 27 o compatible
-
-## Ejecucion inicial
+- [docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
 
 ```bash
 mix deps.get
-mix test
-iex -S mix
+mix setup
 ```
 
-Desde `iex -S mix` se podran probar los modulos base mientras se implementa la
-logica completa del servidor multijugador.
+## Ejecucion
+
+```bash
+mix phx.server
+```
+
+Luego abrir:
+
+```text
+http://localhost:4000
+```
+
+## Verificacion
+
+```bash
+mix test
+```
