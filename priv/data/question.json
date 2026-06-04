@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "category": "tecnologia",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "What does CPU stand for?",
+    "options": [
+      "Central Processing Unit",
+      "Computer Personal Unit",
+      "Central Program Utility",
+      "Control Processing Unit"
+    ],
+    "answer": "Central Processing Unit"
+  }
+]
