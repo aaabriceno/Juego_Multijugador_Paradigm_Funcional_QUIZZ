@@ -6,7 +6,7 @@ defmodule TriviaCrackQuiz.Game do
   @min_players 3
   @round_time_ms 20_000
 
-  def new_state(questions \\ TriviaCrackQuiz.QuestionBank.sample_questions()) do
+  def new_state(questions \\ TriviaCrackQuiz.QuestionBank.load_questions()) do
     %{
       phase: :waiting,
       players: %{},

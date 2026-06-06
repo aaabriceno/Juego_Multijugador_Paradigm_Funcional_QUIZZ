@@ -3,6 +3,44 @@ defmodule TriviaCrackQuiz.QuestionBank do
   Banco inicial de preguntas para la trivia.
   """
 
+  @questions_dir "priv/data/questions"
+  @questions_path "priv/data/question.json"
+
+  def load_questions do
+    cond do
+      File.dir?(@questions_dir) ->
+        load_questions_from_directory()
+
+      File.exists?(@questions_path) ->
+        load_questions_from_file(@questions_path)
+
+      true ->
+        sample_questions()
+    end
+  end
+
+  defp load_questions_from_directory do
+    @questions_dir
+    |> Path.join("*.json")
+    |> Path.wildcard()
+    |> Enum.sort()
+    |> Enum.flat_map(&load_questions_from_file/1)
+  end
+
+  defp load_questions_from_file(path) do
+    path
+    |> File.read()
+    |> case do
+      {:ok, content} ->
+        content
+        |> Jason.decode!()
+        |> Enum.map(&normalize_question/1)
+
+      {:error, _reason} ->
+        []
+    end
+  end
+
   def sample_questions do
     [
       %{
@@ -47,4 +85,26 @@ defmodule TriviaCrackQuiz.QuestionBank do
       }
     ]
   end
+
+  defp normalize_question(question) do
+    %{
+      id: question["id"],
+      type: atomize(question["type"]),
+      category: atomize(question["category"]),
+      text: question["text"] || question["question"],
+      options: question["options"] || [],
+      answer: question["answer"],
+      difficulty: question["difficulty"],
+      source: question["source"]
+    }
+  end
+
+  defp atomize(value) when is_binary(value) do
+    value
+    |> String.replace(" ", "_")
+    |> String.downcase()
+    |> String.to_atom()
+  end
+
+  defp atomize(value), do: value
 end
