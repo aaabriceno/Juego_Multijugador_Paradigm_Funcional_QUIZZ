@@ -1,16 +1,4502 @@
 [
   {
-    "id": 1,
+    "answer": "JavaScript",
     "category": "tecnologia",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "What does CPU stand for?",
+    "difficulty": "easy",
+    "id": 1,
     "options": [
-      "Central Processing Unit",
-      "Computer Personal Unit",
-      "Central Program Utility",
-      "Control Processing Unit"
+      "Joomla Source Code",
+      "Java Source",
+      "Java",
+      "JavaScript"
     ],
-    "answer": "Central Processing Unit"
+    "source": "Open Trivia Database",
+    "text": "What language does Node.js use?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Application",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 2,
+    "options": [
+      "Network",
+      "Application",
+      "Session",
+      "Present"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the name of Layer 7 of the OSI model?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "TRS-80",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 3,
+    "options": [
+      "Commodore 64",
+      "ZX Spectrum",
+      "TRS-80",
+      "Apple 3"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following is the oldest of these computers by release date?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Peter Thiel",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 4,
+    "options": [
+      "Peter Thiel",
+      "Jack Dorsey",
+      "Mark Zuckerberg",
+      "Marc Benioff"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who is the founder of Palantir?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Midnight, January 1, 1970",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 5,
+    "options": [
+      "Midnight, July 4, 1980",
+      "Midnight, July 4, 1976",
+      "Midnight on the creator of Unix's birthday",
+      "Midnight, January 1, 1970"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Unix Time is defined as the number of seconds that have elapsed since when?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Utah Teapot",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 6,
+    "options": [
+      "Tennessee Teapot",
+      "3D Teapot",
+      "Pixar Teapot",
+      "Utah Teapot"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The teapot often seen in many 3D modeling applications is called what?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": ".tv",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 7,
+    "options": [
+      ".tv",
+      ".tu",
+      ".tl",
+      ".tt"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the domain name for the country Tuvalu?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1000000",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 8,
+    "options": [
+      "1024",
+      "1048576",
+      "1000",
+      "1000000"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many kilobytes in one gigabyte (in decimal)?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Eight bits",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 9,
+    "options": [
+      " Fifteen bits",
+      "Six bits",
+      "Twelve bits",
+      "Eight bits"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many bits are commonly in a single byte?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "PS/2",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 10,
+    "options": [
+      "PCIe",
+      "FireWire",
+      "PS/2",
+      "SVGA"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is largely considered the precursor to the USB format?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "<marquee></marquee>",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 11,
+    "options": [
+      "<slide></slide>",
+      "<marquee></marquee>",
+      "<move></move>",
+      "<scroll></scroll>"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "ADPCM Sampler",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 12,
+    "options": [
+      "ADPCM Sampler",
+      "PCM Sampler",
+      "Programmable Sound Generator (PSG)",
+      "FM Synthesizer"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "10",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 13,
+    "options": [
+      "4",
+      "12",
+      "10",
+      "8"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many cores does the Intel i7-6950X have?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Routing Information Protocol",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 14,
+    "options": [
+      "Runtime Instance Processes",
+      "Routing Information Protocol",
+      "Regular Interval Processes",
+      "Routine Inspection Protocol"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The acronym \"RIP\" stands for which of these?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "RAID 1",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 15,
+    "options": [
+      "RAID 5",
+      "RAID 0",
+      "RAID 1",
+      "RAID 10"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which RAID array type is associated with data mirroring?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jonathan Ive",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 16,
+    "options": [
+      "Ronald Wayne",
+      "Steve Wozniak",
+      "Jonathan Ive",
+      "Steve Jobs"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these people was NOT a founder of Apple Inc?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Microsoft",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 17,
+    "options": [
+      "Apple",
+      "Microsoft",
+      "IBM",
+      "Nokia"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Windows OS was delevoped by which company?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "44.1 kHz",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 18,
+    "options": [
+      "32.0 kHz",
+      "44.1 kHz",
+      "1.5 MHz",
+      "20.5 kHz"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Originally used in PCM adapters, what frequency is the standard for sampling audio in the Compact Disc Digital Audio format?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Redundant Array of Independent Disks",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 19,
+    "options": [
+      "Rapid Access for Indexed Devices",
+      "Redundant Array of Independent Disks",
+      "Randomized Abstract Identification Description",
+      "Range of Applications with Identical Designs"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does RAID stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "IMKO-1",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 20,
+    "options": [
+      "IMKO-1",
+      "Pravetz 8D",
+      "IZOT 1030",
+      "Pravetz 82"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the name of the first Bulgarian personal computer?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mac OS",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 21,
+    "options": [
+      "Linux",
+      "OS/2",
+      "Windows",
+      "Mac OS"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which operating system was released first?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Local Area Network",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 22,
+    "options": [
+      "Light Access Node",
+      "Land Address Navigation",
+      "Long Antenna Node",
+      "Local Area Network"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In computing, what does LAN stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "256",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 23,
+    "options": [
+      "8",
+      "256",
+      "1024",
+      "1"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many values can a single byte represent?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Injection ",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 24,
+    "options": [
+      "Cross-Site Scripting",
+      "Broken Authentication",
+      "Injection ",
+      "Insecure Direct Object References"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Motherboard",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 25,
+    "options": [
+      "Hard Disk Drive",
+      "Motherboard",
+      "Central Processing Unit",
+      "Graphics Processing Unit"
+    ],
+    "source": "Open Trivia Database",
+    "text": "On which computer hardware device is the BIOS chip located?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Infrastructure as a Service",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 26,
+    "options": [
+      "Infrastructure as a Server",
+      "Infrastructure as a Service",
+      "Internet and a Server",
+      "Internet as a Service"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In the server hosting industry IaaS stands for...",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Dennis Ritchie",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 27,
+    "options": [
+      "Dennis Ritchie",
+      "Willis Ware",
+      "Tim Berners Lee",
+      "al-Khwārizmī"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The C programming language was created by this American computer scientist. ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Acorn Computers",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 28,
+    "options": [
+      "Amstrad PLC",
+      "Commodore Business Machines",
+      "Acorn Computers",
+      "Sinclair Research"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Electron computer was released in Britain during 1983 for the home computing market, by which company? ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "2005",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 29,
+    "options": [
+      "2005",
+      "1999",
+      "2008",
+      "2002"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Lenovo acquired IBM's personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "2016",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 30,
+    "options": [
+      "2013",
+      "2016",
+      "2009",
+      "2011"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When did the online streaming service \"Mixer\" launch?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Binary",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 31,
+    "options": [
+      "JavaScript",
+      "Python",
+      "Binary",
+      "C++"
+    ],
+    "source": "Open Trivia Database",
+    "text": "If you were to code software in this language you'd only be able to type 0's and 1's.",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": ".svg",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 32,
+    "options": [
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".svg"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the most preferred image format used for logos in the Wikimedia database?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Linux",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 33,
+    "options": [
+      "Python",
+      "Linux",
+      "Wikipedia",
+      "Microsoft Windows"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Linus Torvalds created which of these?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Motherboard",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 34,
+    "options": [
+      "Random Access Memory",
+      "Hard Disk Drive",
+      "Motherboard",
+      "Central Processing Unit"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which computer hardware device provides an interface for all other connected devices to communicate?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Objective-C",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 35,
+    "options": [
+      "Ruby",
+      "C++",
+      "Objective-C",
+      "C#"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The programming language 'Swift' was created to replace what other programming language?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Quantum Teleportation",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 36,
+    "options": [
+      "Quantum Programming",
+      "Super Dense Coding",
+      "Quantum Entanglement",
+      "Quantum Teleportation"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the name of the process that sends one qubit of information using two bits of classical information?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Apple",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 37,
+    "options": [
+      "Microsoft",
+      "Commodore",
+      "Atari",
+      "Apple"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Video Card",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 38,
+    "options": [
+      "Hard Drive",
+      "Video Card",
+      "Processor",
+      "Power Supply"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Generally, which component of a computer draws the most power?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "23",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 39,
+    "options": [
+      "53",
+      "8",
+      "15",
+      "23"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many bits make up the significand portion of a single precision floating point number?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Open Shortest Path First",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 40,
+    "options": [
+      "Open Signal Path Finder",
+      "Order State Part First",
+      "Open Shortest Path First",
+      "Order Sense Ping Find"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In networking, what does OSPF stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": ".tv",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 41,
+    "options": [
+      ".tu",
+      ".tv",
+      ".tl",
+      ".tt"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the domain name for the country Tuvalu?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Captures what's on the screen and copies it to your clipboard",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 42,
+    "options": [
+      "Captures what's on the screen and copies it to your clipboard",
+      "Nothing",
+      "Closes all windows",
+      "Saves a .png file of what's on the screen in your screenshots folder in photos"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the Prt Sc button do?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Solid State Drive",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 43,
+    "options": [
+      "Solid State Drive",
+      "Solid State Disk",
+      "Source Solution Drive",
+      "Solution Source Disk"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does SSD stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "TRS-80",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 44,
+    "options": [
+      "ZX Spectrum",
+      "TRS-80",
+      "Apple 3",
+      "Commodore 64"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following is the oldest of these computers by release date?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jelly Bean",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 45,
+    "options": [
+      "Nutella",
+      "Froyo",
+      "Jelly Bean",
+      "Lollipop"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the name given to Android 4.3?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Infrastructure as a Service",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 46,
+    "options": [
+      "Infrastructure as a Server",
+      "Internet as a Service",
+      "Infrastructure as a Service",
+      "Internet and a Server"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In the server hosting industry IaaS stands for...",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Dennis Ritchie",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 47,
+    "options": [
+      "Dennis Ritchie",
+      "Tim Berners Lee",
+      "al-Khwārizmī",
+      "Willis Ware"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The C programming language was created by this American computer scientist. ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Disk Operating System",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 48,
+    "options": [
+      "Driver Oriented System",
+      "Diskless Operating System",
+      "Disk Operating System",
+      "Dumb Operating System"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the DOS in Microsoft's first operating system \"MS-DOS\" stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "December 20, 1990",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 49,
+    "options": [
+      "December 17, 1996",
+      "December 20, 1990",
+      "November 24, 1995",
+      "November 12, 1990"
+    ],
+    "source": "Open Trivia Database",
+    "text": "On which day did the World Wide Web go online?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Command Line Interface",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 50,
+    "options": [
+      "Common Language Interface",
+      "Control Line Interface",
+      "Command Line Interface",
+      "Common Language Input"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In computing terms, typically what does CLI stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Shamir",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 51,
+    "options": [
+      "Stable",
+      "Shamir",
+      "Schottky",
+      "Secure"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the 'S' in the RSA encryption algorithm stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Eight bits",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 52,
+    "options": [
+      "Twelve bits",
+      "Eight bits",
+      " Fifteen bits",
+      "Six bits"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many bits are commonly in a single byte?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "SRAM",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 53,
+    "options": [
+      "ROM",
+      "SRAM",
+      "Flash",
+      "DRAM"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What kind of memory is used on memory cache?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "JavaScript",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 54,
+    "options": [
+      "Python",
+      "C#",
+      "PHP",
+      "JavaScript"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Injection ",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 55,
+    "options": [
+      "Insecure Direct Object References",
+      "Broken Authentication",
+      "Injection ",
+      "Cross-Site Scripting"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Austria",
+    "category": "tecnologia",
+    "difficulty": "medium",
+    "id": 56,
+    "options": [
+      "Argentina",
+      "Angola",
+      "Austria",
+      "Australia"
+    ],
+    "source": "Open Trivia Database",
+    "text": ".at is the top-level domain for what country?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Region 3",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 57,
+    "options": [
+      "Region 1",
+      "Region 2",
+      "Region 3",
+      "Region 4"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Australia, Japan, and Southeast Asia are in which ITU Region?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Star",
+    "category": "tecnologia",
+    "difficulty": "hard",
+    "id": 58,
+    "options": [
+      "Star",
+      "Ring",
+      "Hex",
+      "Mesh"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following physical typologies are used with Ethernet Networks?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1000",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 59,
+    "options": [
+      "512",
+      "500",
+      "1000",
+      "1024"
+    ],
+    "source": "Open Trivia Database",
+    "text": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Python",
+    "category": "tecnologia",
+    "difficulty": "easy",
+    "id": 60,
+    "options": [
+      "Python",
+      "Java",
+      "C++",
+      "C#"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which computer language would you associate Django framework with?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Bones",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 61,
+    "options": [
+      "Brain",
+      "Heart",
+      "Bones",
+      "Skin"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The medical condition osteoporosis affects which part of the body?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "24",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 62,
+    "options": [
+      "8",
+      "24",
+      "32",
+      "16"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In human biology, a circadium rhythm relates to a period of roughly how many hours?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Carbon",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 63,
+    "options": [
+      "Carbon",
+      "Platinum",
+      "Osmium",
+      "Tungsten"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which element has the highest melting point?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Histology",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 64,
+    "options": [
+      "Histology",
+      "Microbiology",
+      "Anatomy",
+      "Biochemistry"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the study of the cells and tissues of plants and animals?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cretaceous-Paleogene",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 65,
+    "options": [
+      "Triassic–Jurassic",
+      "Permian–Triassic",
+      "Cretaceous-Paleogene",
+      "Ordovician–Silurian"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which major extinction event was caused by an asteroid collision and eliminated the majority of non-avian dinosaurs?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hydrogen",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 66,
+    "options": [
+      "Lithium",
+      "Oxygen",
+      "Hydrogen",
+      "Helium"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which is the most abundant element in the universe?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "NH3",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 67,
+    "options": [
+      "NO3",
+      "CO2",
+      "CH4",
+      "NH3"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the chemical formula for ammonia?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The separation of a strain from a natural, mixed population of living microbes",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 68,
+    "options": [
+      "Testing effects of certain microorganisms in an isolated enviroments, such as caves",
+      "A lack of nutrition in microenviroments",
+      "The separation of a strain from a natural, mixed population of living microbes",
+      "The nitrogen level in soil"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the term \"isolation\" refer to in microbiology?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Japan",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 69,
+    "options": [
+      "Philippines",
+      "USA",
+      "Japan",
+      "France"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which country first successfully farm-hatched and raised bluefin tuna in 1979?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pavlov's dog experiments",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 70,
+    "options": [
+      "Schrödinger's cat experiment",
+      "Skinner box experiment",
+      "Pavlov's dog experiments",
+      "Harlow’s monkey experiments"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following is considered classical conditioning?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Uranus",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 71,
+    "options": [
+      "Uranus",
+      "Jupiter",
+      "Neptune",
+      "Venus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The moons, Miranda, Ariel, Umbriel, Titania and Oberon orbit which planet?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Catholic",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 72,
+    "options": [
+      "Catholic",
+      "Jewish",
+      "Christian",
+      "Islamic"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"The Big Bang Theory\" was first theorized by a priest of what religious ideology?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Sneeze",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 73,
+    "options": [
+      "Hiccup",
+      "Cough",
+      "Yawn",
+      "Sneeze"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Autosomal-dominant Compelling Helio-Ophthalmic Outburst syndrome is the need to do what when seeing the Sun?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Australopithecus Afarensis",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 74,
+    "options": [
+      "Australopithecus Afarensis",
+      "Australopithecus Architeuthis",
+      "Australopithecus Africanus",
+      "Australopithecus Antaris"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the scientific name for the extinct hominin known as \"Lucy\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Troposphere",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 75,
+    "options": [
+      "Mesosphere",
+      "Stratosphere",
+      "Troposphere",
+      "Thermosphere"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the lowest layer of the Earth's atmosphere named?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Sagittarius",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 76,
+    "options": [
+      "Sagittarius",
+      "Capricornus",
+      "Scorpius",
+      "Ophiuchus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which constellation contains the center of the Milky Way?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Landsat 6",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 77,
+    "options": [
+      "Landsat 4",
+      "Landsat 6",
+      "Landsat 3",
+      "Landsat 5"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which Landsat Satellite failed to reach orbit?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "703,800,000 years",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 78,
+    "options": [
+      "703,800,000 years",
+      "4,300,400,000 years",
+      "Uranium-235 is a stable isotope",
+      "1,260,900,000 years"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the half-life of Uranium-235?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hydrogen & Helium",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 79,
+    "options": [
+      "Hydrogen & Nitrogen",
+      "Carbon & Nitrogen",
+      "Hydrogen & Helium",
+      "Carbon & Helium"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Sun consists of mostly which two elements?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Four",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 80,
+    "options": [
+      "Two",
+      "Four",
+      "Five",
+      "Three"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many laws of thermodynamics are there?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Noether's Theorem",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 81,
+    "options": [
+      "Wick's Theorem",
+      "Noether's Theorem",
+      "Bell's Theorem",
+      "Carnot's Theorem"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In physics, conservation of energy and conservation of momentum are both consequences of which of the following?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Great white shark",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 82,
+    "options": [
+      "Octopus",
+      "Catfish",
+      "Killer whale",
+      "Great white shark"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these animals belongs in class Chondrichthyes?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jupiter",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 83,
+    "options": [
+      "Neptune",
+      "Uranus",
+      "Jupiter",
+      "Mars"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Gannymede is the largest moon of which planet?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Marie & Pierre Curie",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 84,
+    "options": [
+      "Marie & Pierre Curie",
+      "Curious George",
+      "Stephen Curry",
+      "The Curiosity Rover"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who is the chemical element Curium named after?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mars",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 85,
+    "options": [
+      "Jupiter",
+      "Saturn",
+      "Mars",
+      "Venus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which planet did the \"Viking 1\" spacecraft send surface images of, starting in 1976?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Botulinum toxin",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 86,
+    "options": [
+      "Asbestos",
+      "Cyanide",
+      "Ricin",
+      "Botulinum toxin"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the most potent toxin known?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Gorilla Gorilla Gorilla",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 87,
+    "options": [
+      "Gorilla Gorilla Diehli",
+      "Gorilla Beringei Beringei",
+      "Gorilla Gorilla Gorilla",
+      "Gorilla Beringei Graueri"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Western Lowland Gorilla is scientifically know as?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "low, all",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 88,
+    "options": [
+      "high, all",
+      "high, some",
+      "low, all",
+      "low, some"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Axiom of Preventive Medicine states that people with ___ risk for a disease should be screened and we should treat ___ of those people.",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mexico",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 89,
+    "options": [
+      "Spain",
+      "Russia",
+      "Mexico",
+      "France"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Where did the dog breed \"Chihuahua\" originate?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "0.1 Microsievert",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 90,
+    "options": [
+      "0.3 Microsievert",
+      "0.5 Microsievert",
+      "0.7 Microsievert",
+      "0.1 Microsievert"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How much radiation does a banana emit?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pb",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 91,
+    "options": [
+      "Pm",
+      "Pb",
+      "Ld",
+      "Le"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the chemical symbol for lead?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Kelvin",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 92,
+    "options": [
+      "Rankine",
+      "Kelvin",
+      "Fahrenheit",
+      "Celsius"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the standard SI unit for temperature?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Polaris",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 93,
+    "options": [
+      "Iota Cephei",
+      "Eridanus",
+      "Gamma Cephei",
+      "Polaris"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the official name of the star located closest to the North Celestial Pole?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "238",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 94,
+    "options": [
+      "238",
+      "235",
+      "239",
+      "233"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Naturally occuring uranium primarily consists of which isotope?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Marie & Pierre Curie",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 95,
+    "options": [
+      "Curious George",
+      "Stephen Curry",
+      "The Curiosity Rover",
+      "Marie & Pierre Curie"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who is the chemical element Curium named after?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "4.5 Billion Years",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 96,
+    "options": [
+      "3.5 Billion Years",
+      "4.5 Billion Years",
+      "5.5 Billion Years",
+      "2.5 Billion Years"
+    ],
+    "source": "Open Trivia Database",
+    "text": "About how old is Earth?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cornwall",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 97,
+    "options": [
+      "Cornwall",
+      "The Midlands",
+      "Wales",
+      "Surrey"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Where did the Great Storm of 1987 make landfall at, first?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hydrogen",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 98,
+    "options": [
+      "Lithium",
+      "Hydrogen",
+      "Helium",
+      "Oxygen"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the first element on the periodic table?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Troposphere",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 99,
+    "options": [
+      "Mesosphere",
+      "Stratosphere",
+      "Thermosphere",
+      "Troposphere"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the lowest layer of the Earth's atmosphere named?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The separation of a strain from a natural, mixed population of living microbes",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 100,
+    "options": [
+      "The nitrogen level in soil",
+      "The separation of a strain from a natural, mixed population of living microbes",
+      "A lack of nutrition in microenviroments",
+      "Testing effects of certain microorganisms in an isolated enviroments, such as caves"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the term \"isolation\" refer to in microbiology?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "38",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 101,
+    "options": [
+      "73",
+      "38",
+      "11",
+      "47"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the atomic number of the element Strontium?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Astatine",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 102,
+    "options": [
+      "Astatine",
+      "Selenium",
+      "Antimony",
+      "Molybdenum"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which chemical element was originally known as Alabamine?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Umbilicus",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 103,
+    "options": [
+      "Nares",
+      "Paxillus",
+      "Umbilicus",
+      "Nevus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The medical term for the belly button is which of the following?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Femur",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 104,
+    "options": [
+      "Tibia",
+      "Humerus",
+      "Cranium",
+      "Femur"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these bones is hardest to break?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pancreas",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 105,
+    "options": [
+      "Liver",
+      "Pancreas",
+      "Stomach",
+      "Kidney"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What part of the body produces insulin?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Ernest Rutherford",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 106,
+    "options": [
+      "Archimedes",
+      "Joseph John Thomson",
+      "Ernest Rutherford",
+      "Niels Henrik David Bohr"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which one of these scientists conducted the Gold Foil Experiment which concluded that atoms are mostly made of empty space?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Nitrogen",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 107,
+    "options": [
+      "Carbon Dioxide",
+      "Oxygen",
+      "Nitrogen",
+      "Argon"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which gas forms about 78% of the Earth’s atmosphere?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Second",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 108,
+    "options": [
+      "Second",
+      "Minute",
+      "Day",
+      "Hour"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the standard SI unit for time?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "low, all",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 109,
+    "options": [
+      "low, some",
+      "high, some",
+      "high, all",
+      "low, all"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Axiom of Preventive Medicine states that people with ___ risk for a disease should be screened and we should treat ___ of those people.",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "C18H27NO3",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 110,
+    "options": [
+      "C6H4Cl2",
+      "C21H23NO3",
+      "C13H25NO4",
+      "C18H27NO3"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the molecular formula of the active component of chili peppers(Capsaicin)?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Iron",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 111,
+    "options": [
+      "Cobalt",
+      "Iron",
+      "Copper",
+      "Iridium"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The element involved in making human blood red is which of the following?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Tornadoes",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 112,
+    "options": [
+      "Tornadoes",
+      "Hurricanes",
+      "Volcanoes",
+      "Earthquakes"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Tetsuya Fujita was a scientist that developed the scale for which natural disaster?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "212°F",
+    "category": "ciencia",
+    "difficulty": "medium",
+    "id": 113,
+    "options": [
+      "200°F",
+      "181°F",
+      "212°F",
+      "178°F"
+    ],
+    "source": "Open Trivia Database",
+    "text": "At what temperature does water boil?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Venus",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 114,
+    "options": [
+      "Venus",
+      "Jupiter",
+      "Mercury",
+      "Mars"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the hottest planet in the Solar System?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Perceptual Neuron",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 115,
+    "options": [
+      "Perceptual Neuron",
+      "Motor Neuron",
+      "Interneuron",
+      "Sensory Neuron"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which is not a type of neuron?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Space",
+    "category": "ciencia",
+    "difficulty": "easy",
+    "id": 116,
+    "options": [
+      "Society",
+      "Science",
+      "Star",
+      "Space"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does the letter 'S' stand for in 'NASA'?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Vulpes Vulpes",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 117,
+    "options": [
+      "Vulpes Redus",
+      "Vulpes Vulpes",
+      "Vulpes Vulpie",
+      "Red Fox"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the scientific name of the red fox?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hydroxyl",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 118,
+    "options": [
+      "Carbonyl",
+      "Alkyl",
+      "Hydroxyl",
+      "Aldehyde"
+    ],
+    "source": "Open Trivia Database",
+    "text": "An organic compound is considered an alcohol if it has what functional group?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pancreas",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 119,
+    "options": [
+      "Pancreas",
+      "Kidney",
+      "Brain",
+      "Liver"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The 'Islets of Langerhans' is found in which human organ?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Gorilla Gorilla Gorilla",
+    "category": "ciencia",
+    "difficulty": "hard",
+    "id": 120,
+    "options": [
+      "Gorilla Gorilla Gorilla",
+      "Gorilla Gorilla Diehli",
+      "Gorilla Beringei Beringei",
+      "Gorilla Beringei Graueri"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Western Lowland Gorilla is scientifically know as?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Marie Antoinette",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 121,
+    "options": [
+      "Henry VIII",
+      "Czar Nicholas II",
+      "Marie Antoinette",
+      "Elizabeth I"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which famous world leader is famed for the saying, \"Let them eat cake\", yet is rumored that he/she never said it at all?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Goldsboro, North Carolina",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 122,
+    "options": [
+      "Goldsboro, North Carolina",
+      "Jacksonville, Florida",
+      "Hicksville, New York",
+      "Conway, Arkansas"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In 1961, an American B-52 aircraft crashed and nearly detonated two 4mt nuclear bombs over which US city?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Harper's Ferry",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 123,
+    "options": [
+      "Martinsburg",
+      "Harper's Ferry",
+      "Richmond",
+      "Harrisonburg"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Abolitionist John Brown raided the arsenal in which Virginia Town?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Sumeria",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 124,
+    "options": [
+      "Babylon",
+      "Sumeria",
+      "Phoenicia",
+      "Assyria"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is widely considered to be the oldest civilization known to mankind?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "George Washington",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 125,
+    "options": [
+      "Thomas Jefferson",
+      "Abraham Lincoln",
+      "James Monroe",
+      "George Washington"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which U.S. president was said to have been too honest to lie to his father about chopping down a cherry tree?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "New York City",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 126,
+    "options": [
+      "New York City",
+      "Philadelphia",
+      "Boston ",
+      "Washington"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The RMS Titanic sunk during her maiden voyage from Southampton, England to which American city?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1983",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 127,
+    "options": [
+      "1984",
+      "1822",
+      "1983",
+      "1934"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year did Skoal, a smokeless Tobacco company, release their first line of Pouches, known as \"Skoal Bandits\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "5%",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 128,
+    "options": [
+      "1%",
+      "<1%",
+      "5%",
+      "3%"
+    ],
+    "source": "Open Trivia Database",
+    "text": "According to scholarly estimates, what percentage of the world population at the time died due to Tamerlane's conquests?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "William III",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 129,
+    "options": [
+      "William III",
+      "William I",
+      "William IV",
+      "William II"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which British monarch was also known as \"William of Orange\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1989",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 130,
+    "options": [
+      "1987",
+      "1989",
+      "1991",
+      "1993"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what year did the Berlin Wall fall?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Textile",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 131,
+    "options": [
+      "Textile",
+      "Farming",
+      "Ceramics",
+      "Mining"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The term Luddite originally applied to disgruntled workers in which industry?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1453",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 132,
+    "options": [
+      "1299",
+      "1498",
+      "1353",
+      "1453"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When did the Byzantine Empire collapse?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "John Kay",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 133,
+    "options": [
+      "John Deere",
+      "John Kay",
+      "Richard Arkwright",
+      "James Hargreaves"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who invented the \"Flying Shuttle\" in 1738; one of the key developments in the industrialization of weaving?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Ferdinand Maximilian",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 134,
+    "options": [
+      "Ferdinand Maximilian",
+      "Andrés Manuel López Obrador",
+      "Napoleon III",
+      "Agustín de Iturbide"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who was the last emperor of Mexico?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Werner Heisenberg",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 135,
+    "options": [
+      "Werner Heisenberg",
+      "Max Planck",
+      "John von Neumann",
+      "Albert Einstein"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following Physicists aided Nazi Germany in their production of a nuclear weapon?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1867",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 136,
+    "options": [
+      "1859",
+      "1668",
+      "1867",
+      "1798"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year was Canada founded in?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Fainting room",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 137,
+    "options": [
+      "Fainting room",
+      "Squash court",
+      "Kennel",
+      "Turkish bath"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these facilities was not present on the Titanic?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mao Zedong",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 138,
+    "options": [
+      "Mao Zedong",
+      "Joseph Stalin",
+      "Kim Il Sung",
+      "Adolf Hitler"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which dictator killed the most people?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1991",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 139,
+    "options": [
+      "1991",
+      "1992",
+      "1990",
+      "1891"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The collapse of the Soviet Union took place in which year?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Descartes",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 140,
+    "options": [
+      "Plato",
+      "Shakespeare",
+      "Descartes",
+      "Aristotle"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who famously coined the phrase \"I think, therefore I am\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Illyrians",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 141,
+    "options": [
+      "Achaeans",
+      "Ionians",
+      "Dorians",
+      "Illyrians"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following ancient peoples was NOT classified as Hellenic (Greek)?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Landsberg Prison",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 142,
+    "options": [
+      "Landsberg Prison",
+      "Ebrach Abbey",
+      "Spandau Prison",
+      "Hohenasperg"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what prison was Adolf Hitler held in 1924?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1776",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 143,
+    "options": [
+      "1775",
+      "1777",
+      "1776",
+      "1774"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year was the United States Declaration of Independence signed?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cambodia",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 144,
+    "options": [
+      "North Korea",
+      "Laos",
+      "Vietnam",
+      "Cambodia"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Pol Pot was the former dictator of which country?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Alan Shephard",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 145,
+    "options": [
+      "Alan Shephard",
+      "Jim Lovell",
+      "Neil Armstrong",
+      "John Glenn"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who was the first American in space?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Renault FT",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 146,
+    "options": [
+      "Cromwell ",
+      "Renault FT",
+      " Panzer IV",
+      "M4 Sherman"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these 1900s tanks were designed and built BEFORE the others?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1066",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 147,
+    "options": [
+      "1420",
+      "1204",
+      "1066",
+      "911"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Battle of Hastings was fought in which year?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Typhoons",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 148,
+    "options": [
+      "Economic depression",
+      "Samurai",
+      "Typhoons",
+      "Tornados"
+    ],
+    "source": "Open Trivia Database",
+    "text": "During the Mongolian invasions of Japan, what were the Mongol boats mostly stopped by?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Harry S. Truman",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 149,
+    "options": [
+      "Herbert Hoover",
+      "Franklin D. Roosevelt",
+      "Harry S. Truman",
+      "Dwight D. Eisenhower"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which U.S. president took part in the Potsdam Conference, where the Allies reached a peace settlement with Germany?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Airship Dock",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 150,
+    "options": [
+      "Airship Dock",
+      "Lightning Rod",
+      "Flag Pole",
+      "Antennae"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The crown of the Empire State Building was originally built for what purpose?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Buffalo Bill",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 151,
+    "options": [
+      "Wild Bill Hickok",
+      "Buffalo Bill",
+      "Billy the Kid",
+      "Pawnee Bill"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was William Frederick Cody better known as?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Irish Republican Army",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 152,
+    "options": [
+      "Irish Rebel Alliance",
+      "Irish-Royal Alliance",
+      "Irish Reformation Army",
+      "Irish Republican Army"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In relation to the British Occupation in Ireland, what does the IRA stand for.",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Gavrilo Princip",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 153,
+    "options": [
+      "Gavrilo Princip",
+      "Ferdinand Cohen-Blind",
+      "Nedeljko Čabrinović",
+      "Oskar Potiorek"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who assassinated Archduke Franz Ferdinand?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Apollo 17",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 154,
+    "options": [
+      "Apollo 11",
+      "Apollo 15",
+      "Apollo 13",
+      "Apollo 17"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which Apollo mission was the last one in NASA's Apollo program?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Romantic",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 155,
+    "options": [
+      "Classic",
+      "Baroque",
+      "Renaissance",
+      "Romantic"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Pianist Frédéric Chopin was a composer of which musical era?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "George H. W. Bush",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 156,
+    "options": [
+      "Richard Nixon",
+      "George W. Bush ",
+      "Ronald Regan",
+      "George H. W. Bush"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which U.S. President was in office when the Gulf War began?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Operation Dragoon",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 157,
+    "options": [
+      "Operation Market Garden",
+      "Operation Torch",
+      "Operation Overlord",
+      "Operation Dragoon"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the code name for the Allied invasion of Southern France on August 15th, 1944?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1975",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 158,
+    "options": [
+      "1967",
+      "1969",
+      "1975",
+      "1978"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year did the Vietnam War end?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Zhai (翟)",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 159,
+    "options": [
+      "Qin (秦)",
+      "Zhai (翟)",
+      "Qi (齊)",
+      "Zhao (趙)"
+    ],
+    "source": "Open Trivia Database",
+    "text": "All of the following are names of the Seven Warring States EXCEPT:",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1969",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 160,
+    "options": [
+      "1966",
+      "1965",
+      "1969",
+      "1973"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what year did Neil Armstrong and Buzz Aldrin land on the moon?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Kingston",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 161,
+    "options": [
+      "Kingston",
+      "Montreal",
+      "Ottawa",
+      "Toronto"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the Canada's first capital?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Nikita Krushchev",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 162,
+    "options": [
+      "Lavrentiy Beria",
+      "Nikita Krushchev",
+      "Vyacheslav Molotov",
+      "Georgy Malenkov"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who succeded Josef Stalin as the leader of the Soviet Union?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Justinian I",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 163,
+    "options": [
+      "Constantine IV",
+      "Arcadius",
+      "Theodosius the Great",
+      "Justinian I"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Hagia Sophia was commissioned by which emperor of the Byzantine Empire?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mamluk",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 164,
+    "options": [
+      "Seljuq",
+      "Ummayyad",
+      "Ayyubid",
+      "Mamluk"
+    ],
+    "source": "Open Trivia Database",
+    "text": "After the 1516 Battle of Marj Dabiq, the Ottoman Empire took control of Jerusalem from which sultanate?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Caucasus",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 165,
+    "options": [
+      "Voronezh",
+      "Crimea",
+      "Caucasus",
+      "Stalingrad"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The main objective of the German operation \"Case Blue\" during World War II was originally to capture what?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Battle of Midway",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 166,
+    "options": [
+      "Attack on Pearl Harbor",
+      "Attack on Truk Island",
+      "Battle of Midway",
+      "Battle of the Coral Sea"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which naval battle was considered the turning point of the Pacific Ocean Theater during World War 2?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Peace of Westphalia",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 167,
+    "options": [
+      "Treaty of Versailles",
+      "Treaty of Paris",
+      "Peace of Westphalia",
+      "Peace of Prague"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Thirty Years War ended with which treaty?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "George Washington",
+    "category": "historia",
+    "difficulty": "easy",
+    "id": 168,
+    "options": [
+      "George Washington",
+      "Thomas Jefferson",
+      "James Madison",
+      "James K. Polk"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who was the first president of the United States?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "South Africa",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 169,
+    "options": [
+      "Nepal",
+      "South Africa",
+      "Bulgaria",
+      "Argentina"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The Second Boer War in 1899 was fought where?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Typhoons",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 170,
+    "options": [
+      "Samurai",
+      "Tornados",
+      "Typhoons",
+      "Economic depression"
+    ],
+    "source": "Open Trivia Database",
+    "text": "During the Mongolian invasions of Japan, what were the Mongol boats mostly stopped by?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1997",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 171,
+    "options": [
+      "1981",
+      "1997",
+      "1986",
+      "1971"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year is considered to be the year that the British Empire ended?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Paul Dirac",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 172,
+    "options": [
+      "Paul Dirac",
+      "Werner Heisenberg",
+      "Albert Einstein",
+      "Niels Bohr"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these theoretical phycisists first predicted the existence of antimatter?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "German",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 173,
+    "options": [
+      "German",
+      "British",
+      "American",
+      "Polish"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The creator of the Enigma Cypher and Machine was of what nationality?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hispania ",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 174,
+    "options": [
+      "Asia",
+      "Italia",
+      "Hispania ",
+      "Gallia"
+    ],
+    "source": "Open Trivia Database",
+    "text": "During the Roman Triumvirate of 42 BCE, what region of the Roman Republic was given to Lepidus?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Finnish",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 175,
+    "options": [
+      "Russian",
+      "English",
+      "Finnish",
+      "Hindi"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following is not in the Indo-European language family?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "San Marino",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 176,
+    "options": [
+      "Andorra",
+      "San Marino",
+      "Saint Kitts and Nevis",
+      "Monaco"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What micro-state is considered to have the oldest constitution still in effect?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1792",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 177,
+    "options": [
+      "1788",
+      "1798",
+      "1782",
+      "1792"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what year did Kentucky become the 15th state to join the union?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Any god they wanted",
+    "category": "historia",
+    "difficulty": "hard",
+    "id": 178,
+    "options": [
+      "Any god they wanted",
+      "Zeus",
+      "Athena",
+      "Both Athena and Zeus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The pantheon in Rome was used to worship what god?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Airship Dock",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 179,
+    "options": [
+      "Antennae",
+      "Lightning Rod",
+      "Airship Dock",
+      "Flag Pole"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The crown of the Empire State Building was originally built for what purpose?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The Great Migration",
+    "category": "historia",
+    "difficulty": "medium",
+    "id": 180,
+    "options": [
+      "The Resettlement",
+      "The Harlem Renaissance",
+      "The Great Awakening",
+      "The Great Migration"
+    ],
+    "source": "Open Trivia Database",
+    "text": "As poverty and racial tensions pushed African-Americans out of the southern US, many of them moved north in an event known as what?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Penrith Panthers",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 181,
+    "options": [
+      "Melbourne Storm",
+      "Sydney Roosters",
+      "Penrith Panthers",
+      "North Queensland Cowboys"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Josh Mansour is part of what NRL team?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Patriots",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 182,
+    "options": [
+      "Eagles",
+      "Broncos",
+      "Falcons",
+      "Patriots"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won NFL Super Bowl LI? (51)",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "American Football",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 183,
+    "options": [
+      "Horse-Racing",
+      "Archery",
+      "Wrestling",
+      "American Football"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which sport is NOT traditionally played during the Mongolian Naadam festival?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cristiano Ronaldo dos Santos Aveiro",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 184,
+    "options": [
+      "Cristiano Luis Armando Ronaldo",
+      "Cristiano Ronaldo dos Santos Aveiro",
+      "Cristiano Ronaldo los Santos Diego",
+      "Cristiano Armando Diego Ronaldo"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the full name of the footballer \"Cristiano Ronaldo\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hammer",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 185,
+    "options": [
+      "Screwdriver",
+      "Hammer",
+      "Drill",
+      "Wrench"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What tool lends it's name to a last-stone advantage in an end in Curling?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Robert Parish",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 186,
+    "options": [
+      "Robert Parish",
+      "Kobe Bryant",
+      "Kevin Garnett",
+      "Kareem Abdul-Jabbar"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which NBA player has the most games played over the course of their career?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Horse Racing",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 187,
+    "options": [
+      "Jousting",
+      "Chess",
+      "Fencing",
+      "Horse Racing"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is “The Sport of Kings”?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Russia",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 188,
+    "options": [
+      "Russia",
+      "Germany",
+      "Saudi Arabia",
+      "United States"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which country hosted the 2018 FIFA World Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Europe",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 189,
+    "options": [
+      "Asia",
+      "Africa",
+      "South America",
+      "Europe"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The UEFA Champions League is an annual club football competition featuring clubs from which continent?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "European Championships",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 190,
+    "options": [
+      "World Cup",
+      "Confederations Cup",
+      "European Championships",
+      "Champions League"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The song \"Three Lions\" by the Lightning Seeds was made for which major football event in 1996?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Golden State Warriors",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 191,
+    "options": [
+      "Atlanta Hawks",
+      "Golden State Warriors",
+      "Houston Rockets",
+      "Cleveland Cavaliers"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which team was the 2014-2015 NBA Champions?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "New York Islanders",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 192,
+    "options": [
+      "Dallas Stars",
+      "New York Islanders",
+      "Calgary Flames",
+      "New Jersey Devils"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these teams has Jaromir Jagr not played for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mexico",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 193,
+    "options": [
+      "Abu Dhabi",
+      "United States",
+      "Mexico",
+      "Belgium"
+    ],
+    "source": "Open Trivia Database",
+    "text": "At which race was the 2018 F1 Drivers Championship won?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Liverpool",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 194,
+    "options": [
+      "Chelsea",
+      "Man City",
+      "Liverpool",
+      "Real Madrid"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who did Steven Gerrard win the Champions League with?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1969",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 195,
+    "options": [
+      "1969",
+      "1970",
+      "1968",
+      "1971"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which year was the third Super Bowl held?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 196,
+    "options": [
+      "4",
+      "1",
+      "2",
+      "3"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In Canadian football, scoring a rouge is worth how many points?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Porsche",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 197,
+    "options": [
+      "Chevrolet",
+      "Toyota",
+      "Audi",
+      "Porsche"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which car manufacturer won the 2017 24 Hours of Le Mans?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Everton",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 198,
+    "options": [
+      "Crystal Palace",
+      "West Ham United",
+      "Arsenal",
+      "Everton"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these English football clubs is based in Liverpool?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "London",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 199,
+    "options": [
+      "Athens",
+      "Rome",
+      "Paris",
+      "London"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these European cities was the first to host the modern Summer Olympic Games three times?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "US Open",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 200,
+    "options": [
+      "Wimbledon",
+      "Australian Open",
+      "US Open",
+      "French Open"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following Grand Slam tennis tournaments occurs LAST?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Michael Schumacher",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 201,
+    "options": [
+      "Mika Häkkinen",
+      "Nicola Larini",
+      "Michael Schumacher",
+      "Gerhard Berger"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won the 1994 San Marino Grand Prix, the race in which Ayrton Senna was killed?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Boston Bruins",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 202,
+    "options": [
+      "New York Rangers",
+      "Boston Bruins",
+      "Toronto Maple Leafs",
+      "Montreal Canadiens"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won the 2011 Stanley Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Puma",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 203,
+    "options": [
+      "Nike",
+      "Puma",
+      "Reebok",
+      "Adidas"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which German sportswear company's logo is the 'Formstripe'?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Italian Grand Prix",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 204,
+    "options": [
+      "Italian Grand Prix",
+      "Japanese Grand Prix",
+      "Brazilian Grand Prix",
+      "Monaco Grand Prix"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The 1988 Formula 1 season had McLaren win all but one race, what race did they not win?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Chile",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 205,
+    "options": [
+      "Brazil",
+      "Argentina",
+      "Chile",
+      "Paraguay"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which soccer team won the Copa América 2015 Championship ?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Wayne Rooney",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 206,
+    "options": [
+      "Michael Owen",
+      "David Beckham",
+      "Wayne Rooney",
+      "Steven Gerrard"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who was the topscorer for England national football team?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Phil Taylor",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 207,
+    "options": [
+      "Michael van Gerwen",
+      "Raymond van Barneveld",
+      "Phil Taylor",
+      "Eric Bristow"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which darts player has won the most World Championship titles?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Leicester City",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 208,
+    "options": [
+      "Stoke City",
+      "Watford",
+      "Tottenham Hotspur",
+      "Leicester City"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won the premier league title in the 2015-2016 season following a fairy tale run?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Toronto Marlies",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 209,
+    "options": [
+      "Toronto Rock",
+      "Toronto Marlies",
+      "Toronto Wolfpack",
+      "Toronto Argonauts"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the name of the AHL affiliate of the Toronto Maple Leafs?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "DING Ning (China)",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 210,
+    "options": [
+      "DING Ning (China)",
+      "Ai FUKUHARA (Japan)",
+      "Song KIM (North Korea)",
+      "LI Xiaoxia (China)"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which female player won the gold medal of table tennis singles in 2016 Olympics Games?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "99.94",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 211,
+    "options": [
+      "69.51",
+      "99.94",
+      "44.78",
+      "100"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was Sir Donald Bradman's batting average in test matches?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cue",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 212,
+    "options": [
+      "Bat",
+      "Cue",
+      "Racquet",
+      "Mallet"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the name of the \"tool\" used to hit the white ball in snooker or billiards?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Ohio State Buckeyes",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 213,
+    "options": [
+      "Ohio State Buckeyes",
+      "Alabama Crimson Tide",
+      "Clemson Tigers",
+      "Wisconsin Badgers"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won the 2015 College Football Playoff (CFP) National Championship? ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "New York Islanders",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 214,
+    "options": [
+      "New York Islanders",
+      "Calgary Flames",
+      "Dallas Stars",
+      "New Jersey Devils"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these teams has Jaromir Jagr not played for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Portugal",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 215,
+    "options": [
+      "Brazil",
+      "Soviet Union",
+      "West Germany",
+      "Portugal"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What team did England beat in the semi-final stage to win in the 1966 World Cup final?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Badminton",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 216,
+    "options": [
+      "Badminton",
+      "Table Tennis",
+      "Cricket",
+      "Rugby"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what sport is a \"shuttlecock\" used?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jordan",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 217,
+    "options": [
+      "Mercedes",
+      "Ferrari",
+      "Jordan",
+      "Benetton"
+    ],
+    "source": "Open Trivia Database",
+    "text": "With which team did Michael Schumacher make his Formula One debut at the 1991 Belgian Grand Prix?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Boston Bruins",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 218,
+    "options": [
+      "New York Rangers",
+      "Montreal Canadiens",
+      "Boston Bruins",
+      "Toronto Maple Leafs"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won the 2011 Stanley Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1961",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 219,
+    "options": [
+      "1961",
+      "1965",
+      "1959",
+      "1963"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year was hockey legend Wayne Gretzky born?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Lothar Matthäus",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 220,
+    "options": [
+      "Miroslav Klose",
+      "Philipp Lahm",
+      "Oliver Kahn",
+      "Lothar Matthäus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who has played the most tournaments in the German national soccer team?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Brazil",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 221,
+    "options": [
+      "Spain",
+      "Portugal",
+      "Argentina",
+      "Brazil"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which country produced football players such as Cafu, Roberto Carlos and Pelé?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Horse-Riding",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 222,
+    "options": [
+      "Swimming",
+      "Cycling",
+      "Running",
+      "Horse-Riding"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following sports is not part of the triathlon?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Phil Taylor",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 223,
+    "options": [
+      "Eric Bristow",
+      "Raymond van Barneveld",
+      "Phil Taylor",
+      "Michael van Gerwen"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which darts player has won the most World Championship titles?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "82",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 224,
+    "options": [
+      "62",
+      "82",
+      "42",
+      "102"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many scoring zones are there on a conventional dart board?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Qatar",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 225,
+    "options": [
+      "Vietnam",
+      "Qatar",
+      "Bolivia",
+      "Uganda"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which country is hosting the 2022 FIFA World Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Seattle Sounders",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 226,
+    "options": [
+      "Toronto FC",
+      "Montreal Impact",
+      "Colorado Rapids",
+      "Seattle Sounders"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What team won the 2016 MLS Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Tennis",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 227,
+    "options": [
+      "Curling",
+      "Basketball",
+      "Cricket",
+      "Tennis"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What sport features the terms love, deuce, match and volley?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mazda",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 228,
+    "options": [
+      "Mazda",
+      "Nissan",
+      "Toyota",
+      "Subaru"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Prior to 2018, which car company is the only Japanese company which won the 24 Hours of Le Mans?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1904",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 229,
+    "options": [
+      "2008",
+      "1904",
+      "1999",
+      "1909"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When was the FC Schalke 04 founded?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hammer throw",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 230,
+    "options": [
+      "Shot put",
+      "Hammer throw",
+      "Long jump",
+      "Pole vault"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these track-and-field events is NOT included in the Olympic men's decathlon?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "James Rodríguez",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 231,
+    "options": [
+      "Lionel Messi",
+      "James Rodríguez",
+      "Neymar",
+      "Thomas Müller"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who was the top scorer of the 2014 FIFA World Cup?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "To prevent viewing games from outside the park.",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 232,
+    "options": [
+      "To make getting home runs harder.",
+      "To provide extra seating.",
+      "To display advertisements.",
+      "To prevent viewing games from outside the park."
+    ],
+    "source": "Open Trivia Database",
+    "text": "Why was The Green Monster at Fenway Park was originally built?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Black",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 233,
+    "options": [
+      "Green",
+      "Red",
+      "Black",
+      "White"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the highest belt you can get in Taekwondo?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Everton",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 234,
+    "options": [
+      "Crystal Palace",
+      "West Ham United",
+      "Everton",
+      "Arsenal"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these English football clubs is based in Liverpool?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Golf Putting Green",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 235,
+    "options": [
+      "Pinball Table",
+      "Cricket Outfield",
+      " Football Pitch",
+      "Golf Putting Green"
+    ],
+    "source": "Open Trivia Database",
+    "text": "A stimpmeter measures the speed of a ball over what surface?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Patriots",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 236,
+    "options": [
+      "Eagles",
+      "Falcons",
+      "Patriots",
+      "Broncos"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Who won NFL Super Bowl LI? (51)",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Nine",
+    "category": "deportes",
+    "difficulty": "hard",
+    "id": 237,
+    "options": [
+      "Nine",
+      "Eight",
+      "Seven",
+      "Ten"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many times did Martina Navratilova win the Wimbledon Singles Championship?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1908",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 238,
+    "options": [
+      "1908",
+      "1895",
+      "2014",
+      "1945"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the year of estabilishment of the Bari Italian Football Club?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Carlos Sainz Jr.",
+    "category": "deportes",
+    "difficulty": "medium",
+    "id": 239,
+    "options": [
+      "Jolyon Palmer",
+      "Daniil Kvyat",
+      "Carlos Sainz Jr.",
+      "Rio Haryanto"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which Formula 1 driver switched teams in the middle of the 2017 season?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "22",
+    "category": "deportes",
+    "difficulty": "easy",
+    "id": 240,
+    "options": [
+      "26",
+      "22",
+      "20",
+      "24"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many soccer players should be on the field at the same time?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pomodoro",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 241,
+    "options": [
+      "Cipolla",
+      "Pomodoro",
+      "Aglio",
+      "Peperoncino"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the Italian word for \"tomato\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Tamil",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 242,
+    "options": [
+      "Punjabi",
+      "Tamil",
+      "Hindi",
+      "Urdu"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these Indian languages is not part of the Indo-European language family?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Board Games",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 243,
+    "options": [
+      "Television Shows",
+      "Films",
+      "Video Games",
+      "Board Games"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The website \"Shut Up & Sit Down\" reviews which form of media?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Beijing",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 244,
+    "options": [
+      "Tokyo",
+      "Beijing",
+      "Kuala Lumpur",
+      "Singapore"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the destination of the missing flight MH370?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jumping over an office chair",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 245,
+    "options": [
+      "Typing on a keyboard during a handstand",
+      "Jumping over an office chair",
+      "Standing on his head",
+      "Jumping backwards over a desk"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In a 1994 CBS interview, Microsoft co-founder Bill Gates performed what unusual trick on camera?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "East",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 246,
+    "options": [
+      "East",
+      "West",
+      "South",
+      "North"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In which cardinal direction does the Sun rise from?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Spanish",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 247,
+    "options": [
+      "Italian",
+      "French",
+      "Portuguese",
+      "Spanish"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is Cuba's official, most widely spoken language?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Finding shapes in clouds",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 248,
+    "options": [
+      "Swimming in freezing water",
+      "Breaking glass with your voice",
+      "Sleeping with your eyes open",
+      "Finding shapes in clouds"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"Nephelococcygia\" is the practice of doing what? ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Demolition",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 249,
+    "options": [
+      "The Dream Team",
+      "The British Bulldogs",
+      "The Bushwhackers",
+      "Demolition"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the name of the WWF professional wrestling tag team made up of the wrestlers Ax and Smash?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Green",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 250,
+    "options": [
+      "Blue",
+      "Red",
+      "Green",
+      "Yellow"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When someone is inexperienced they are said to be what color?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "24 MPH",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 251,
+    "options": [
+      "200 MPH",
+      "15 MPH",
+      "24 MPH",
+      "20 MPH"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the airspeed velocity of an unladen swallow?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Simjang",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 252,
+    "options": [
+      "Aejeong",
+      "Jeongsin",
+      "Simjang",
+      "Segseu"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the romanized Korean word for \"heart\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Wales",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 253,
+    "options": [
+      "Denmark",
+      "Czech Republic",
+      "Moldova",
+      "Wales"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Where is the train station \"Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "We Love to See You Smile",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 254,
+    "options": [
+      "Making People Happy Through Food",
+      "Why Pay More!?",
+      "We Love to See You Smile",
+      "Have It Your Way"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which slogan did the fast food company, McDonald's, use before their \"I'm Lovin' It\" slogan?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1986",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 255,
+    "options": [
+      "1986",
+      "2001",
+      "1909",
+      "1942"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In what year did Halley's Comet, which will not appear again until the year 2061, previously approach Earth?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Wax sculptures",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 256,
+    "options": [
+      "Unreleased film reels",
+      "Designer clothing",
+      "Wax sculptures",
+      "Vintage cars"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is on display in the Madame Tussaud's museum in London?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Cabbage Patch Kids",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 257,
+    "options": [
+      "Cabbage Patch Kids",
+      "Rubik’s Cube",
+      "Care Bears",
+      "Transformers"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which best selling toy of 1983 caused hysteria, resulting in riots breaking out in stores?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "$12.7 Billion",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 258,
+    "options": [
+      "$2.7 Billion",
+      "$956 Million",
+      "$95 Million",
+      "$12.7 Billion"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In 2013 how much money was lost by Nigerian scams?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Eddie Murphy",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 259,
+    "options": [
+      "Eddie Murphy",
+      "Richard Pryor",
+      "Bernie Mac",
+      "Chris Rock"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In \"Shrek\", what comedic actor voices Donkey?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "September 23rd, 1889",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 260,
+    "options": [
+      "October 19th, 1891",
+      "March 4th, 1887",
+      "September 23rd, 1889",
+      "December 27th, 1894"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When was Nintendo founded?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The Guggenheim",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 261,
+    "options": [
+      "The Space Needle",
+      "Villa Savoye",
+      "The Guggenheim",
+      "Sydney Opera House"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Frank Lloyd Wright was the architect behind what famous building?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "BackRub",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 262,
+    "options": [
+      "SearchPro",
+      "BackRub",
+      "Netscape Navigator",
+      "CatMassage"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the original name of the search engine \"Google\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Arteijo",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 263,
+    "options": [
+      "Órdenes",
+      "Mugía",
+      "Sanjenjo",
+      "Arteijo"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Where in La Coruña (Spain) is the headquarters of \"Inditex\", the biggest fashion group in the world?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Green",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 264,
+    "options": [
+      "Green",
+      "Black",
+      "Red",
+      "Purple"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Chartreuse is a color between yellow and what?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Polska",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 265,
+    "options": [
+      "Polszka",
+      "Polska",
+      "Pupcia",
+      "Póland"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the name of Poland in Polish?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "First Lord of the Treasury",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 266,
+    "options": [
+      "Manager of the Crown Estate",
+      "Her Majesty's Loyal Opposition",
+      "Duke of Cambridge",
+      "First Lord of the Treasury"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the full title of the Prime Minister of the UK?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "26",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 267,
+    "options": [
+      "5",
+      "26",
+      "30",
+      "17"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many letters are in the English alphabet?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "2001",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 268,
+    "options": [
+      "2001",
+      "1999",
+      "1998",
+      "2000"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What year was the first Apple iPod introduced?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Virtual Reality",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 269,
+    "options": [
+      "Voice Recognition",
+      "Visual Recognition",
+      "Very Real",
+      "Virtual Reality"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What does VR stand for?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Idiom",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 270,
+    "options": [
+      "Analogy",
+      "Simile",
+      "Idiom",
+      "Metaphor"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The phrase \"accident waiting to happen\" is an example of what type of figure of speech?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hungarian",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 271,
+    "options": [
+      "Latvian",
+      "Russian",
+      "Hungarian",
+      "Greek"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which language is NOT Indo-European?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "February 14, 2005",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 272,
+    "options": [
+      "February 14, 2005",
+      "May 22, 2004",
+      "September 12, 2005",
+      "July 19, 2009"
+    ],
+    "source": "Open Trivia Database",
+    "text": "When was \"YouTube\" founded?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "17",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 273,
+    "options": [
+      "10",
+      "21",
+      "15",
+      "17"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many syllables make up a haiku?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Finding shapes in clouds",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 274,
+    "options": [
+      "Finding shapes in clouds",
+      "Breaking glass with your voice",
+      "Sleeping with your eyes open",
+      "Swimming in freezing water"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"Nephelococcygia\" is the practice of doing what? ",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "$12.7 Billion",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 275,
+    "options": [
+      "$956 Million",
+      "$2.7 Billion",
+      "$12.7 Billion",
+      "$95 Million"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In 2013 how much money was lost by Nigerian scams?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Liver",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 276,
+    "options": [
+      "Liver",
+      "Stomach",
+      "Gallbladder",
+      "Pancreas"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What organ of the body produces bile?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Hearts",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 277,
+    "options": [
+      "Spades",
+      "Diamonds",
+      "Clubs",
+      "Hearts"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In a standard set of playing cards, which is the only king without a moustache?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Nevada",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 278,
+    "options": [
+      "New Mexico",
+      "Arizona",
+      "Nevada",
+      "Utah"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Area 51 is located in which US state?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Time",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 279,
+    "options": [
+      "Time",
+      "Man",
+      "Water",
+      "Home"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What is the most commonly used noun in the English language?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Jumping over an office chair",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 280,
+    "options": [
+      "Jumping backwards over a desk",
+      "Jumping over an office chair",
+      "Typing on a keyboard during a handstand",
+      "Standing on his head"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In a 1994 CBS interview, Microsoft co-founder Bill Gates performed what unusual trick on camera?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Pink",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 281,
+    "options": [
+      "Orange",
+      "Violet",
+      "Blue",
+      "Pink"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of these is NOT considered to be a colour that makes up the rainbow?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "East",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 282,
+    "options": [
+      "North",
+      "South",
+      "East",
+      "West"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In which cardinal direction does the Sun rise from?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Victor",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 283,
+    "options": [
+      "Papa",
+      "Kilo",
+      "Victor",
+      "Delta"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Going by the International Code of Signals, which single flag is interpreted as \"I require assistance (not distress)\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Shogun",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 284,
+    "options": [
+      "Shinobi",
+      "Shogun",
+      "Ninja",
+      "Samurai"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What was the name given to Japanese military dictators who ruled the country through the 12th and 19th Century?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The Guggenheim",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 285,
+    "options": [
+      "The Space Needle",
+      "Villa Savoye",
+      "The Guggenheim",
+      "Sydney Opera House"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Frank Lloyd Wright was the architect behind what famous building?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Eight",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 286,
+    "options": [
+      "Two",
+      "Six",
+      "Eight",
+      "Four"
+    ],
+    "source": "Open Trivia Database",
+    "text": "How many furlongs are there in a mile?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "282 feet",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 287,
+    "options": [
+      "12,092 feet",
+      "1,640 feet",
+      "282 feet",
+      "79 feet"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Death Valley's Badwater Basin is North America's point of lowest elevation at how many feet below sea level?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Mount Elbrus, Russia",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 288,
+    "options": [
+      "Mont Blanc, France",
+      "Shkhara, Georgia",
+      "Mount Elbrus, Russia",
+      "Mount Ararat, Turkey"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which mountain has the highest peak in Europe?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Madeon",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 289,
+    "options": [
+      "Mat Zo",
+      "Zedd",
+      "deadmau5",
+      "Madeon"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which musician has collaborated with American producer Porter Robinson and released the 2016 song \"Shelter\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "England",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 290,
+    "options": [
+      "Scotland",
+      "France",
+      "England",
+      "Portugal"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The tale of Robin Hood originates from which country?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "South America",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 291,
+    "options": [
+      "Europe",
+      "South America",
+      "Hawaii",
+      "Asia"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Where did the pineapple plant originate?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The Netherlands",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 292,
+    "options": [
+      "Belgium",
+      "The Netherlands",
+      "France",
+      "Germany"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Gouda cheese is from which European country?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Libra",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 293,
+    "options": [
+      "Gemini",
+      "Libra",
+      "Capricorn",
+      "Taurus"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which sign of the zodiac comes between Virgo and Scorpio?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The Shatter's",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 294,
+    "options": [
+      "The Tomb of the Acient's",
+      "The Shatter's",
+      "Snake Pit",
+      "The Puppet Master's Theater"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In the MMO RPG \"Realm of the Mad God\", what dungeon is widely considered to be the most difficult?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Medellín",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 295,
+    "options": [
+      "Medellín",
+      "Bogotá",
+      "Quito",
+      "Cali"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The drug cartel run by Pablo Escobar originated in which South American city?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Tennis",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 296,
+    "options": [
+      "Tennis",
+      "Baseball",
+      "Football",
+      "Basketball"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Bob and Mike Bryan were well known brothers in which sport?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "The inability to make decisions",
+    "category": "cultura_general",
+    "difficulty": "hard",
+    "id": 297,
+    "options": [
+      "A feverish desire to rip one's clothes off",
+      "The inability to make decisions",
+      "The inability to concentrate on anything",
+      "The inability to stand up"
+    ],
+    "source": "Open Trivia Database",
+    "text": "The word \"abulia\" means which of the following?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Spain",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 298,
+    "options": [
+      "Russia",
+      "USA",
+      "Spain",
+      "Korea"
+    ],
+    "source": "Open Trivia Database",
+    "text": "In which country was the 1992 Summer Olympics Games held?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Contemplate",
+    "category": "cultura_general",
+    "difficulty": "medium",
+    "id": 299,
+    "options": [
+      "Constipate",
+      "Condensate",
+      "Contemplate",
+      "Confiscate"
+    ],
+    "source": "Open Trivia Database",
+    "text": "What English word means to \"think deeply\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Lincoln Memorial",
+    "category": "cultura_general",
+    "difficulty": "easy",
+    "id": 300,
+    "options": [
+      "Times Square",
+      "Empire State Building",
+      "Lincoln Memorial",
+      "Central Park"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Which of the following landmarks is not located in New York City?",
+    "type": "multiple_choice"
   }
 ]
