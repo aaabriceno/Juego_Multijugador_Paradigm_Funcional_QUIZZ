@@ -11,7 +11,7 @@
       "Peperoncino"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the Italian word for \"tomato\"?",
+    "text": "¿Cuál es la palabra italiana para \"tomate\"?",
     "type": "multiple_choice"
   },
   {
@@ -26,97 +26,97 @@
       "Urdu"
     ],
     "source": "Open Trivia Database",
-    "text": "Which of these Indian languages is not part of the Indo-European language family?",
+    "text": "¿Cuál de estos idiomas de la India NO pertenece a la familia lingüística indoeuropea?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Board Games",
+    "answer": "Juegos de mesa",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 243,
     "options": [
-      "Television Shows",
-      "Films",
-      "Video Games",
-      "Board Games"
+      "Programas de televisión",
+      "Películas",
+      "Videojuegos",
+      "Juegos de mesa"
     ],
     "source": "Open Trivia Database",
-    "text": "The website \"Shut Up & Sit Down\" reviews which form of media?",
+    "text": "¿Qué tipo de medio reseña el sitio web \"Shut Up & Sit Down\"?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Beijing",
+    "answer": "Pekín",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 244,
     "options": [
-      "Tokyo",
-      "Beijing",
+      "Tokio",
+      "Pekín",
       "Kuala Lumpur",
-      "Singapore"
+      "Singapur"
     ],
     "source": "Open Trivia Database",
-    "text": "What was the destination of the missing flight MH370?",
+    "text": "¿Cuál era el destino del vuelo desaparecido MH370?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Jumping over an office chair",
+    "answer": "Saltar sobre una silla de oficina",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 245,
     "options": [
-      "Typing on a keyboard during a handstand",
-      "Jumping over an office chair",
-      "Standing on his head",
-      "Jumping backwards over a desk"
+      "Escribir en un teclado haciendo el pino",
+      "Saltar sobre una silla de oficina",
+      "Pararse de cabeza",
+      "Saltar hacia atrás sobre un escritorio"
     ],
     "source": "Open Trivia Database",
-    "text": "In a 1994 CBS interview, Microsoft co-founder Bill Gates performed what unusual trick on camera?",
+    "text": "En una entrevista de CBS en 1994, ¿qué truco inusual realizó Bill Gates, cofundador de Microsoft, frente a la cámara?",
     "type": "multiple_choice"
   },
   {
-    "answer": "East",
+    "answer": "Este",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 246,
     "options": [
-      "East",
-      "West",
-      "South",
-      "North"
+      "Este",
+      "Oeste",
+      "Sur",
+      "Norte"
     ],
     "source": "Open Trivia Database",
-    "text": "In which cardinal direction does the Sun rise from?",
+    "text": "¿Desde qué punto cardinal sale el Sol?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Spanish",
+    "answer": "Español",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 247,
     "options": [
-      "Italian",
-      "French",
-      "Portuguese",
-      "Spanish"
+      "Italiano",
+      "Francés",
+      "Portugués",
+      "Español"
     ],
     "source": "Open Trivia Database",
-    "text": "What is Cuba's official, most widely spoken language?",
+    "text": "¿Cuál es el idioma oficial y más hablado de Cuba?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Finding shapes in clouds",
+    "answer": "Encontrar formas en las nubes",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 248,
     "options": [
-      "Swimming in freezing water",
-      "Breaking glass with your voice",
-      "Sleeping with your eyes open",
-      "Finding shapes in clouds"
+      "Nadar en agua helada",
+      "Romper vidrio con la voz",
+      "Dormir con los ojos abiertos",
+      "Encontrar formas en las nubes"
     ],
     "source": "Open Trivia Database",
-    "text": "\"Nephelococcygia\" is the practice of doing what? ",
+    "text": "\"Nephelococcygia\" es la práctica de hacer qué cosa?",
     "type": "multiple_choice"
   },
   {
@@ -131,22 +131,22 @@
       "Demolition"
     ],
     "source": "Open Trivia Database",
-    "text": "What was the name of the WWF professional wrestling tag team made up of the wrestlers Ax and Smash?",
+    "text": "¿Cuál era el nombre del equipo de lucha libre de la WWF formado por los luchadores Ax y Smash?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Green",
+    "answer": "Verde",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 250,
     "options": [
-      "Blue",
-      "Red",
-      "Green",
-      "Yellow"
+      "Azul",
+      "Rojo",
+      "Verde",
+      "Amarillo"
     ],
     "source": "Open Trivia Database",
-    "text": "When someone is inexperienced they are said to be what color?",
+    "text": "Cuando alguien no tiene experiencia, se dice que es de qué color?",
     "type": "multiple_choice"
   },
   {
@@ -161,7 +161,7 @@
       "20 MPH"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the airspeed velocity of an unladen swallow?",
+    "text": "¿Cuál es la velocidad aerodinámica de una golondrina sin carga?",
     "type": "multiple_choice"
   },
   {
@@ -176,22 +176,22 @@
       "Segseu"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the romanized Korean word for \"heart\"?",
+    "text": "¿Cuál es la palabra coreana romanizada para \"corazón\"?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Wales",
+    "answer": "Gales",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 253,
     "options": [
-      "Denmark",
-      "Czech Republic",
-      "Moldova",
-      "Wales"
+      "Dinamarca",
+      "República Checa",
+      "Moldavia",
+      "Gales"
     ],
     "source": "Open Trivia Database",
-    "text": "Where is the train station \"Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch\"?",
+    "text": "¿Dónde se encuentra la estación de tren \"Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch\"?",
     "type": "multiple_choice"
   },
   {
@@ -206,7 +206,7 @@
       "Have It Your Way"
     ],
     "source": "Open Trivia Database",
-    "text": "Which slogan did the fast food company, McDonald's, use before their \"I'm Lovin' It\" slogan?",
+    "text": "¿Qué eslogan usaba McDonald's antes de su actual \"I'm Lovin' It\"?",
     "type": "multiple_choice"
   },
   {
@@ -221,22 +221,22 @@
       "1942"
     ],
     "source": "Open Trivia Database",
-    "text": "In what year did Halley's Comet, which will not appear again until the year 2061, previously approach Earth?",
+    "text": "¿En qué año pasó el cometa Halley cerca de la Tierra por última vez antes del 2061?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Wax sculptures",
+    "answer": "Esculturas de cera",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 256,
     "options": [
-      "Unreleased film reels",
-      "Designer clothing",
-      "Wax sculptures",
-      "Vintage cars"
+      "Películas inéditas",
+      "Ropa de diseñador",
+      "Esculturas de cera",
+      "Autos antiguos"
     ],
     "source": "Open Trivia Database",
-    "text": "What is on display in the Madame Tussaud's museum in London?",
+    "text": "¿Qué se exhibe en el museo Madame Tussauds de Londres?",
     "type": "multiple_choice"
   },
   {
@@ -246,27 +246,27 @@
     "id": 257,
     "options": [
       "Cabbage Patch Kids",
-      "Rubik’s Cube",
+      "Cubo de Rubik",
       "Care Bears",
       "Transformers"
     ],
     "source": "Open Trivia Database",
-    "text": "Which best selling toy of 1983 caused hysteria, resulting in riots breaking out in stores?",
+    "text": "¿Qué juguete más vendido de 1983 causó histeria y disturbios en las tiendas?",
     "type": "multiple_choice"
   },
   {
-    "answer": "$12.7 Billion",
+    "answer": "12.700 millones de dólares",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 258,
     "options": [
-      "$2.7 Billion",
-      "$956 Million",
-      "$95 Million",
-      "$12.7 Billion"
+      "2.700 millones de dólares",
+      "956 millones de dólares",
+      "95 millones de dólares",
+      "12.700 millones de dólares"
     ],
     "source": "Open Trivia Database",
-    "text": "In 2013 how much money was lost by Nigerian scams?",
+    "text": "¿Cuánto dinero se perdió en 2013 a causa de estafas nigerianas?",
     "type": "multiple_choice"
   },
   {
@@ -281,622 +281,482 @@
       "Chris Rock"
     ],
     "source": "Open Trivia Database",
-    "text": "In \"Shrek\", what comedic actor voices Donkey?",
+    "text": "En \"Shrek\", ¿qué actor cómico presta su voz al Burro?",
     "type": "multiple_choice"
   },
   {
-    "answer": "September 23rd, 1889",
+    "answer": "23 de septiembre de 1889",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 260,
     "options": [
-      "October 19th, 1891",
-      "March 4th, 1887",
-      "September 23rd, 1889",
-      "December 27th, 1894"
+      "19 de octubre de 1891",
+      "4 de marzo de 1887",
+      "23 de septiembre de 1889",
+      "27 de diciembre de 1894"
     ],
     "source": "Open Trivia Database",
-    "text": "When was Nintendo founded?",
+    "text": "¿Cuándo fue fundada Nintendo?",
     "type": "multiple_choice"
   },
   {
-    "answer": "The Guggenheim",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 261,
     "options": [
-      "The Space Needle",
-      "Villa Savoye",
-      "The Guggenheim",
-      "Sydney Opera House"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Frank Lloyd Wright was the architect behind what famous building?",
-    "type": "multiple_choice"
+    "text": "El famoso museo Guggenheim fue diseñado por el arquitecto Frank Lloyd Wright.",
+    "type": "true_false"
   },
   {
-    "answer": "BackRub",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 262,
     "options": [
-      "SearchPro",
-      "BackRub",
-      "Netscape Navigator",
-      "CatMassage"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What was the original name of the search engine \"Google\"?",
-    "type": "multiple_choice"
+    "text": "El nombre original del motor de búsqueda Google era \"BackRub\".",
+    "type": "true_false"
   },
   {
-    "answer": "Arteijo",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 263,
     "options": [
-      "Órdenes",
-      "Mugía",
-      "Sanjenjo",
-      "Arteijo"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Where in La Coruña (Spain) is the headquarters of \"Inditex\", the biggest fashion group in the world?",
-    "type": "multiple_choice"
+    "text": "La sede central de Inditex, el mayor grupo de moda del mundo, se encuentra en Arteixo, en La Coruña, España.",
+    "type": "true_false"
   },
   {
-    "answer": "Green",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 264,
     "options": [
-      "Green",
-      "Black",
-      "Red",
-      "Purple"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Chartreuse is a color between yellow and what?",
-    "type": "multiple_choice"
+    "text": "El color chartreuse es un tono entre amarillo y verde.",
+    "type": "true_false"
   },
   {
-    "answer": "Polska",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 265,
     "options": [
-      "Polszka",
-      "Polska",
-      "Pupcia",
-      "Póland"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the name of Poland in Polish?",
-    "type": "multiple_choice"
+    "text": "El nombre de Polonia en polaco es \"Polska\".",
+    "type": "true_false"
   },
   {
-    "answer": "First Lord of the Treasury",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 266,
     "options": [
-      "Manager of the Crown Estate",
-      "Her Majesty's Loyal Opposition",
-      "Duke of Cambridge",
-      "First Lord of the Treasury"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the full title of the Prime Minister of the UK?",
-    "type": "multiple_choice"
+    "text": "El título completo del Primer Ministro del Reino Unido es \"Primer Lord del Tesoro\" (First Lord of the Treasury).",
+    "type": "true_false"
   },
   {
-    "answer": "26",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 267,
     "options": [
-      "5",
-      "26",
-      "30",
-      "17"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "How many letters are in the English alphabet?",
-    "type": "multiple_choice"
+    "text": "El alfabeto inglés tiene 26 letras.",
+    "type": "true_false"
   },
   {
-    "answer": "2001",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 268,
     "options": [
-      "2001",
-      "1999",
-      "1998",
-      "2000"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What year was the first Apple iPod introduced?",
-    "type": "multiple_choice"
+    "text": "El primer iPod de Apple fue presentado en el año 2001.",
+    "type": "true_false"
   },
   {
-    "answer": "Virtual Reality",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 269,
     "options": [
-      "Voice Recognition",
-      "Visual Recognition",
-      "Very Real",
-      "Virtual Reality"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What does VR stand for?",
-    "type": "multiple_choice"
+    "text": "Las siglas VR significan \"Realidad Virtual\" (Virtual Reality).",
+    "type": "true_false"
   },
   {
-    "answer": "Idiom",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 270,
     "options": [
-      "Analogy",
-      "Simile",
-      "Idiom",
-      "Metaphor"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The phrase \"accident waiting to happen\" is an example of what type of figure of speech?",
-    "type": "multiple_choice"
+    "text": "La frase \"accidente esperando ocurrir\" es un ejemplo de modismo (idiom) en inglés.",
+    "type": "true_false"
   },
   {
-    "answer": "Hungarian",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 271,
     "options": [
-      "Latvian",
-      "Russian",
-      "Hungarian",
-      "Greek"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which language is NOT Indo-European?",
-    "type": "multiple_choice"
+    "text": "El húngaro NO pertenece a la familia de lenguas indoeuropeas.",
+    "type": "true_false"
   },
   {
-    "answer": "February 14, 2005",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 272,
     "options": [
-      "February 14, 2005",
-      "May 22, 2004",
-      "September 12, 2005",
-      "July 19, 2009"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "When was \"YouTube\" founded?",
-    "type": "multiple_choice"
+    "text": "YouTube fue fundado el 14 de febrero de 2005.",
+    "type": "true_false"
   },
   {
-    "answer": "17",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 273,
     "options": [
-      "10",
-      "21",
-      "15",
-      "17"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "How many syllables make up a haiku?",
-    "type": "multiple_choice"
+    "text": "Un haiku está compuesto por 17 sílabas.",
+    "type": "true_false"
   },
   {
-    "answer": "Finding shapes in clouds",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 274,
     "options": [
-      "Finding shapes in clouds",
-      "Breaking glass with your voice",
-      "Sleeping with your eyes open",
-      "Swimming in freezing water"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "\"Nephelococcygia\" is the practice of doing what? ",
-    "type": "multiple_choice"
+    "text": "\"Nephelococcygia\" es la práctica de encontrar formas en las nubes.",
+    "type": "true_false"
   },
   {
-    "answer": "$12.7 Billion",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 275,
     "options": [
-      "$956 Million",
-      "$2.7 Billion",
-      "$12.7 Billion",
-      "$95 Million"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In 2013 how much money was lost by Nigerian scams?",
-    "type": "multiple_choice"
+    "text": "En 2013, las estafas nigerianas generaron pérdidas de aproximadamente 12.700 millones de dólares.",
+    "type": "true_false"
   },
   {
-    "answer": "Liver",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 276,
     "options": [
-      "Liver",
-      "Stomach",
-      "Gallbladder",
-      "Pancreas"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What organ of the body produces bile?",
-    "type": "multiple_choice"
+    "text": "El hígado es el órgano del cuerpo que produce la bilis.",
+    "type": "true_false"
   },
   {
-    "answer": "Hearts",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 277,
     "options": [
-      "Spades",
-      "Diamonds",
-      "Clubs",
-      "Hearts"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In a standard set of playing cards, which is the only king without a moustache?",
-    "type": "multiple_choice"
+    "text": "En una baraja estándar de cartas, el Rey de Corazones es el único rey sin bigote.",
+    "type": "true_false"
   },
   {
-    "answer": "Nevada",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 278,
     "options": [
-      "New Mexico",
-      "Arizona",
-      "Nevada",
-      "Utah"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Area 51 is located in which US state?",
-    "type": "multiple_choice"
+    "text": "El Área 51 se encuentra en el estado de Nevada, Estados Unidos.",
+    "type": "true_false"
   },
   {
-    "answer": "Time",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 279,
     "options": [
-      "Time",
-      "Man",
-      "Water",
-      "Home"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the most commonly used noun in the English language?",
-    "type": "multiple_choice"
+    "text": "El sustantivo más utilizado en el idioma inglés es \"time\" (tiempo).",
+    "type": "true_false"
   },
   {
-    "answer": "Jumping over an office chair",
+    "answer": "Verdadero",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 280,
     "options": [
-      "Jumping backwards over a desk",
-      "Jumping over an office chair",
-      "Typing on a keyboard during a handstand",
-      "Standing on his head"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In a 1994 CBS interview, Microsoft co-founder Bill Gates performed what unusual trick on camera?",
-    "type": "multiple_choice"
+    "text": "En una entrevista de CBS en 1994, Bill Gates realizó el truco de saltar sobre una silla de oficina frente a la cámara.",
+    "type": "true_false"
   },
   {
-    "answer": "Pink",
+    "answer": "Rosa",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 281,
-    "options": [
-      "Orange",
-      "Violet",
-      "Blue",
-      "Pink"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which of these is NOT considered to be a colour that makes up the rainbow?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de estos colores NO forma parte del arcoíris: naranja, violeta, azul o rosa?",
+    "type": "quick_answer"
   },
   {
-    "answer": "East",
+    "answer": "Este",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 282,
-    "options": [
-      "North",
-      "South",
-      "East",
-      "West"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "In which cardinal direction does the Sun rise from?",
-    "type": "multiple_choice"
+    "text": "¿Desde qué punto cardinal sale el Sol?",
+    "type": "quick_answer"
   },
   {
     "answer": "Victor",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 283,
-    "options": [
-      "Papa",
-      "Kilo",
-      "Victor",
-      "Delta"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Going by the International Code of Signals, which single flag is interpreted as \"I require assistance (not distress)\"?",
-    "type": "multiple_choice"
+    "text": "Según el Código Internacional de Señales, ¿qué bandera individual se interpreta como \"necesito asistencia (sin peligro de hundimiento)\"?",
+    "type": "quick_answer"
   },
   {
     "answer": "Shogun",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 284,
-    "options": [
-      "Shinobi",
-      "Shogun",
-      "Ninja",
-      "Samurai"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What was the name given to Japanese military dictators who ruled the country through the 12th and 19th Century?",
-    "type": "multiple_choice"
+    "text": "¿Qué nombre recibían los dictadores militares japoneses que gobernaron el país entre los siglos XII y XIX?",
+    "type": "quick_answer"
   },
   {
-    "answer": "The Guggenheim",
+    "answer": "El Guggenheim",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 285,
-    "options": [
-      "The Space Needle",
-      "Villa Savoye",
-      "The Guggenheim",
-      "Sydney Opera House"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Frank Lloyd Wright was the architect behind what famous building?",
-    "type": "multiple_choice"
+    "text": "¿Qué famoso edificio diseñó el arquitecto Frank Lloyd Wright?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Eight",
+    "answer": "Ocho",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 286,
-    "options": [
-      "Two",
-      "Six",
-      "Eight",
-      "Four"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "How many furlongs are there in a mile?",
-    "type": "multiple_choice"
+    "text": "¿Cuántos furlongs tiene una milla?",
+    "type": "quick_answer"
   },
   {
-    "answer": "282 feet",
+    "answer": "282 pies",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 287,
-    "options": [
-      "12,092 feet",
-      "1,640 feet",
-      "282 feet",
-      "79 feet"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Death Valley's Badwater Basin is North America's point of lowest elevation at how many feet below sea level?",
-    "type": "multiple_choice"
+    "text": "¿A cuántos pies bajo el nivel del mar se encuentra Badwater Basin en el Valle de la Muerte, el punto más bajo de América del Norte?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Mount Elbrus, Russia",
+    "answer": "Monte Elbrus, Rusia",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 288,
-    "options": [
-      "Mont Blanc, France",
-      "Shkhara, Georgia",
-      "Mount Elbrus, Russia",
-      "Mount Ararat, Turkey"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which mountain has the highest peak in Europe?",
-    "type": "multiple_choice"
+    "text": "¿Qué montaña tiene el pico más alto de Europa?",
+    "type": "quick_answer"
   },
   {
     "answer": "Madeon",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 289,
-    "options": [
-      "Mat Zo",
-      "Zedd",
-      "deadmau5",
-      "Madeon"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which musician has collaborated with American producer Porter Robinson and released the 2016 song \"Shelter\"?",
-    "type": "multiple_choice"
+    "text": "¿Qué músico colaboró con el productor estadounidense Porter Robinson y lanzaron juntos la canción \"Shelter\" en 2016?",
+    "type": "quick_answer"
   },
   {
-    "answer": "England",
+    "answer": "Inglaterra",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 290,
-    "options": [
-      "Scotland",
-      "France",
-      "England",
-      "Portugal"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The tale of Robin Hood originates from which country?",
-    "type": "multiple_choice"
+    "text": "¿En qué país tiene origen la leyenda de Robin Hood?",
+    "type": "quick_answer"
   },
   {
-    "answer": "South America",
+    "answer": "América del Sur",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 291,
-    "options": [
-      "Europe",
-      "South America",
-      "Hawaii",
-      "Asia"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Where did the pineapple plant originate?",
-    "type": "multiple_choice"
+    "text": "¿En qué continente se originó la planta de la piña?",
+    "type": "quick_answer"
   },
   {
-    "answer": "The Netherlands",
+    "answer": "Países Bajos",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 292,
-    "options": [
-      "Belgium",
-      "The Netherlands",
-      "France",
-      "Germany"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Gouda cheese is from which European country?",
-    "type": "multiple_choice"
+    "text": "¿De qué país europeo proviene el queso Gouda?",
+    "type": "quick_answer"
   },
   {
     "answer": "Libra",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 293,
-    "options": [
-      "Gemini",
-      "Libra",
-      "Capricorn",
-      "Taurus"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which sign of the zodiac comes between Virgo and Scorpio?",
-    "type": "multiple_choice"
+    "text": "¿Qué signo del zodíaco se encuentra entre Virgo y Escorpio?",
+    "type": "quick_answer"
   },
   {
     "answer": "The Shatter's",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 294,
-    "options": [
-      "The Tomb of the Acient's",
-      "The Shatter's",
-      "Snake Pit",
-      "The Puppet Master's Theater"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "In the MMO RPG \"Realm of the Mad God\", what dungeon is widely considered to be the most difficult?",
-    "type": "multiple_choice"
+    "text": "En el MMO RPG \"Realm of the Mad God\", ¿qué mazmorra es considerada la más difícil?",
+    "type": "quick_answer"
   },
   {
     "answer": "Medellín",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 295,
-    "options": [
-      "Medellín",
-      "Bogotá",
-      "Quito",
-      "Cali"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The drug cartel run by Pablo Escobar originated in which South American city?",
-    "type": "multiple_choice"
+    "text": "¿En qué ciudad sudamericana se originó el cartel de Pablo Escobar?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Tennis",
+    "answer": "Tenis",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 296,
-    "options": [
-      "Tennis",
-      "Baseball",
-      "Football",
-      "Basketball"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Bob and Mike Bryan were well known brothers in which sport?",
-    "type": "multiple_choice"
+    "text": "¿En qué deporte eran conocidos los hermanos Bob y Mike Bryan?",
+    "type": "quick_answer"
   },
   {
-    "answer": "The inability to make decisions",
+    "answer": "La incapacidad de tomar decisiones",
     "category": "cultura_general",
     "difficulty": "hard",
     "id": 297,
-    "options": [
-      "A feverish desire to rip one's clothes off",
-      "The inability to make decisions",
-      "The inability to concentrate on anything",
-      "The inability to stand up"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The word \"abulia\" means which of the following?",
-    "type": "multiple_choice"
+    "text": "¿Qué significa la palabra \"abulia\"?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Spain",
+    "answer": "España",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 298,
-    "options": [
-      "Russia",
-      "USA",
-      "Spain",
-      "Korea"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "In which country was the 1992 Summer Olympics Games held?",
-    "type": "multiple_choice"
+    "text": "¿En qué país se celebraron los Juegos Olímpicos de Verano de 1992?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Contemplate",
+    "answer": "Contemplar",
     "category": "cultura_general",
     "difficulty": "medium",
     "id": 299,
-    "options": [
-      "Constipate",
-      "Condensate",
-      "Contemplate",
-      "Confiscate"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What English word means to \"think deeply\"?",
-    "type": "multiple_choice"
+    "text": "¿Qué palabra en español significa \"pensar profundamente\"?",
+    "type": "quick_answer"
   },
   {
     "answer": "Lincoln Memorial",
     "category": "cultura_general",
     "difficulty": "easy",
     "id": 300,
-    "options": [
-      "Times Square",
-      "Empire State Building",
-      "Lincoln Memorial",
-      "Central Park"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which of the following landmarks is not located in New York City?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de los siguientes monumentos NO se encuentra en la ciudad de Nueva York?",
+    "type": "quick_answer"
   }
 ]

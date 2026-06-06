@@ -5,28 +5,28 @@
     "difficulty": "easy",
     "id": 1,
     "options": [
-      "Joomla Source Code",
+      "Código fuente de Joomla",
       "Java Source",
       "Java",
       "JavaScript"
     ],
     "source": "Open Trivia Database",
-    "text": "What language does Node.js use?",
+    "text": "¿Qué lenguaje de programación utiliza Node.js?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Application",
+    "answer": "Aplicación",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 2,
     "options": [
-      "Network",
-      "Application",
-      "Session",
-      "Present"
+      "Red",
+      "Aplicación",
+      "Sesión",
+      "Presentación"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the name of Layer 7 of the OSI model?",
+    "text": "¿Cómo se llama la capa 7 del modelo OSI?",
     "type": "multiple_choice"
   },
   {
@@ -41,7 +41,7 @@
       "Apple 3"
     ],
     "source": "Open Trivia Database",
-    "text": "Which of the following is the oldest of these computers by release date?",
+    "text": "¿Cuál de las siguientes computadoras es la más antigua por fecha de lanzamiento?",
     "type": "multiple_choice"
   },
   {
@@ -56,22 +56,22 @@
       "Marc Benioff"
     ],
     "source": "Open Trivia Database",
-    "text": "Who is the founder of Palantir?",
+    "text": "¿Quién es el fundador de Palantir?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Midnight, January 1, 1970",
+    "answer": "Medianoche del 1 de enero de 1970",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 5,
     "options": [
-      "Midnight, July 4, 1980",
-      "Midnight, July 4, 1976",
-      "Midnight on the creator of Unix's birthday",
-      "Midnight, January 1, 1970"
+      "Medianoche del 4 de julio de 1980",
+      "Medianoche del 4 de julio de 1976",
+      "Medianoche del cumpleaños del creador de Unix",
+      "Medianoche del 1 de enero de 1970"
     ],
     "source": "Open Trivia Database",
-    "text": "Unix Time is defined as the number of seconds that have elapsed since when?",
+    "text": "El tiempo Unix se define como la cantidad de segundos transcurridos desde cuándo?",
     "type": "multiple_choice"
   },
   {
@@ -86,7 +86,7 @@
       "Utah Teapot"
     ],
     "source": "Open Trivia Database",
-    "text": "The teapot often seen in many 3D modeling applications is called what?",
+    "text": "¿Cómo se llama la tetera que aparece frecuentemente en aplicaciones de modelado 3D?",
     "type": "multiple_choice"
   },
   {
@@ -101,37 +101,37 @@
       ".tt"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the domain name for the country Tuvalu?",
+    "text": "¿Cuál es el dominio de internet del país Tuvalu?",
     "type": "multiple_choice"
   },
   {
-    "answer": "1000000",
+    "answer": "1.000.000",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 8,
     "options": [
-      "1024",
-      "1048576",
-      "1000",
-      "1000000"
+      "1.024",
+      "1.048.576",
+      "1.000",
+      "1.000.000"
     ],
     "source": "Open Trivia Database",
-    "text": "How many kilobytes in one gigabyte (in decimal)?",
+    "text": "¿Cuántos kilobytes tiene un gigabyte (en sistema decimal)?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Eight bits",
+    "answer": "Ocho bits",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 9,
     "options": [
-      " Fifteen bits",
-      "Six bits",
-      "Twelve bits",
-      "Eight bits"
+      "Quince bits",
+      "Seis bits",
+      "Doce bits",
+      "Ocho bits"
     ],
     "source": "Open Trivia Database",
-    "text": "How many bits are commonly in a single byte?",
+    "text": "¿Cuántos bits tiene un byte?",
     "type": "multiple_choice"
   },
   {
@@ -146,7 +146,7 @@
       "SVGA"
     ],
     "source": "Open Trivia Database",
-    "text": "What is largely considered the precursor to the USB format?",
+    "text": "¿Cuál es considerado el predecesor del formato USB?",
     "type": "multiple_choice"
   },
   {
@@ -161,22 +161,22 @@
       "<scroll></scroll>"
     ],
     "source": "Open Trivia Database",
-    "text": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
+    "text": "En HTML, ¿qué etiqueta no estándar se usaba para hacer que los elementos se desplazaran por la pantalla?",
     "type": "multiple_choice"
   },
   {
-    "answer": "ADPCM Sampler",
+    "answer": "Muestreador ADPCM",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 12,
     "options": [
-      "ADPCM Sampler",
-      "PCM Sampler",
-      "Programmable Sound Generator (PSG)",
-      "FM Synthesizer"
+      "Muestreador ADPCM",
+      "Muestreador PCM",
+      "Generador de sonido programable (PSG)",
+      "Sintetizador FM"
     ],
     "source": "Open Trivia Database",
-    "text": "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+    "text": "¿Qué tipo de chip de sonido tiene la Super Nintendo Entertainment System (SNES)?",
     "type": "multiple_choice"
   },
   {
@@ -191,22 +191,22 @@
       "8"
     ],
     "source": "Open Trivia Database",
-    "text": "How many cores does the Intel i7-6950X have?",
+    "text": "¿Cuántos núcleos tiene el procesador Intel i7-6950X?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Routing Information Protocol",
+    "answer": "Protocolo de Información de Enrutamiento",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 14,
     "options": [
-      "Runtime Instance Processes",
-      "Routing Information Protocol",
-      "Regular Interval Processes",
-      "Routine Inspection Protocol"
+      "Procesos de Instancia en Tiempo de Ejecución",
+      "Protocolo de Información de Enrutamiento",
+      "Procesos de Intervalo Regular",
+      "Protocolo de Inspección de Rutina"
     ],
     "source": "Open Trivia Database",
-    "text": "The acronym \"RIP\" stands for which of these?",
+    "text": "La sigla RIP (en redes) significa cuál de estas opciones?",
     "type": "multiple_choice"
   },
   {
@@ -221,7 +221,7 @@
       "RAID 10"
     ],
     "source": "Open Trivia Database",
-    "text": "Which RAID array type is associated with data mirroring?",
+    "text": "¿Qué tipo de RAID está asociado con la duplicación (espejado) de datos?",
     "type": "multiple_choice"
   },
   {
@@ -236,7 +236,7 @@
       "Steve Jobs"
     ],
     "source": "Open Trivia Database",
-    "text": "Which of these people was NOT a founder of Apple Inc?",
+    "text": "¿Cuál de estas personas NO fue fundador de Apple Inc.?",
     "type": "multiple_choice"
   },
   {
@@ -251,37 +251,37 @@
       "Nokia"
     ],
     "source": "Open Trivia Database",
-    "text": "The Windows OS was delevoped by which company?",
+    "text": "¿Qué empresa desarrolló el sistema operativo Windows?",
     "type": "multiple_choice"
   },
   {
-    "answer": "44.1 kHz",
+    "answer": "44,1 kHz",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 18,
     "options": [
-      "32.0 kHz",
-      "44.1 kHz",
-      "1.5 MHz",
-      "20.5 kHz"
+      "32,0 kHz",
+      "44,1 kHz",
+      "1,5 MHz",
+      "20,5 kHz"
     ],
     "source": "Open Trivia Database",
-    "text": "Originally used in PCM adapters, what frequency is the standard for sampling audio in the Compact Disc Digital Audio format?",
+    "text": "¿Cuál es la frecuencia estándar de muestreo de audio en el formato de audio digital de CD (Compact Disc Digital Audio)?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Redundant Array of Independent Disks",
+    "answer": "Conjunto redundante de discos independientes",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 19,
     "options": [
-      "Rapid Access for Indexed Devices",
-      "Redundant Array of Independent Disks",
-      "Randomized Abstract Identification Description",
-      "Range of Applications with Identical Designs"
+      "Acceso rápido para dispositivos indexados",
+      "Conjunto redundante de discos independientes",
+      "Descripción de identificación abstracta aleatoria",
+      "Rango de aplicaciones con diseños idénticos"
     ],
     "source": "Open Trivia Database",
-    "text": "What does RAID stand for?",
+    "text": "¿Qué significa la sigla RAID en informática?",
     "type": "multiple_choice"
   },
   {
@@ -296,607 +296,467 @@
       "Pravetz 82"
     ],
     "source": "Open Trivia Database",
-    "text": "What was the name of the first Bulgarian personal computer?",
+    "text": "¿Cuál fue el nombre de la primera computadora personal búlgara?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Mac OS",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 21,
     "options": [
-      "Linux",
-      "OS/2",
-      "Windows",
-      "Mac OS"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which operating system was released first?",
-    "type": "multiple_choice"
+    "text": "Mac OS fue el primer sistema operativo lanzado entre Mac OS, Linux, OS/2 y Windows.",
+    "type": "true_false"
   },
   {
-    "answer": "Local Area Network",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 22,
     "options": [
-      "Light Access Node",
-      "Land Address Navigation",
-      "Long Antenna Node",
-      "Local Area Network"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In computing, what does LAN stand for?",
-    "type": "multiple_choice"
+    "text": "La sigla LAN en informática significa \"Red de Área Local\" (Local Area Network).",
+    "type": "true_false"
   },
   {
-    "answer": "256",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 23,
     "options": [
-      "8",
-      "256",
-      "1024",
-      "1"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "How many values can a single byte represent?",
-    "type": "multiple_choice"
+    "text": "Un byte puede representar 256 valores distintos.",
+    "type": "true_false"
   },
   {
-    "answer": "Injection ",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 24,
     "options": [
-      "Cross-Site Scripting",
-      "Broken Authentication",
-      "Injection ",
-      "Insecure Direct Object References"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
-    "type": "multiple_choice"
+    "text": "En 2013, la vulnerabilidad número 1 del ranking OWASP Top 10 fue \"Inyección\" (Injection).",
+    "type": "true_false"
   },
   {
-    "answer": "Motherboard",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 25,
     "options": [
-      "Hard Disk Drive",
-      "Motherboard",
-      "Central Processing Unit",
-      "Graphics Processing Unit"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "On which computer hardware device is the BIOS chip located?",
-    "type": "multiple_choice"
+    "text": "El chip BIOS se encuentra ubicado en la placa madre (motherboard).",
+    "type": "true_false"
   },
   {
-    "answer": "Infrastructure as a Service",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 26,
     "options": [
-      "Infrastructure as a Server",
-      "Infrastructure as a Service",
-      "Internet and a Server",
-      "Internet as a Service"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In the server hosting industry IaaS stands for...",
-    "type": "multiple_choice"
+    "text": "En la industria del hosting de servidores, IaaS significa \"Infraestructura como Servicio\" (Infrastructure as a Service).",
+    "type": "true_false"
   },
   {
-    "answer": "Dennis Ritchie",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 27,
     "options": [
-      "Dennis Ritchie",
-      "Willis Ware",
-      "Tim Berners Lee",
-      "al-Khwārizmī"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The C programming language was created by this American computer scientist. ",
-    "type": "multiple_choice"
+    "text": "El lenguaje de programación C fue creado por el científico informático estadounidense Dennis Ritchie.",
+    "type": "true_false"
   },
   {
-    "answer": "Acorn Computers",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 28,
     "options": [
-      "Amstrad PLC",
-      "Commodore Business Machines",
-      "Acorn Computers",
-      "Sinclair Research"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The Electron computer was released in Britain during 1983 for the home computing market, by which company? ",
-    "type": "multiple_choice"
+    "text": "La computadora Electron fue lanzada en Gran Bretaña en 1983 por la empresa Acorn Computers.",
+    "type": "true_false"
   },
   {
-    "answer": "2005",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 29,
     "options": [
-      "2005",
-      "1999",
-      "2008",
-      "2002"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Lenovo acquired IBM's personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
-    "type": "multiple_choice"
+    "text": "Lenovo adquirió la división de computadoras personales de IBM, incluyendo la línea ThinkPad, en el año 2005.",
+    "type": "true_false"
   },
   {
-    "answer": "2016",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 30,
     "options": [
-      "2013",
-      "2016",
-      "2009",
-      "2011"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "When did the online streaming service \"Mixer\" launch?",
-    "type": "multiple_choice"
+    "text": "El servicio de streaming en línea \"Mixer\" fue lanzado en 2016.",
+    "type": "true_false"
   },
   {
-    "answer": "Binary",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 31,
     "options": [
-      "JavaScript",
-      "Python",
-      "Binary",
-      "C++"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "If you were to code software in this language you'd only be able to type 0's and 1's.",
-    "type": "multiple_choice"
+    "text": "El lenguaje binario solo utiliza los dígitos 0 y 1.",
+    "type": "true_false"
   },
   {
-    "answer": ".svg",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 32,
     "options": [
-      ".jpeg",
-      ".png",
-      ".gif",
-      ".svg"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the most preferred image format used for logos in the Wikimedia database?",
-    "type": "multiple_choice"
+    "text": "El formato .svg es el más utilizado para logotipos en la base de datos de Wikimedia.",
+    "type": "true_false"
   },
   {
-    "answer": "Linux",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 33,
     "options": [
-      "Python",
-      "Linux",
-      "Wikipedia",
-      "Microsoft Windows"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Linus Torvalds created which of these?",
-    "type": "multiple_choice"
+    "text": "Linus Torvalds es el creador de Linux.",
+    "type": "true_false"
   },
   {
-    "answer": "Motherboard",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 34,
     "options": [
-      "Random Access Memory",
-      "Hard Disk Drive",
-      "Motherboard",
-      "Central Processing Unit"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which computer hardware device provides an interface for all other connected devices to communicate?",
-    "type": "multiple_choice"
+    "text": "La placa madre (motherboard) es el componente de hardware que provee la interfaz de comunicación entre todos los demás dispositivos conectados.",
+    "type": "true_false"
   },
   {
-    "answer": "Objective-C",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 35,
     "options": [
-      "Ruby",
-      "C++",
-      "Objective-C",
-      "C#"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The programming language 'Swift' was created to replace what other programming language?",
-    "type": "multiple_choice"
+    "text": "El lenguaje de programación Swift fue creado para reemplazar a Objective-C.",
+    "type": "true_false"
   },
   {
-    "answer": "Quantum Teleportation",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 36,
     "options": [
-      "Quantum Programming",
-      "Super Dense Coding",
-      "Quantum Entanglement",
-      "Quantum Teleportation"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the name of the process that sends one qubit of information using two bits of classical information?",
-    "type": "multiple_choice"
+    "text": "La Teletransportación Cuántica es el proceso que envía un qubit de información usando dos bits de información clásica.",
+    "type": "true_false"
   },
   {
-    "answer": "Apple",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 37,
     "options": [
-      "Microsoft",
-      "Commodore",
-      "Atari",
-      "Apple"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
-    "type": "multiple_choice"
+    "text": "Apple fue fundada el 1 de abril de 1976 por Steve Jobs, Steve Wozniak y Ronald Wayne.",
+    "type": "true_false"
   },
   {
-    "answer": "Video Card",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 38,
     "options": [
-      "Hard Drive",
-      "Video Card",
-      "Processor",
-      "Power Supply"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Generally, which component of a computer draws the most power?",
-    "type": "multiple_choice"
+    "text": "En general, la tarjeta de video (GPU) es el componente de una computadora que consume más energía.",
+    "type": "true_false"
   },
   {
-    "answer": "23",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 39,
     "options": [
-      "53",
-      "8",
-      "15",
-      "23"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "How many bits make up the significand portion of a single precision floating point number?",
-    "type": "multiple_choice"
+    "text": "La porción de significando de un número de punto flotante de precisión simple tiene 23 bits.",
+    "type": "true_false"
   },
   {
-    "answer": "Open Shortest Path First",
+    "answer": "Verdadero",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 40,
     "options": [
-      "Open Signal Path Finder",
-      "Order State Part First",
-      "Open Shortest Path First",
-      "Order Sense Ping Find"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In networking, what does OSPF stand for?",
-    "type": "multiple_choice"
+    "text": "En redes, OSPF significa \"Primero el Camino Más Corto Abierto\" (Open Shortest Path First).",
+    "type": "true_false"
   },
   {
     "answer": ".tv",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 41,
-    "options": [
-      ".tu",
-      ".tv",
-      ".tl",
-      ".tt"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the domain name for the country Tuvalu?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el dominio de internet del país Tuvalu?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Captures what's on the screen and copies it to your clipboard",
+    "answer": "Captura lo que hay en la pantalla y lo copia al portapapeles",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 42,
-    "options": [
-      "Captures what's on the screen and copies it to your clipboard",
-      "Nothing",
-      "Closes all windows",
-      "Saves a .png file of what's on the screen in your screenshots folder in photos"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What does the Prt Sc button do?",
-    "type": "multiple_choice"
+    "text": "¿Qué hace el botón Prt Sc (Imprimir Pantalla) en un teclado?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Solid State Drive",
+    "answer": "Unidad de Estado Sólido (Solid State Drive)",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 43,
-    "options": [
-      "Solid State Drive",
-      "Solid State Disk",
-      "Source Solution Drive",
-      "Solution Source Disk"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What does SSD stand for?",
-    "type": "multiple_choice"
+    "text": "¿Qué significa la sigla SSD en informática?",
+    "type": "quick_answer"
   },
   {
     "answer": "TRS-80",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 44,
-    "options": [
-      "ZX Spectrum",
-      "TRS-80",
-      "Apple 3",
-      "Commodore 64"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which of the following is the oldest of these computers by release date?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de estas computadoras es la más antigua: ZX Spectrum, TRS-80, Apple 3 o Commodore 64?",
+    "type": "quick_answer"
   },
   {
     "answer": "Jelly Bean",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 45,
-    "options": [
-      "Nutella",
-      "Froyo",
-      "Jelly Bean",
-      "Lollipop"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What was the name given to Android 4.3?",
-    "type": "multiple_choice"
+    "text": "¿Cuál fue el nombre de la versión Android 4.3?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Infrastructure as a Service",
+    "answer": "Infraestructura como Servicio",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 46,
-    "options": [
-      "Infrastructure as a Server",
-      "Internet as a Service",
-      "Infrastructure as a Service",
-      "Internet and a Server"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "In the server hosting industry IaaS stands for...",
-    "type": "multiple_choice"
+    "text": "En la industria del hosting de servidores, ¿qué significa IaaS?",
+    "type": "quick_answer"
   },
   {
     "answer": "Dennis Ritchie",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 47,
-    "options": [
-      "Dennis Ritchie",
-      "Tim Berners Lee",
-      "al-Khwārizmī",
-      "Willis Ware"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The C programming language was created by this American computer scientist. ",
-    "type": "multiple_choice"
+    "text": "¿Qué científico informático estadounidense creó el lenguaje de programación C?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Disk Operating System",
+    "answer": "Sistema Operativo de Disco (Disk Operating System)",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 48,
-    "options": [
-      "Driver Oriented System",
-      "Diskless Operating System",
-      "Disk Operating System",
-      "Dumb Operating System"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What does the DOS in Microsoft's first operating system \"MS-DOS\" stand for?",
-    "type": "multiple_choice"
+    "text": "¿Qué significa la sigla DOS en el primer sistema operativo de Microsoft, MS-DOS?",
+    "type": "quick_answer"
   },
   {
-    "answer": "December 20, 1990",
+    "answer": "20 de diciembre de 1990",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 49,
-    "options": [
-      "December 17, 1996",
-      "December 20, 1990",
-      "November 24, 1995",
-      "November 12, 1990"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "On which day did the World Wide Web go online?",
-    "type": "multiple_choice"
+    "text": "¿En qué fecha entró en línea la World Wide Web por primera vez?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Command Line Interface",
+    "answer": "Interfaz de Línea de Comandos (Command Line Interface)",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 50,
-    "options": [
-      "Common Language Interface",
-      "Control Line Interface",
-      "Command Line Interface",
-      "Common Language Input"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "In computing terms, typically what does CLI stand for?",
-    "type": "multiple_choice"
+    "text": "En informática, ¿qué significa la sigla CLI?",
+    "type": "quick_answer"
   },
   {
     "answer": "Shamir",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 51,
-    "options": [
-      "Stable",
-      "Shamir",
-      "Schottky",
-      "Secure"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What does the 'S' in the RSA encryption algorithm stand for?",
-    "type": "multiple_choice"
+    "text": "¿Qué representa la letra 'S' en el algoritmo de cifrado RSA?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Eight bits",
+    "answer": "Ocho bits",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 52,
-    "options": [
-      "Twelve bits",
-      "Eight bits",
-      " Fifteen bits",
-      "Six bits"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "How many bits are commonly in a single byte?",
-    "type": "multiple_choice"
+    "text": "¿Cuántos bits tiene comúnmente un byte?",
+    "type": "quick_answer"
   },
   {
     "answer": "SRAM",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 53,
-    "options": [
-      "ROM",
-      "SRAM",
-      "Flash",
-      "DRAM"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What kind of memory is used on memory cache?",
-    "type": "multiple_choice"
+    "text": "¿Qué tipo de memoria se utiliza en la memoria caché?",
+    "type": "quick_answer"
   },
   {
     "answer": "JavaScript",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 54,
-    "options": [
-      "Python",
-      "C#",
-      "PHP",
-      "JavaScript"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
-    "type": "multiple_choice"
+    "text": "¿Qué lenguaje de programación fue el más utilizado en GitHub en 2015?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Injection ",
+    "answer": "Inyección (Injection)",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 55,
-    "options": [
-      "Insecure Direct Object References",
-      "Broken Authentication",
-      "Injection ",
-      "Cross-Site Scripting"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
-    "type": "multiple_choice"
+    "text": "¿Qué vulnerabilidad ocupó el puesto número 1 en el OWASP Top 10 de 2013?",
+    "type": "quick_answer"
   },
   {
     "answer": "Austria",
     "category": "tecnologia",
     "difficulty": "medium",
     "id": 56,
-    "options": [
-      "Argentina",
-      "Angola",
-      "Austria",
-      "Australia"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": ".at is the top-level domain for what country?",
-    "type": "multiple_choice"
+    "text": "¿El dominio de nivel superior .at corresponde a qué país?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Region 3",
+    "answer": "Región 3",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 57,
-    "options": [
-      "Region 1",
-      "Region 2",
-      "Region 3",
-      "Region 4"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Australia, Japan, and Southeast Asia are in which ITU Region?",
-    "type": "multiple_choice"
+    "text": "¿Australia, Japón y el sudeste asiático pertenecen a qué región de la UIT (ITU)?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Star",
+    "answer": "Estrella (Star)",
     "category": "tecnologia",
     "difficulty": "hard",
     "id": 58,
-    "options": [
-      "Star",
-      "Ring",
-      "Hex",
-      "Mesh"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which of the following physical typologies are used with Ethernet Networks?",
-    "type": "multiple_choice"
+    "text": "¿Qué topología física se utiliza en las redes Ethernet?",
+    "type": "quick_answer"
   },
   {
     "answer": "1000",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 59,
-    "options": [
-      "512",
-      "500",
-      "1000",
-      "1024"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
-    "type": "multiple_choice"
+    "text": "Según el Sistema Internacional de Unidades, ¿cuántos bytes tiene un kilobyte?",
+    "type": "quick_answer"
   },
   {
     "answer": "Python",
     "category": "tecnologia",
     "difficulty": "easy",
     "id": 60,
-    "options": [
-      "Python",
-      "Java",
-      "C++",
-      "C#"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which computer language would you associate Django framework with?",
-    "type": "multiple_choice"
+    "text": "¿Con qué lenguaje de programación se asocia el framework Django?",
+    "type": "quick_answer"
   }
 ]

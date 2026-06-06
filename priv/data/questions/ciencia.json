@@ -1,17 +1,17 @@
 [
   {
-    "answer": "Bones",
+    "answer": "Huesos",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 61,
     "options": [
-      "Brain",
-      "Heart",
-      "Bones",
-      "Skin"
+      "Cerebro",
+      "Corazón",
+      "Huesos",
+      "Piel"
     ],
     "source": "Open Trivia Database",
-    "text": "The medical condition osteoporosis affects which part of the body?",
+    "text": "¿Qué parte del cuerpo afecta la osteoporosis?",
     "type": "multiple_choice"
   },
   {
@@ -26,67 +26,67 @@
       "16"
     ],
     "source": "Open Trivia Database",
-    "text": "In human biology, a circadium rhythm relates to a period of roughly how many hours?",
+    "text": "En biología humana, ¿a cuántas horas aproximadamente corresponde un ritmo circadiano?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Carbon",
+    "answer": "Tungsteno",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 63,
     "options": [
-      "Carbon",
-      "Platinum",
-      "Osmium",
-      "Tungsten"
+      "Carbono",
+      "Platino",
+      "Osmio",
+      "Tungsteno"
     ],
     "source": "Open Trivia Database",
-    "text": "Which element has the highest melting point?",
+    "text": "¿Qué elemento tiene el punto de fusión más alto?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Histology",
+    "answer": "Histología",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 64,
     "options": [
-      "Histology",
-      "Microbiology",
-      "Anatomy",
-      "Biochemistry"
+      "Histología",
+      "Microbiología",
+      "Anatomía",
+      "Bioquímica"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the study of the cells and tissues of plants and animals?",
+    "text": "¿En qué consiste el estudio de las células y los tejidos de las plantas y los animales?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Cretaceous-Paleogene",
+    "answer": "Cretácico-Paleógeno",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 65,
     "options": [
-      "Triassic–Jurassic",
-      "Permian–Triassic",
-      "Cretaceous-Paleogene",
-      "Ordovician–Silurian"
+      "Triásico-Jurásico",
+      "Permiano-Triásico",
+      "Cretácico-Paleógeno",
+      "Ordovícico-Silúrico"
     ],
     "source": "Open Trivia Database",
-    "text": "Which major extinction event was caused by an asteroid collision and eliminated the majority of non-avian dinosaurs?",
+    "text": "¿Qué gran evento de extinción fue provocado por el impacto de un asteroide y acabó con la mayoría de los dinosaurios no aviares?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Hydrogen",
+    "answer": "Hidrógeno",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 66,
     "options": [
-      "Lithium",
-      "Oxygen",
-      "Hydrogen",
-      "Helium"
+      "Litio",
+      "Oxígeno",
+      "Hidrógeno",
+      "Helio"
     ],
     "source": "Open Trivia Database",
-    "text": "Which is the most abundant element in the universe?",
+    "text": "¿Cuál es el elemento más abundante del universo?",
     "type": "multiple_choice"
   },
   {
@@ -101,97 +101,97 @@
       "NH3"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the chemical formula for ammonia?",
+    "text": "¿Cuál es la fórmula química del amoníaco?",
     "type": "multiple_choice"
   },
   {
-    "answer": "The separation of a strain from a natural, mixed population of living microbes",
+    "answer": "La separación de una cepa de una población natural y mixta de microorganismos vivos",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 68,
     "options": [
-      "Testing effects of certain microorganisms in an isolated enviroments, such as caves",
-      "A lack of nutrition in microenviroments",
-      "The separation of a strain from a natural, mixed population of living microbes",
-      "The nitrogen level in soil"
+      "Probar efectos de ciertos microorganismos en entornos aislados, como cuevas",
+      "Una falta de nutrición en microentornos",
+      "La separación de una cepa de una población natural y mixta de microorganismos vivos",
+      "El nivel de nitrógeno en el suelo"
     ],
     "source": "Open Trivia Database",
-    "text": "What does the term \"isolation\" refer to in microbiology?",
+    "text": "¿A qué se refiere el término \"aislamiento\" en microbiología?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Japan",
+    "answer": "Japón",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 69,
     "options": [
-      "Philippines",
-      "USA",
-      "Japan",
-      "France"
+      "Filipinas",
+      "EE.UU.",
+      "Japón",
+      "Francia"
     ],
     "source": "Open Trivia Database",
-    "text": "Which country first successfully farm-hatched and raised bluefin tuna in 1979?",
+    "text": "¿Qué país logró por primera vez criar atún de aleta azul en granja en 1979?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Pavlov's dog experiments",
+    "answer": "Los experimentos con perros de Pávlov",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 70,
     "options": [
-      "Schrödinger's cat experiment",
-      "Skinner box experiment",
-      "Pavlov's dog experiments",
-      "Harlow’s monkey experiments"
+      "El experimento del gato de Schrödinger",
+      "El experimento de la caja de Skinner",
+      "Los experimentos con perros de Pávlov",
+      "Los experimentos con monos de Harlow"
     ],
     "source": "Open Trivia Database",
-    "text": "Which of the following is considered classical conditioning?",
+    "text": "¿Cuál de los siguientes se considera un ejemplo de condicionamiento clásico?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Uranus",
+    "answer": "Urano",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 71,
     "options": [
-      "Uranus",
-      "Jupiter",
-      "Neptune",
+      "Urano",
+      "Júpiter",
+      "Neptuno",
       "Venus"
     ],
     "source": "Open Trivia Database",
-    "text": "The moons, Miranda, Ariel, Umbriel, Titania and Oberon orbit which planet?",
+    "text": "Las lunas Miranda, Ariel, Umbriel, Titania y Oberón orbitan alrededor de qué planeta?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Catholic",
+    "answer": "Católica",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 72,
     "options": [
-      "Catholic",
-      "Jewish",
-      "Christian",
-      "Islamic"
+      "Católica",
+      "Judía",
+      "Cristiana",
+      "Islámica"
     ],
     "source": "Open Trivia Database",
-    "text": "\"The Big Bang Theory\" was first theorized by a priest of what religious ideology?",
+    "text": "\"La Teoría del Big Bang\" fue formulada por primera vez por un sacerdote de qué ideología religiosa?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Sneeze",
+    "answer": "Estornudar",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 73,
     "options": [
-      "Hiccup",
-      "Cough",
-      "Yawn",
-      "Sneeze"
+      "Hipo",
+      "Toser",
+      "Bostezar",
+      "Estornudar"
     ],
     "source": "Open Trivia Database",
-    "text": "Autosomal-dominant Compelling Helio-Ophthalmic Outburst syndrome is the need to do what when seeing the Sun?",
+    "text": "El síndrome ACHOO (Estallido Heliooftálmico Compulsivo Autosómico Dominante) es la necesidad de hacer qué al ver el Sol?",
     "type": "multiple_choice"
   },
   {
@@ -206,37 +206,37 @@
       "Australopithecus Antaris"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the scientific name for the extinct hominin known as \"Lucy\"?",
+    "text": "¿Cuál es el nombre científico del homínido extinto conocido como \"Lucy\"?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Troposphere",
+    "answer": "Tropósfera",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 75,
     "options": [
-      "Mesosphere",
-      "Stratosphere",
-      "Troposphere",
-      "Thermosphere"
+      "Mesósfera",
+      "Estratósfera",
+      "Tropósfera",
+      "Termósfera"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the lowest layer of the Earth's atmosphere named?",
+    "text": "¿Cómo se llama la capa más baja de la atmósfera terrestre?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Sagittarius",
+    "answer": "Sagitario",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 76,
     "options": [
-      "Sagittarius",
-      "Capricornus",
-      "Scorpius",
-      "Ophiuchus"
+      "Sagitario",
+      "Capricornio",
+      "Escorpio",
+      "Ofiuco"
     ],
     "source": "Open Trivia Database",
-    "text": "Which constellation contains the center of the Milky Way?",
+    "text": "¿Qué constelación contiene el centro de la Vía Láctea?",
     "type": "multiple_choice"
   },
   {
@@ -251,652 +251,512 @@
       "Landsat 5"
     ],
     "source": "Open Trivia Database",
-    "text": "Which Landsat Satellite failed to reach orbit?",
+    "text": "¿Qué satélite Landsat no logró alcanzar la órbita?",
     "type": "multiple_choice"
   },
   {
-    "answer": "703,800,000 years",
+    "answer": "703.800.000 años",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 78,
     "options": [
-      "703,800,000 years",
-      "4,300,400,000 years",
-      "Uranium-235 is a stable isotope",
-      "1,260,900,000 years"
+      "703.800.000 años",
+      "4.300.400.000 años",
+      "El Uranio-235 es un isótopo estable",
+      "1.260.900.000 años"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the half-life of Uranium-235?",
+    "text": "¿Cuál es la vida media del Uranio-235?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Hydrogen & Helium",
+    "answer": "Hidrógeno y Helio",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 79,
     "options": [
-      "Hydrogen & Nitrogen",
-      "Carbon & Nitrogen",
-      "Hydrogen & Helium",
-      "Carbon & Helium"
+      "Hidrógeno y Nitrógeno",
+      "Carbono y Nitrógeno",
+      "Hidrógeno y Helio",
+      "Carbono y Helio"
     ],
     "source": "Open Trivia Database",
-    "text": "The Sun consists of mostly which two elements?",
+    "text": "¿De qué dos elementos está compuesto principalmente el Sol?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Four",
+    "answer": "Cuatro",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 80,
     "options": [
-      "Two",
-      "Four",
-      "Five",
-      "Three"
+      "Dos",
+      "Cuatro",
+      "Cinco",
+      "Tres"
     ],
     "source": "Open Trivia Database",
-    "text": "How many laws of thermodynamics are there?",
+    "text": "¿Cuántas leyes de la termodinámica existen?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Noether's Theorem",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 81,
     "options": [
-      "Wick's Theorem",
-      "Noether's Theorem",
-      "Bell's Theorem",
-      "Carnot's Theorem"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "In physics, conservation of energy and conservation of momentum are both consequences of which of the following?",
-    "type": "multiple_choice"
+    "text": "En física, la conservación de la energía y la conservación del momento son consecuencias del Teorema de Noether.",
+    "type": "true_false"
   },
   {
-    "answer": "Great white shark",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 82,
     "options": [
-      "Octopus",
-      "Catfish",
-      "Killer whale",
-      "Great white shark"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which of these animals belongs in class Chondrichthyes?",
-    "type": "multiple_choice"
+    "text": "El gran tiburón blanco pertenece a la clase Condrictios (Chondrichthyes).",
+    "type": "true_false"
   },
   {
-    "answer": "Jupiter",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 83,
     "options": [
-      "Neptune",
-      "Uranus",
-      "Jupiter",
-      "Mars"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Gannymede is the largest moon of which planet?",
-    "type": "multiple_choice"
+    "text": "Ganimedes es la luna más grande de Júpiter.",
+    "type": "true_false"
   },
   {
-    "answer": "Marie & Pierre Curie",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 84,
     "options": [
-      "Marie & Pierre Curie",
-      "Curious George",
-      "Stephen Curry",
-      "The Curiosity Rover"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Who is the chemical element Curium named after?",
-    "type": "multiple_choice"
+    "text": "El elemento químico Curio fue nombrado en honor a Marie y Pierre Curie.",
+    "type": "true_false"
   },
   {
-    "answer": "Mars",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 85,
     "options": [
-      "Jupiter",
-      "Saturn",
-      "Mars",
-      "Venus"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Which planet did the \"Viking 1\" spacecraft send surface images of, starting in 1976?",
-    "type": "multiple_choice"
+    "text": "La nave espacial \"Viking 1\" envió imágenes de la superficie de Marte a partir de 1976.",
+    "type": "true_false"
   },
   {
-    "answer": "Botulinum toxin",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 86,
     "options": [
-      "Asbestos",
-      "Cyanide",
-      "Ricin",
-      "Botulinum toxin"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the most potent toxin known?",
-    "type": "multiple_choice"
+    "text": "La toxina botulínica es la toxina más potente conocida hasta la fecha.",
+    "type": "true_false"
   },
   {
-    "answer": "Gorilla Gorilla Gorilla",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 87,
     "options": [
-      "Gorilla Gorilla Diehli",
-      "Gorilla Beringei Beringei",
-      "Gorilla Gorilla Gorilla",
-      "Gorilla Beringei Graueri"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The Western Lowland Gorilla is scientifically know as?",
-    "type": "multiple_choice"
+    "text": "El nombre científico del gorila occidental de tierras bajas es Gorilla gorilla gorilla.",
+    "type": "true_false"
   },
   {
-    "answer": "low, all",
+    "answer": "Falso",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 88,
     "options": [
-      "high, all",
-      "high, some",
-      "low, all",
-      "low, some"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "The Axiom of Preventive Medicine states that people with ___ risk for a disease should be screened and we should treat ___ of those people.",
-    "type": "multiple_choice"
+    "text": "El Axioma de Medicina Preventiva establece que las personas con alto riesgo de una enfermedad deben ser examinadas y se debe tratar solo a algunas de ellas.",
+    "type": "true_false"
   },
   {
-    "answer": "Mexico",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 89,
     "options": [
-      "Spain",
-      "Russia",
-      "Mexico",
-      "France"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Where did the dog breed \"Chihuahua\" originate?",
-    "type": "multiple_choice"
+    "text": "La raza de perro Chihuahua tiene su origen en México.",
+    "type": "true_false"
   },
   {
-    "answer": "0.1 Microsievert",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 90,
     "options": [
-      "0.3 Microsievert",
-      "0.5 Microsievert",
-      "0.7 Microsievert",
-      "0.1 Microsievert"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "How much radiation does a banana emit?",
-    "type": "multiple_choice"
+    "text": "Un plátano emite aproximadamente 0,1 microsieverts de radiación.",
+    "type": "true_false"
   },
   {
-    "answer": "Pb",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 91,
     "options": [
-      "Pm",
-      "Pb",
-      "Ld",
-      "Le"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the chemical symbol for lead?",
-    "type": "multiple_choice"
+    "text": "El símbolo químico del plomo en la tabla periódica es Pb.",
+    "type": "true_false"
   },
   {
-    "answer": "Kelvin",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 92,
     "options": [
-      "Rankine",
-      "Kelvin",
-      "Fahrenheit",
-      "Celsius"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the standard SI unit for temperature?",
-    "type": "multiple_choice"
+    "text": "La unidad estándar del Sistema Internacional (SI) para la temperatura es el Kelvin.",
+    "type": "true_false"
   },
   {
-    "answer": "Polaris",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 93,
     "options": [
-      "Iota Cephei",
-      "Eridanus",
-      "Gamma Cephei",
-      "Polaris"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the official name of the star located closest to the North Celestial Pole?",
-    "type": "multiple_choice"
+    "text": "Polaris es el nombre oficial de la estrella más cercana al Polo Celeste Norte.",
+    "type": "true_false"
   },
   {
-    "answer": "238",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 94,
     "options": [
-      "238",
-      "235",
-      "239",
-      "233"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Naturally occuring uranium primarily consists of which isotope?",
-    "type": "multiple_choice"
+    "text": "El uranio que se encuentra en la naturaleza está compuesto principalmente por el isótopo U-238.",
+    "type": "true_false"
   },
   {
-    "answer": "Marie & Pierre Curie",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 95,
     "options": [
-      "Curious George",
-      "Stephen Curry",
-      "The Curiosity Rover",
-      "Marie & Pierre Curie"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Who is the chemical element Curium named after?",
-    "type": "multiple_choice"
+    "text": "El elemento Curio recibe su nombre en honor a Marie y Pierre Curie.",
+    "type": "true_false"
   },
   {
-    "answer": "4.5 Billion Years",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 96,
     "options": [
-      "3.5 Billion Years",
-      "4.5 Billion Years",
-      "5.5 Billion Years",
-      "2.5 Billion Years"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "About how old is Earth?",
-    "type": "multiple_choice"
+    "text": "La Tierra tiene aproximadamente 4.500 millones de años de antigüedad.",
+    "type": "true_false"
   },
   {
-    "answer": "Cornwall",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 97,
     "options": [
-      "Cornwall",
-      "The Midlands",
-      "Wales",
-      "Surrey"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Where did the Great Storm of 1987 make landfall at, first?",
-    "type": "multiple_choice"
+    "text": "La Gran Tormenta de 1987 tocó tierra por primera vez en Cornualles (Cornwall).",
+    "type": "true_false"
   },
   {
-    "answer": "Hydrogen",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 98,
     "options": [
-      "Lithium",
-      "Hydrogen",
-      "Helium",
-      "Oxygen"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the first element on the periodic table?",
-    "type": "multiple_choice"
+    "text": "El hidrógeno es el primer elemento de la tabla periódica.",
+    "type": "true_false"
   },
   {
-    "answer": "Troposphere",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 99,
     "options": [
-      "Mesosphere",
-      "Stratosphere",
-      "Thermosphere",
-      "Troposphere"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What is the lowest layer of the Earth's atmosphere named?",
-    "type": "multiple_choice"
+    "text": "La capa más baja de la atmósfera terrestre se llama tropósfera.",
+    "type": "true_false"
   },
   {
-    "answer": "The separation of a strain from a natural, mixed population of living microbes",
+    "answer": "Verdadero",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 100,
     "options": [
-      "The nitrogen level in soil",
-      "The separation of a strain from a natural, mixed population of living microbes",
-      "A lack of nutrition in microenviroments",
-      "Testing effects of certain microorganisms in an isolated enviroments, such as caves"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "What does the term \"isolation\" refer to in microbiology?",
-    "type": "multiple_choice"
+    "text": "En microbiología, el término \"aislamiento\" se refiere a la separación de una cepa de una población natural y mixta de microorganismos vivos.",
+    "type": "true_false"
   },
   {
     "answer": "38",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 101,
-    "options": [
-      "73",
-      "38",
-      "11",
-      "47"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the atomic number of the element Strontium?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el número atómico del elemento Estroncio?",
+    "type": "quick_answer"
   },
   {
     "answer": "Astatine",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 102,
-    "options": [
-      "Astatine",
-      "Selenium",
-      "Antimony",
-      "Molybdenum"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which chemical element was originally known as Alabamine?",
-    "type": "multiple_choice"
+    "text": "¿Qué elemento químico se conocía originalmente como Alabamina?",
+    "type": "quick_answer"
   },
   {
     "answer": "Umbilicus",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 103,
-    "options": [
-      "Nares",
-      "Paxillus",
-      "Umbilicus",
-      "Nevus"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The medical term for the belly button is which of the following?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el término médico para el ombligo?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Femur",
+    "answer": "Fémur",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 104,
-    "options": [
-      "Tibia",
-      "Humerus",
-      "Cranium",
-      "Femur"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which of these bones is hardest to break?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de estos huesos es el más difícil de romper?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Pancreas",
+    "answer": "Páncreas",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 105,
-    "options": [
-      "Liver",
-      "Pancreas",
-      "Stomach",
-      "Kidney"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What part of the body produces insulin?",
-    "type": "multiple_choice"
+    "text": "¿Qué parte del cuerpo produce la insulina?",
+    "type": "quick_answer"
   },
   {
     "answer": "Ernest Rutherford",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 106,
-    "options": [
-      "Archimedes",
-      "Joseph John Thomson",
-      "Ernest Rutherford",
-      "Niels Henrik David Bohr"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which one of these scientists conducted the Gold Foil Experiment which concluded that atoms are mostly made of empty space?",
-    "type": "multiple_choice"
+    "text": "¿Qué científico realizó el Experimento de la Lámina de Oro que concluyó que los átomos están compuestos principalmente de espacio vacío?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Nitrogen",
+    "answer": "Nitrógeno",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 107,
-    "options": [
-      "Carbon Dioxide",
-      "Oxygen",
-      "Nitrogen",
-      "Argon"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which gas forms about 78% of the Earth’s atmosphere?",
-    "type": "multiple_choice"
+    "text": "¿Qué gas constituye aproximadamente el 78% de la atmósfera terrestre?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Second",
+    "answer": "Segundo",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 108,
-    "options": [
-      "Second",
-      "Minute",
-      "Day",
-      "Hour"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the standard SI unit for time?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es la unidad estándar del Sistema Internacional (SI) para el tiempo?",
+    "type": "quick_answer"
   },
   {
-    "answer": "low, all",
+    "answer": "bajo, todas",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 109,
-    "options": [
-      "low, some",
-      "high, some",
-      "high, all",
-      "low, all"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The Axiom of Preventive Medicine states that people with ___ risk for a disease should be screened and we should treat ___ of those people.",
-    "type": "multiple_choice"
+    "text": "El Axioma de Medicina Preventiva establece que las personas con riesgo ___ de una enfermedad deben ser examinadas y se debe tratar a ___ esas personas.",
+    "type": "quick_answer"
   },
   {
     "answer": "C18H27NO3",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 110,
-    "options": [
-      "C6H4Cl2",
-      "C21H23NO3",
-      "C13H25NO4",
-      "C18H27NO3"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the molecular formula of the active component of chili peppers(Capsaicin)?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es la fórmula molecular del componente activo de los chiles (Capsaicina)?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Iron",
+    "answer": "Hierro",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 111,
-    "options": [
-      "Cobalt",
-      "Iron",
-      "Copper",
-      "Iridium"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The element involved in making human blood red is which of the following?",
-    "type": "multiple_choice"
+    "text": "¿Qué elemento está involucrado en dar el color rojo a la sangre humana?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Tornadoes",
+    "answer": "Tornados",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 112,
-    "options": [
-      "Tornadoes",
-      "Hurricanes",
-      "Volcanoes",
-      "Earthquakes"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Tetsuya Fujita was a scientist that developed the scale for which natural disaster?",
-    "type": "multiple_choice"
+    "text": "Tetsuya Fujita fue un científico que desarrolló la escala para qué desastre natural?",
+    "type": "quick_answer"
   },
   {
     "answer": "212°F",
     "category": "ciencia",
     "difficulty": "medium",
     "id": 113,
-    "options": [
-      "200°F",
-      "181°F",
-      "212°F",
-      "178°F"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "At what temperature does water boil?",
-    "type": "multiple_choice"
+    "text": "¿A qué temperatura hierve el agua (en grados Fahrenheit)?",
+    "type": "quick_answer"
   },
   {
     "answer": "Venus",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 114,
-    "options": [
-      "Venus",
-      "Jupiter",
-      "Mercury",
-      "Mars"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the hottest planet in the Solar System?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el planeta más caliente del Sistema Solar?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Perceptual Neuron",
+    "answer": "Neurona Perceptual",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 115,
-    "options": [
-      "Perceptual Neuron",
-      "Motor Neuron",
-      "Interneuron",
-      "Sensory Neuron"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Which is not a type of neuron?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de los siguientes NO es un tipo de neurona: Neurona Perceptual, Neurona Motora, Interneurona, Neurona Sensorial?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Space",
+    "answer": "Space (Espacio)",
     "category": "ciencia",
     "difficulty": "easy",
     "id": 116,
-    "options": [
-      "Society",
-      "Science",
-      "Star",
-      "Space"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What does the letter 'S' stand for in 'NASA'?",
-    "type": "multiple_choice"
+    "text": "¿Qué significa la letra 'S' en la sigla 'NASA'?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Vulpes Vulpes",
+    "answer": "Vulpes vulpes",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 117,
-    "options": [
-      "Vulpes Redus",
-      "Vulpes Vulpes",
-      "Vulpes Vulpie",
-      "Red Fox"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "What is the scientific name of the red fox?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el nombre científico del zorro rojo?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Hydroxyl",
+    "answer": "Hidroxilo",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 118,
-    "options": [
-      "Carbonyl",
-      "Alkyl",
-      "Hydroxyl",
-      "Aldehyde"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "An organic compound is considered an alcohol if it has what functional group?",
-    "type": "multiple_choice"
+    "text": "¿Qué grupo funcional debe tener un compuesto orgánico para ser considerado un alcohol?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Pancreas",
+    "answer": "Páncreas",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 119,
-    "options": [
-      "Pancreas",
-      "Kidney",
-      "Brain",
-      "Liver"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The 'Islets of Langerhans' is found in which human organ?",
-    "type": "multiple_choice"
+    "text": "¿En qué órgano humano se encuentran los Islotes de Langerhans?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Gorilla Gorilla Gorilla",
+    "answer": "Gorilla gorilla gorilla",
     "category": "ciencia",
     "difficulty": "hard",
     "id": 120,
-    "options": [
-      "Gorilla Gorilla Gorilla",
-      "Gorilla Gorilla Diehli",
-      "Gorilla Beringei Beringei",
-      "Gorilla Beringei Graueri"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "The Western Lowland Gorilla is scientifically know as?",
-    "type": "multiple_choice"
+    "text": "¿Cuál es el nombre científico del gorila occidental de tierras bajas?",
+    "type": "quick_answer"
   }
 ]
