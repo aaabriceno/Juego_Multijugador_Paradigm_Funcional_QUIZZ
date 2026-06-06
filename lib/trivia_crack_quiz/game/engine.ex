@@ -16,6 +16,8 @@ defmodule TriviaCrackQuiz.Game do
       round_time_ms: @round_time_ms,
       questions: questions,
       current_question: nil,
+      used_question_ids: MapSet.new(),
+      last_category: nil,
       answers: %{},
       winner: nil
     }
@@ -46,7 +48,7 @@ defmodule TriviaCrackQuiz.Game do
   end
 
   def next_question(state) do
-    question = Enum.at(state.questions, rem(state.round, length(state.questions)))
+    question = select_question(state)
     now = System.monotonic_time(:millisecond)
 
     %{
@@ -54,6 +56,8 @@ defmodule TriviaCrackQuiz.Game do
       | round: state.round + 1,
         round_started_at: now,
         current_question: question,
+        used_question_ids: MapSet.put(state.used_question_ids, question.id),
+        last_category: question.category,
         answers: %{}
     }
   end
@@ -107,6 +111,30 @@ defmodule TriviaCrackQuiz.Game do
 
   def visible_state(state) do
     Map.drop(state, [:questions])
+  end
+
+  defp select_question(state) do
+    state
+    |> available_questions()
+    |> avoid_last_category(state.last_category)
+    |> Enum.random()
+  end
+
+  defp available_questions(state) do
+    available =
+      Enum.reject(state.questions, fn question ->
+        MapSet.member?(state.used_question_ids, question.id)
+      end)
+
+    if available == [], do: state.questions, else: available
+  end
+
+  defp avoid_last_category(questions, nil), do: questions
+
+  defp avoid_last_category(questions, last_category) do
+    other_categories = Enum.reject(questions, &(&1.category == last_category))
+
+    if other_categories == [], do: questions, else: other_categories
   end
 
   defp score_answer(nil, _answered_at), do: 100
