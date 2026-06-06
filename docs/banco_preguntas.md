@@ -62,6 +62,36 @@ Para separar ese archivo en 5 archivos por categoria, ejecutar:
 mix run scripts/split_questions_by_category.exs
 ```
 
+## Validar preguntas
+
+Cada vez que se editen preguntas, ejecutar:
+
+```bash
+mix run scripts/validate_questions.exs
+```
+
+El validador revisa:
+
+- que cada pregunta tenga `id`, `category`, `type`, `text`, `options` y `answer`
+- que la categoria coincida con el archivo donde esta guardada
+- que `multiple_choice` tenga 4 opciones y que `answer` exista dentro de
+  `options`
+- que `true_false` tenga exactamente `["Verdadero", "Falso"]`
+- que `quick_answer` tenga `options` vacio
+- que no haya ids repetidos
+
+## Reglas de seleccion durante la partida
+
+El motor del juego carga todas las preguntas en memoria al iniciar la partida.
+Durante una sala:
+
+- no se repiten preguntas ya usadas
+- se evita repetir la misma categoria en rondas consecutivas mientras existan
+  preguntas disponibles de otras categorias
+- la partida usa `max_rounds` para limitar la cantidad de rondas
+- si en un escenario pequeno se agotan las preguntas disponibles, el motor puede
+  volver a usar el banco completo para evitar que la partida se rompa
+
 ## Formato esperado
 
 ```json
