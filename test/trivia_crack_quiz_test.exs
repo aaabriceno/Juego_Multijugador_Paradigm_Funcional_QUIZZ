@@ -5,7 +5,7 @@ defmodule TriviaCrackQuizTest do
 
   test "requires at least 3 players to start" do
     state =
-      Game.new_state()
+      Game.new_state(test_questions())
       |> Game.join("p1", "Ana")
       |> Game.join("p2", "Luis")
 
@@ -14,7 +14,7 @@ defmodule TriviaCrackQuizTest do
 
   test "starts when 3 players are registered" do
     state =
-      Game.new_state()
+      Game.new_state(test_questions())
       |> Game.join("p1", "Ana")
       |> Game.join("p2", "Luis")
       |> Game.join("p3", "Mia")
@@ -28,7 +28,7 @@ defmodule TriviaCrackQuizTest do
 
   test "adds points when the answer is correct" do
     state =
-      Game.new_state()
+      Game.new_state(test_questions())
       |> Game.join("p1", "Ana")
       |> Game.join("p2", "Luis")
       |> Game.join("p3", "Mia")
@@ -38,5 +38,18 @@ defmodule TriviaCrackQuizTest do
 
     assert state.players["p1"].score >= 100
     assert state.answers == %{}
+  end
+
+  defp test_questions do
+    [
+      %{
+        id: 1,
+        type: :multiple_choice,
+        category: :science,
+        text: "Que planeta es conocido como el planeta rojo?",
+        options: ["Venus", "Marte", "Jupiter", "Saturno"],
+        answer: "Marte"
+      }
+    ]
   end
 end
