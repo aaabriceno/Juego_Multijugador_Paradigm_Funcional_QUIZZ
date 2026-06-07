@@ -5,13 +5,13 @@
     "difficulty": "easy",
     "id": 121,
     "options": [
-      "Henry VIII",
-      "Czar Nicholas II",
+      "Enrique VIII",
+      "Zar Nicolás II",
       "Marie Antoinette",
-      "Elizabeth I"
+      "Isabel I"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Qué líder mundial famoso es conocido por la frase \"Que coman pasteles\", aunque se rumorea que en realidad nunca la pronunció?",
+    "text": "¿Qué famosa figura histórica es conocida por la frase \"Que coman pasteles\", aunque se rumorea que en realidad nunca la pronunció?",
     "type": "multiple_choice"
   },
   {
@@ -22,11 +22,11 @@
     "options": [
       "Goldsboro, Carolina del Norte",
       "Jacksonville, Florida",
-      "Hicksville, New York",
+      "Hicksville, Nueva York",
       "Conway, Arkansas"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Sobre qué ciudad estadounidense se estrelló en 1961 un avión B-52 estadounidense y estuvo a punto de detonar dos bombas nucleares de 4 megatones?",
+    "text": "¿Sobre qué ciudad estadounidense se estrelló en 1961 un avión B-52 que estuvo a punto de detonar dos bombas nucleares de 4 megatones?",
     "type": "multiple_choice"
   },
   {
@@ -71,18 +71,18 @@
       "George Washington"
     ],
     "source": "Open Trivia Database",
-    "text": "¿De qué presidente de Estados Unidos se decía que era demasiado honesto como para mentir a su padre sobre haber talado un cerezo?",
+    "text": "¿De qué presidente de Estados Unidos se decía que era demasiado honesto como para mentirle a su padre sobre haber talado un cerezo?",
     "type": "multiple_choice"
   },
   {
-    "answer": "New York",
+    "answer": "Nueva York",
     "category": "historia",
     "difficulty": "easy",
     "id": 126,
     "options": [
-      "New York",
-      "Philadelphia",
-      "Boston ",
+      "Nueva York",
+      "Filadelfia",
+      "Boston",
       "Washington"
     ],
     "source": "Open Trivia Database",
@@ -101,7 +101,7 @@
       "1934"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año lanzó Skoal, una empresa de tabaco sin humo, su primera línea de bolsitas, conocida como \"Skoal Bandits\"?",
+    "text": "¿En qué año lanzó Skoal, una empresa de tabaco sin humo, su primera línea de bolsitas conocida como \"Skoal Bandits\"?",
     "type": "multiple_choice"
   },
   {
@@ -111,7 +111,7 @@
     "id": 128,
     "options": [
       "1%",
-      "<1%",
+      "Menos del 1%",
       "5%",
       "3%"
     ],
@@ -120,15 +120,15 @@
     "type": "multiple_choice"
   },
   {
-    "answer": "William III",
+    "answer": "Guillermo III",
     "category": "historia",
     "difficulty": "medium",
     "id": 129,
     "options": [
-      "William III",
-      "William I",
-      "William IV",
-      "William II"
+      "Guillermo III",
+      "Guillermo I",
+      "Guillermo IV",
+      "Guillermo II"
     ],
     "source": "Open Trivia Database",
     "text": "¿Qué monarca británico era también conocido como \"Guillermo de Orange\"?",
@@ -157,8 +157,8 @@
     "options": [
       "Textil",
       "Agricultura",
-      "Ceramica",
-      "Mineria"
+      "Cerámica",
+      "Minería"
     ],
     "source": "Open Trivia Database",
     "text": "¿En qué sector se aplicaba originalmente el término \"ludita\" a los trabajadores descontentos?",
@@ -176,7 +176,7 @@
       "1453"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuándo se derrumbó el Imperio bizantino?",
+    "text": "¿En qué año se derrumbó el Imperio bizantino?",
     "type": "multiple_choice"
   },
   {
@@ -195,14 +195,14 @@
     "type": "multiple_choice"
   },
   {
-    "answer": "Ferdinand Maximiliano",
+    "answer": "Fernando Maximiliano",
     "category": "historia",
     "difficulty": "hard",
     "id": 134,
     "options": [
-      "Ferdinand Maximiliano",
+      "Fernando Maximiliano",
       "Andrés Manuel López Obrador",
-      "Napoleon III",
+      "Napoleón III",
       "Agustín de Iturbide"
     ],
     "source": "Open Trivia Database",
@@ -221,7 +221,7 @@
       "Albert Einstein"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál de los siguientes físicos ayudó a la Alemania nazi en la fabricación de un arma nuclear?",
+    "text": "¿Cuál de los siguientes físicos colaboró con la Alemania nazi en el desarrollo de un arma nuclear?",
     "type": "multiple_choice"
   },
   {
@@ -236,7 +236,7 @@
       "1798"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año se fundó Canadá?",
+    "text": "¿En qué año se fundó Canadá como nación?",
     "type": "multiple_choice"
   },
   {
@@ -245,13 +245,13 @@
     "difficulty": "medium",
     "id": 137,
     "options": [
-        "Sala de desmayos",
-        "Pista de squash",
-        "Perrera",
-        "Baño turco"
+      "Sala de desmayos",
+      "Pista de squash",
+      "Perrera",
+      "Baño turco"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál de estas instalaciones no existía en el Titanic?",
+    "text": "¿Cuál de estas instalaciones NO existía en el Titanic?",
     "type": "multiple_choice"
   },
   {
@@ -266,7 +266,7 @@
       "Adolf Hitler"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Qué dictador mató a más personas?",
+    "text": "¿Qué dictador es responsable del mayor número de muertes en la historia?",
     "type": "multiple_choice"
   },
   {
@@ -290,583 +290,453 @@
     "difficulty": "medium",
     "id": 140,
     "options": [
-      "Plato",
+      "Platón",
       "Shakespeare",
       "Descartes",
-      "Aristotle"
+      "Aristóteles"
     ],
     "source": "Open Trivia Database",
     "text": "¿Quién acuñó la famosa frase \"Pienso, luego existo\"?",
     "type": "multiple_choice"
   },
   {
-    "answer": "Ilirios",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "easy",
     "id": 141,
     "options": [
-      "Aqueos",
-      "Jonios",
-      "Dorios",
-      "Ilirios"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál de los siguientes pueblos antiguos NO se consideraba helénico (griego)?",
-    "type": "multiple_choice"
+    "text": "Los ilirios NO eran considerados un pueblo helénico (griego) en la antigüedad.",
+    "type": "true_false"
   },
   {
-    "answer": "Prision Landsberg",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 142,
     "options": [
-      "Prision Landsberg",
-      "Ebrach Abbey",
-      "Prisio Spandau",
-      "Hohenasperg"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué prisión estuvo recluido Adolf Hitler en 1924?",
-    "type": "multiple_choice"
+    "text": "Adolf Hitler estuvo recluido en la Prisión Landsberg en 1924.",
+    "type": "true_false"
   },
   {
-    "answer": "1776",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "hard",
     "id": 143,
     "options": [
-      "1775",
-      "1777",
-      "1776",
-      "1774"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?",
-    "type": "multiple_choice"
+    "text": "La Declaración de Independencia de los Estados Unidos fue firmada en 1776.",
+    "type": "true_false"
   },
   {
-    "answer": "Camboya",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "easy",
     "id": 144,
     "options": [
-      "Corea del Norte",
-      "Laos",
-      "Vietnam",
-      "Camboya"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿De qué país fue Pol Pot el antiguo dictador?",
-    "type": "multiple_choice"
+    "text": "Pol Pot fue el antiguo dictador de Camboya.",
+    "type": "true_false"
   },
   {
-    "answer": "Alan Shephard",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "easy",
     "id": 145,
     "options": [
-      "Alan Shephard",
-      "Jim Lovell",
-      "Neil Armstrong",
-      "John Glenn"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Quién fue el primer estadounidense en ir al espacio?",
-    "type": "multiple_choice"
+    "text": "Alan Shepard fue el primer estadounidense en viajar al espacio.",
+    "type": "true_false"
   },
   {
-    "answer": "Renault FT",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 146,
     "options": [
-      "Cromwell ",
-      "Renault FT",
-      " Panzer IV",
-      "M4 Sherman"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál de estos tanques de principios del siglo XX se diseñó y construyó ANTES que los demás?",
-    "type": "multiple_choice"
+    "text": "El tanque Renault FT fue diseñado y construido antes que el Cromwell, el Panzer IV y el M4 Sherman.",
+    "type": "true_false"
   },
   {
-    "answer": "1066",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "hard",
     "id": 147,
     "options": [
-      "1420",
-      "1204",
-      "1066",
-      "911"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año tuvo lugar la batalla de Hastings?",
-    "type": "multiple_choice"
+    "text": "La batalla de Hastings tuvo lugar en el año 1066.",
+    "type": "true_false"
   },
   {
-    "answer": "Tifones",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 148,
     "options": [
-      "Depresión Económica",
-      "Samurais",
-      "Tifones",
-      "Tornados"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Durante las invasiones mongolas de Japón, ¿qué fue lo que más frenó a las naves mongolas?",
-    "type": "multiple_choice"
+    "text": "Durante las invasiones mongolas de Japón, los tifones fueron el factor que más frenó a las naves mongolas.",
+    "type": "true_false"
   },
   {
-    "answer": "Harry S. Truman",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 149,
     "options": [
-      "Herbert Hoover",
-      "Franklin D. Roosevelt",
-      "Harry S. Truman",
-      "Dwight D. Eisenhower"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Qué presidente de Estados Unidos participó en la Conferencia de Potsdam, en la que los Aliados alcanzaron un acuerdo de paz con Alemania?",
-    "type": "multiple_choice"
+    "text": "Harry S. Truman fue el presidente de Estados Unidos que participó en la Conferencia de Potsdam, donde los Aliados acordaron la paz con Alemania.",
+    "type": "true_false"
   },
   {
-    "answer": "Muelle para aeronaves",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 150,
     "options": [
-      "Muelle para aeronaves",
-      "Pararrayos",
-      "Mástil de bandera",
-      "Antenas"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Para qué se construyó originalmente la corona del Empire State Building?",
-    "type": "multiple_choice"
+    "text": "La corona del Empire State Building fue construida originalmente como muelle para aeronaves (dirigibles).",
+    "type": "true_false"
   },
   {
-    "answer": "Buffalo Bill",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "easy",
     "id": 151,
     "options": [
-      "Wild Bill Hickok",
-      "Buffalo Bill",
-      "Billy el Niño",
-      "Pawnee Bill"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Por qué nombre era más conocido William Frederick Cody?",
-    "type": "multiple_choice"
+    "text": "William Frederick Cody era más conocido por el nombre de \"Buffalo Bill\".",
+    "type": "true_false"
   },
   {
-    "answer": "Ejército Republicano Irlandés",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 152,
     "options": [
-      "Alianza Rebelde Irlandesa",
-      "Alianza Real-Irlandesa",
-      "Ejército de la Reforma Irlandesa",
-      "Ejército Republicano Irlandés"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "En relación con la ocupación británica de Irlanda, ¿qué significa las siglas IRA?",
-    "type": "multiple_choice"
+    "text": "Las siglas IRA, en relación con la ocupación británica de Irlanda, significan Ejército Republicano Irlandés.",
+    "type": "true_false"
   },
   {
-    "answer": "Gavrilo Princip",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 153,
     "options": [
-      "Gavrilo Princip",
-      "Ferdinand Cohen-Blind",
-      "Nedeljko Čabrinović",
-      "Oskar Potiorek"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Quién asesinó al archiduque Francisco Fernando?",
-    "type": "multiple_choice"
+    "text": "Gavrilo Princip fue quien asesinó al archiduque Francisco Fernando de Austria.",
+    "type": "true_false"
   },
   {
-    "answer": "Apollo 17",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 154,
     "options": [
-      "Apollo 11",
-      "Apollo 15",
-      "Apollo 13",
-      "Apollo 17"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál fue la última misión del programa Apolo de la NASA?",
-    "type": "multiple_choice"
+    "text": "La misión Apolo 17 fue la última del programa Apolo de la NASA.",
+    "type": "true_false"
   },
   {
-    "answer": "Romantica",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "hard",
     "id": 155,
     "options": [
-      "Clasica",
-      "Barroca",
-      "Renacentista",
-      "Romantica"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿A qué época musical perteneció el pianista Frédéric Chopin?",
-    "type": "multiple_choice"
+    "text": "El pianista Frédéric Chopin perteneció a la época musical Romántica.",
+    "type": "true_false"
   },
   {
-    "answer": "George H. W. Bush",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 156,
     "options": [
-      "Richard Nixon",
-      "George W. Bush ",
-      "Ronald Regan",
-      "George H. W. Bush"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Qué presidente de Estados Unidos ocupaba el cargo cuando comenzó la Guerra del Golfo?",
-    "type": "multiple_choice"
+    "text": "George H. W. Bush era el presidente de Estados Unidos cuando comenzó la Guerra del Golfo.",
+    "type": "true_false"
   },
   {
-    "answer": "Operación Dragoon",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "hard",
     "id": 157,
     "options": [
-      "Operación Market Garden",
-      "Operación Torch",
-      "Operación Overlord",
-      "Operación Dragoon"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿Cuál fue el nombre en clave de la invasión aliada del sur de Francia el 15 de agosto de 1944?",
-    "type": "multiple_choice"
+    "text": "El nombre en clave de la invasión aliada del sur de Francia el 15 de agosto de 1944 fue \"Operación Dragoon\".",
+    "type": "true_false"
   },
   {
-    "answer": "1975",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 158,
     "options": [
-      "1967",
-      "1969",
-      "1975",
-      "1978"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año terminó la guerra de Vietnam?",
-    "type": "multiple_choice"
+    "text": "La guerra de Vietnam terminó en 1975.",
+    "type": "true_false"
   },
   {
-    "answer": "Zhai (翟)",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 159,
     "options": [
-      "Qin (秦)",
-      "Zhai (翟)",
-      "Qi (齊)",
-      "Zhao (趙)"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "Todos los siguientes son nombres de los Siete Reinos Combatientes, EXCEPTO:",
-    "type": "multiple_choice"
+    "text": "Zhai (翟) no es el nombre de ninguno de los Siete Reinos Combatientes de la historia china.",
+    "type": "true_false"
   },
   {
-    "answer": "1969",
+    "answer": "Verdadero",
     "category": "historia",
     "difficulty": "medium",
     "id": 160,
     "options": [
-      "1966",
-      "1965",
-      "1969",
-      "1973"
+      "Verdadero",
+      "Falso"
     ],
     "source": "Open Trivia Database",
-    "text": "¿En qué año aterrizaron Neil Armstrong y Buzz Aldrin en la Luna?",
-    "type": "multiple_choice"
+    "text": "Neil Armstrong y Buzz Aldrin aterrizaron en la Luna en 1969.",
+    "type": "true_false"
   },
   {
     "answer": "Kingston",
     "category": "historia",
     "difficulty": "hard",
     "id": 161,
-    "options": [
-      "Kingston",
-      "Montreal",
-      "Ottawa",
-      "Toronto"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Cuál fue la primera capital de Canadá?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
-    "answer": "Nikita Krushchev",
+    "answer": "Nikita Jrushchov",
     "category": "historia",
     "difficulty": "easy",
     "id": 162,
-    "options": [
-      "Lavrentiy Beria",
-      "Nikita Krushchev",
-      "Vyacheslav Molotov",
-      "Georgy Malenkov"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Quién sucedió a Josef Stalin como líder de la Unión Soviética?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Justiniano I",
     "category": "historia",
     "difficulty": "hard",
     "id": 163,
-    "options": [
-      "Constantino IV",
-      "Arcadio",
-      "Teodosio el Grande",
-      "Justiniano I"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Qué emperador del Imperio bizantino encargó la construcción de Santa Sofía?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Mamluk",
     "category": "historia",
     "difficulty": "hard",
     "id": 164,
-    "options": [
-      "Selyúcida",
-      "Omeya",
-      "Ayubí",
-      "Mamluk"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "Tras la batalla de Marj Dabiq de 1516, ¿a qué sultanato arrebató Jerusalén el Imperio otomano?",
-    "type": "multiple_choice"
+    "text": "Tras la batalla de Marj Dabiq de 1516, ¿a qué sultanato le arrebató Jerusalén el Imperio otomano?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Cáucaso",
+    "answer": "El Cáucaso",
     "category": "historia",
     "difficulty": "hard",
     "id": 165,
-    "options": [
-      "Vorónezh",
-      "Crimea",
-      "Cáucaso",
-      "Stalingrado"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿Cuál era el objetivo principal de la operación alemana \"Case Blue\" durante la Segunda Guerra Mundial?",
-    "type": "multiple_choice"
+    "text": "¿Cuál era el objetivo principal de la operación alemana \"Caso Azul\" (Case Blue) durante la Segunda Guerra Mundial?",
+    "type": "quick_answer"
   },
   {
     "answer": "Batalla de Midway",
     "category": "historia",
     "difficulty": "hard",
     "id": 166,
-    "options": [
-      "Atque a Pearl Harbor",
-      "Ataque a Truk Island",
-      "Batalla de Midway",
-      "Batalla de el Mar Coral"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿Qué batalla naval se consideró el punto de inflexión del teatro de operaciones del Pacífico durante la Segunda Guerra Mundial?",
-    "type": "multiple_choice"
+    "text": "¿Qué batalla naval se considera el punto de inflexión del teatro de operaciones del Pacífico en la Segunda Guerra Mundial?",
+    "type": "quick_answer"
   },
   {
-    "answer": "Paz de Westphalia",
+    "answer": "Paz de Westfalia",
     "category": "historia",
     "difficulty": "medium",
     "id": 167,
-    "options": [
-      "Tratado de Versalles",
-      "Tratado de Paris",
-      "Paz de Westphalia",
-      "Paz de Praga"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Con qué tratado terminó la Guerra de los Treinta Años?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "George Washington",
     "category": "historia",
     "difficulty": "easy",
     "id": 168,
-    "options": [
-      "George Washington",
-      "Thomas Jefferson",
-      "James Madison",
-      "James K. Polk"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Quién fue el primer presidente de los Estados Unidos?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Sudáfrica",
     "category": "historia",
     "difficulty": "hard",
     "id": 169,
-    "options": [
-      "Nepal",
-      "Sudáfrica",
-      "Bulgaria",
-      "Argentina"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿Dónde se libró la Segunda Guerra de los Bóers en 1899?",
-    "type": "multiple_choice"
+    "text": "¿En qué país se libró la Segunda Guerra de los Bóers en 1899?",
+    "type": "quick_answer"
   },
   {
     "answer": "1997",
     "category": "historia",
     "difficulty": "medium",
     "id": 171,
-    "options": [
-      "1981",
-      "1997",
-      "1986",
-      "1971"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿Qué año se considera el año en que terminó el Imperio Británico?",
-    "type": "multiple_choice"
+    "text": "¿Qué año se considera el fin del Imperio Británico?",
+    "type": "quick_answer"
   },
   {
     "answer": "Paul Dirac",
     "category": "historia",
     "difficulty": "hard",
     "id": 172,
-    "options": [
-      "Paul Dirac",
-      "Werner Heisenberg",
-      "Albert Einstein",
-      "Niels Bohr"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Cuál de estos físicos teóricos fue el primero en predecir la existencia de la antimateria?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Alemana",
     "category": "historia",
     "difficulty": "medium",
     "id": 173,
-    "options": [
-      "Alemana",
-      "Británica",
-      "Americana",
-      "Polaca"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿De qué nacionalidad era el creador del código y la máquina Enigma?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Hispania",
     "category": "historia",
     "difficulty": "hard",
     "id": 174,
-    "options": [
-      "Asia",
-      "Italia",
-      "Hispania",
-      "Galia"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "Durante el Triunvirato romano del año 42 a. C., ¿qué región de la República romana se le asignó a Lépido?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "Finlandés",
     "category": "historia",
     "difficulty": "medium",
     "id": 175,
-    "options": [
-      "Ruso",
-      "Ingles",
-      "Finlandés",
-      "Hindú"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿Cuál de las siguientes lenguas no pertenece a la familia indoeuropea?",
-    "type": "multiple_choice"
+    "text": "¿Cuál de las siguientes lenguas NO pertenece a la familia indoeuropea: ruso, inglés, finlandés o hindi?",
+    "type": "quick_answer"
   },
   {
     "answer": "San Marino",
     "category": "historia",
     "difficulty": "hard",
     "id": 176,
-    "options": [
-      "Andorra",
-      "San Marino",
-      "San Cristóbal y Nieves",
-      "Monaco"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿Qué microestado se considera que tiene la constitución más antigua aún vigente?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
     "answer": "1792",
     "category": "historia",
     "difficulty": "medium",
     "id": 177,
-    "options": [
-      "1788",
-      "1798",
-      "1782",
-      "1792"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
     "text": "¿En qué año se convirtió Kentucky en el decimoquinto estado en incorporarse a la Unión?",
-    "type": "multiple_choice"
+    "type": "quick_answer"
   },
   {
-    "answer": "Cualquier dios que quisieran",
+    "answer": "Cualquier dios",
     "category": "historia",
     "difficulty": "hard",
     "id": 178,
-    "options": [
-      "Cualquier dios que quisieran",
-      "Zeus",
-      "Atenea",
-      "Athena y Zeus"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "¿A qué dios se rendía culto en el Panteón de Roma?",
-    "type": "multiple_choice"
+    "text": "¿A qué dios o dioses se rendía culto en el Panteón de Roma?",
+    "type": "quick_answer"
   },
   {
     "answer": "La Gran Migración",
     "category": "historia",
     "difficulty": "medium",
     "id": 180,
-    "options": [
-      "El reasentamiento",
-      "El Renacimiento de Harlem",
-      "El Gran Despertar",
-      "La Gran Migración"
-    ],
+    "options": [],
     "source": "Open Trivia Database",
-    "text": "A medida que la pobreza y las tensiones raciales empujaban a los afroamericanos a abandonar el sur de Estados Unidos, muchos de ellos se trasladaron al norte en un fenómeno conocido como ¿qué?",
-    "type": "multiple_choice"
+    "text": "El desplazamiento masivo de afroamericanos desde el sur hacia el norte de Estados Unidos, impulsado por la pobreza y las tensiones raciales, ¿cómo se conoce históricamente?",
+    "type": "quick_answer"
   }
 ]
