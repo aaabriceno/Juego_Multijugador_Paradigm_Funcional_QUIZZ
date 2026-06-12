@@ -4,23 +4,42 @@ defmodule TriviaCrackQuizWeb.GameLive do
   alias TriviaCrackQuiz.GameServer
 
   @impl true
-  def mount(_params, _session, socket) do
-    if connected?(socket), do: GameServer.subscribe()
+  def mount(_params, session, socket) do
+    session_player_id = session["player_id"] || new_player_id()
+
+    if connected?(socket) do
+      GameServer.subscribe()
+      # Tic local de cada cliente para refrescar la cuenta regresiva.
+      :timer.send_interval(1000, :tick)
+    end
+
+    # Si el navegador ya estaba en la partida (refresco de pagina), se
+    # reengancha automaticamente conservando nombre y puntaje.
+    state =
+      if connected?(socket) do
+        GameServer.reconnect(session_player_id)
+      else
+        GameServer.state()
+      end
+
+    joined? = Map.has_key?(state.players, session_player_id)
 
     socket =
       socket
-      |> assign(:state, GameServer.state())
-      |> assign(:player_id, nil)
-      |> assign(:player_name, "")
+      |> assign(:state, state)
+      |> assign(:session_player_id, session_player_id)
+      |> assign(:player_id, if(joined?, do: session_player_id))
+      |> assign(:player_name, if(joined?, do: state.players[session_player_id].name, else: ""))
       |> assign(:answer, "")
       |> assign(:notice, nil)
+      |> assign_time_left()
 
     {:ok, socket}
   end
 
   @impl true
   def handle_event("join", %{"player" => %{"name" => name}}, socket) do
-    player_id = socket.assigns.player_id || new_player_id()
+    player_id = socket.assigns.session_player_id
     state = GameServer.join(player_id, String.trim(name))
 
     {:noreply,
@@ -54,9 +73,26 @@ defmodule TriviaCrackQuizWeb.GameLive do
      |> assign(:notice, "Respuesta enviada")}
   end
 
+  def handle_event("reset", _params, socket) do
+    state = GameServer.reset()
+
+    {:noreply,
+     socket
+     |> assign(:state, state)
+     |> assign(:notice, "Nueva partida lista, esperando jugadores")
+     |> assign_time_left()}
+  end
+
   @impl true
   def handle_info({:game_state, state}, socket) do
-    {:noreply, assign(socket, :state, state)}
+    {:noreply,
+     socket
+     |> assign(:state, state)
+     |> assign_time_left()}
+  end
+
+  def handle_info(:tick, socket) do
+    {:noreply, assign_time_left(socket)}
   end
 
   @impl true
@@ -98,7 +134,17 @@ defmodule TriviaCrackQuizWeb.GameLive do
           <section class="rounded-lg border border-white/10 bg-white/[0.04] p-5">
             <.join_panel :if={is_nil(@player_id)} />
             <.waiting_panel :if={@state.phase == :waiting and not is_nil(@player_id)} state={@state} />
-            <.question_panel :if={@state.phase == :playing} state={@state} player_id={@player_id} />
+            <.question_panel
+              :if={@state.phase == :playing}
+              state={@state}
+              player_id={@player_id}
+              time_left={@time_left}
+            />
+            <.results_panel
+              :if={@state.phase == :round_results}
+              state={@state}
+              player_id={@player_id}
+            />
             <.finished_panel :if={@state.phase == :finished} state={@state} />
           </section>
 
@@ -122,10 +168,22 @@ defmodule TriviaCrackQuizWeb.GameLive do
                 class="rounded-lg border border-white/10 bg-slate-900 px-4 py-3"
               >
                 <div class="flex items-center justify-between gap-3">
-                  <p class="min-w-0 truncate font-semibold">{player.name}</p>
+                  <p class="flex min-w-0 items-center gap-2 truncate font-semibold">
+                    <span
+                      class={[
+                        "inline-block h-2 w-2 shrink-0 rounded-full",
+                        (player.connected? && "bg-emerald-400") || "bg-slate-600"
+                      ]}
+                      title={(player.connected? && "Conectado") || "Desconectado"}
+                    />
+                    <span class="truncate">
+                      {player.name}
+                      <span :if={id == @player_id} class="text-xs text-slate-400">(tu)</span>
+                    </span>
+                  </p>
                   <p class="shrink-0 text-cyan-300">{player.score} pts</p>
                 </div>
-                <p class="mt-1 text-xs text-slate-400">{id} - {player.last_action}</p>
+                <p class="mt-1 text-xs text-slate-400">{player.last_action}</p>
               </div>
             </div>
           </aside>
@@ -168,17 +226,44 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   defp question_panel(assigns) do
+    assigns = assign(assigns, :answered?, Map.has_key?(assigns.state.answers, assigns.player_id))
+
     ~H"""
     <div class="space-y-6">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-wide text-cyan-300">
-          {@state.current_question.category} - {@state.current_question.type}
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-cyan-300">
+            {@state.current_question.category} - {@state.current_question.type}
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-white">{@state.current_question.text}</h2>
+        </div>
+        <div
+          :if={@time_left}
+          class={[
+            "shrink-0 rounded-lg border px-4 py-2 text-center",
+            (@time_left <= 3 && "border-rose-400/40 bg-rose-400/10") ||
+              "border-white/10 bg-white/5"
+          ]}
+        >
+          <p class="text-xs text-slate-400">Tiempo</p>
+          <p class={[
+            "text-3xl font-bold tabular-nums",
+            (@time_left <= 3 && "text-rose-400") || "text-cyan-300"
+          ]}>
+            {@time_left}s
+          </p>
+        </div>
+      </div>
+
+      <div :if={@answered?} class="flex min-h-40 flex-col items-center justify-center text-center">
+        <p class="text-xl font-semibold text-cyan-300">Respuesta enviada</p>
+        <p class="mt-2 text-slate-300">
+          Esperando al resto: {map_size(@state.answers)}/{map_size(@state.players)} respondieron
         </p>
-        <h2 class="mt-3 text-3xl font-bold text-white">{@state.current_question.text}</h2>
       </div>
 
       <.form
-        :if={not is_nil(@player_id)}
+        :if={not is_nil(@player_id) and not @answered?}
         for={%{}}
         phx-submit="answer"
         class="grid gap-3 sm:grid-cols-2"
@@ -209,6 +294,51 @@ defmodule TriviaCrackQuizWeb.GameLive do
     """
   end
 
+  defp results_panel(assigns) do
+    ~H"""
+    <div class="space-y-6">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-cyan-300">
+          Resultados de la ronda {@state.round}
+        </p>
+        <h2 class="mt-3 text-2xl font-bold text-white">{@state.round_results.question.text}</h2>
+        <p class="mt-3 text-lg">
+          <span class="text-slate-400">Respuesta correcta:</span>
+          <span class="font-semibold text-emerald-300">{@state.round_results.question.answer}</span>
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <div
+          :for={{id, player} <- Enum.sort_by(@state.players, fn {_id, p} -> -p.score end)}
+          class="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-slate-900 px-4 py-3"
+        >
+          <p class="min-w-0 truncate font-semibold">
+            {player.name}
+            <span :if={id == @player_id} class="text-xs text-slate-400">(tu)</span>
+          </p>
+          <p :if={result = @state.round_results.results[id]} class="shrink-0 text-sm">
+            <span :if={result.correct?} class="font-semibold text-emerald-300">
+              ✓ {result.answer} (+{result.points})
+            </span>
+            <span :if={not result.correct?} class="font-semibold text-rose-300">
+              ✗ {result.answer}
+            </span>
+          </p>
+          <p
+            :if={is_nil(@state.round_results.results[id])}
+            class="shrink-0 text-sm text-slate-500"
+          >
+            Sin respuesta
+          </p>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-400">La siguiente pregunta aparecera en unos segundos...</p>
+    </div>
+    """
+  end
+
   defp finished_panel(assigns) do
     ~H"""
     <div class="flex min-h-80 flex-col items-center justify-center text-center">
@@ -216,9 +346,61 @@ defmodule TriviaCrackQuizWeb.GameLive do
       <h2 class="mt-3 text-3xl font-bold text-white">
         Ganador: {if @state.winner, do: @state.winner.name, else: "Sin ganador"}
       </h2>
+
+      <div class="mt-8 w-full max-w-md space-y-2 text-left">
+        <div
+          :for={
+            {{_id, player}, position} <-
+              @state.players
+              |> Enum.sort_by(fn {_id, player} -> -player.score end)
+              |> Enum.with_index(1)
+          }
+          class={[
+            "flex items-center justify-between gap-3 rounded-lg border px-4 py-3",
+            (position == 1 && "border-amber-300/40 bg-amber-300/10") ||
+              "border-white/10 bg-slate-900"
+          ]}
+        >
+          <p class="min-w-0 truncate font-semibold">
+            <span class={[
+              "mr-2 tabular-nums",
+              (position == 1 && "text-amber-300") || "text-slate-400"
+            ]}>
+              #{position}
+            </span>
+            {player.name}
+          </p>
+          <p class="shrink-0 font-semibold text-cyan-300">{player.score} pts</p>
+        </div>
+      </div>
+
+      <button
+        phx-click="reset"
+        class="mt-8 rounded-md bg-cyan-400 px-6 py-3 font-semibold text-slate-950 hover:bg-cyan-300"
+      >
+        Jugar de nuevo
+      </button>
     </div>
     """
   end
+
+  defp assign_time_left(socket) do
+    assign(socket, :time_left, time_left(socket.assigns.state))
+  end
+
+  # Segundos restantes de la ronda actual. El estado guarda tiempos monotonicos
+  # del nodo, comparables aqui porque LiveView corre en la misma maquina virtual.
+  defp time_left(%{
+         phase: :playing,
+         round_started_at: started_at,
+         round_time_ms: round_time_ms
+       })
+       when is_integer(started_at) do
+    remaining_ms = started_at + round_time_ms - System.monotonic_time(:millisecond)
+    max(div(remaining_ms + 999, 1000), 0)
+  end
+
+  defp time_left(_state), do: nil
 
   defp new_player_id do
     System.unique_integer([:positive])
