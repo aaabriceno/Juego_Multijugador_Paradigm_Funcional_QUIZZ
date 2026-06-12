@@ -4,6 +4,6 @@ defmodule TriviaCrackQuizWeb.PageControllerTest do
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
     assert html_response(conn, 200) =~ "Trivia Crack Quiz Multiplayer"
-    assert html_response(conn, 200) =~ "Sala de preguntas"
+    assert html_response(conn, 200) =~ "Preguntados"
   end
 end
