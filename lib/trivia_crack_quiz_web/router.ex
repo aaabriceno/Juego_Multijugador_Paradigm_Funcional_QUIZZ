@@ -8,6 +8,17 @@ defmodule TriviaCrackQuizWeb.Router do
     plug :put_root_layout, html: {TriviaCrackQuizWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :ensure_player_id
+  end
+
+  # Asigna un identificador estable por navegador en la sesion (cookie).
+  # Asi un refresco de pagina conserva al mismo jugador en vez de crear uno nuevo.
+  defp ensure_player_id(conn, _opts) do
+    if get_session(conn, :player_id) do
+      conn
+    else
+      put_session(conn, :player_id, Base.url_encode64(:crypto.strong_rand_bytes(9)))
+    end
   end
 
   pipeline :api do
