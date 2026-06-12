@@ -1,15 +1,16 @@
 import Config
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
+# Para el desarrollo, desactivamos cualquier caché y activamos
+# la depuración y la recarga de código.
 #
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we can use it
-# to bundle .js and .css sources.
+# La configuración de los observadores se puede utilizar para ejecutar
+# observadores externos a la aplicación. Por ejemplo, podemos usarla
+# para empaquetar archivos fuente .js y .css.
 config :trivia_crack_quiz, TriviaCrackQuizWeb.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}],
+  # Escucha en todas las interfaces para que otras maquinas de la red local
+  # puedan entrar con http://IP_DEL_HOST:4000. Volver a {127, 0, 0, 1} para
+  # restringir el acceso solo a esta maquina.
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
