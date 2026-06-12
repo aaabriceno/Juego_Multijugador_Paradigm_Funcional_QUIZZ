@@ -1,0 +1,6 @@
+{
+  "elixirLS.envVariables": {
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "elixirLS.languageServerOverridePath": "/home/anthonybq/elixir-ls-release"
+}

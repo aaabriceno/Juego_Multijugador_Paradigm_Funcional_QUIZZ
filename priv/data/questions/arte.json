@@ -1,0 +1,762 @@
+[
+  {
+    "answer": "Leonardo da Vinci",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 301,
+    "options": [
+      "Piero della Francesca",
+      "Leonardo da Vinci",
+      "Paolo Uccello",
+      "Luca Pacioli"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Qué artista pintó el mural de finales del siglo XV \"La Última Cena\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Edvard Munch",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 302,
+    "options": [
+      "Edvard Munch",
+      "Henri Matisse",
+      "Vincent van Gogh",
+      "Pablo Picasso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién pintó \"El grito\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Vincent van Gogh",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 303,
+    "options": [
+      "Leonardo da Vinci",
+      "Vincent van Gogh",
+      "Miguel Ángel",
+      "Pablo Picasso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién pintó \"La noche estrellada\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Guerra Civil Española",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 304,
+    "options": [
+      "Guerra Civil Española",
+      "Guerra Hispano-estadounidense",
+      "Primera Guerra Mundial",
+      "Guerra de Crimea"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El cuadro \"Guernica\" de Pablo Picasso expresa el horror frente a ¿qué guerra?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "René Magritte",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 305,
+    "options": [
+      "Edvard Munch",
+      "Henri Matisse",
+      "Amedeo Modigliani",
+      "René Magritte"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Qué artista pintó \"La traición de las imágenes\", el cuadro de una pipa con la frase \"esto no es una pipa\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Neoplasticismo",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 306,
+    "options": [
+      "Impresionismo",
+      "Cubismo",
+      "Neoplasticismo",
+      "Precisionismo"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El pintor Piet Mondrian (1872-1944) formó parte de ¿qué movimiento artístico?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Frédéric Auguste Bartholdi",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 307,
+    "options": [
+      "Jean-Léon Gérôme",
+      "Frédéric Auguste Bartholdi",
+      "Auguste Rodin",
+      "Henri Matisse"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Qué escultor francés diseñó la Estatua de la Libertad?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Miguel Ángel",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 308,
+    "options": [
+      "Miguel Ángel",
+      "Auguste Rodin",
+      "Gian Lorenzo Bernini",
+      "Donatello"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién esculpió la estatua del David que se exhibe en Florencia?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "La novena ola",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 309,
+    "options": [
+      "Terraza de café por la noche",
+      "El dormitorio en Arlés",
+      "La novena ola",
+      "La noche estrellada"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál de estas pinturas NO es de Vincent van Gogh?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Baco",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 310,
+    "options": [
+      "La encajera",
+      "Baco",
+      "La joven de la perla",
+      "La lechera"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál de estas pinturas NO es de Johannes Vermeer?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Salvador Dalí",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 311,
+    "options": [
+      "Salvador Dalí",
+      "Andy Warhol",
+      "Vincent van Gogh",
+      "Pablo Picasso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién diseñó el logotipo de Chupa Chups?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Andy Warhol",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 312,
+    "options": [
+      "Roy Lichtenstein",
+      "Peter Blake",
+      "David Hockney",
+      "Andy Warhol"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Qué artista tenía un estudio conocido como \"The Factory\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "1931",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 313,
+    "options": [
+      "1934",
+      "1932",
+      "1929",
+      "1931"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿En qué año terminó Salvador Dalí su cuadro \"La persistencia de la memoria\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "La Mona Lisa",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 314,
+    "options": [
+      "Los girasoles",
+      "La joven de la perla",
+      "La Mona Lisa",
+      "La noche estrellada"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Con qué otro nombre se conoce a \"La Gioconda\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "El Poema de Gilgamesh",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 315,
+    "options": [
+      "El Código de Hammurabi",
+      "El Papiro de Ani",
+      "La Piedra de Rosetta",
+      "El Poema de Gilgamesh"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es la obra de ficción más antigua que se conoce?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Grant Wood",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 316,
+    "options": [
+      "Anita Malfatti",
+      "Marc Chagall",
+      "Grant Wood",
+      "Pablo Picasso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién pintó \"American Gothic\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Miguel Ángel",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 317,
+    "options": [
+      "Rembrandt",
+      "Miguel Ángel",
+      "Leonardo da Vinci",
+      "Caravaggio"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Quién pintó el fresco \"La creación de Adán\"?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Postimpresionismo",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 318,
+    "options": [
+      "Impresionismo",
+      "Postimpresionismo",
+      "Romanticismo",
+      "Neoclasicismo"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"La noche estrellada\" de Vincent van Gogh pertenece a ¿qué movimiento artístico?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "El daguerrotipo",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 319,
+    "options": [
+      "La película Kodachrome",
+      "El calotipo",
+      "El daguerrotipo",
+      "El proceso de colodión"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál fue la primera técnica fotográfica exitosa y comercialmente viable?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Georges Seurat",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 320,
+    "options": [
+      "Vincent van Gogh",
+      "Paul Cézanne",
+      "Georges Seurat",
+      "Henri Rousseau"
+    ],
+    "source": "Open Trivia Database",
+    "text": "¿Qué artista creaba sus cuadros con pequeños puntos de distintos colores?",
+    "type": "multiple_choice"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 321,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Vincent van Gogh se cortó una oreja.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 322,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Los escultores de la antigua Grecia y Roma solían pintar sus estatuas de colores.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 323,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El nombre oficial de la Estatua de la Libertad es \"La Libertad iluminando el mundo\".",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 324,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El nombre \"impresionismo\" nació de la reseña burlona que un crítico escribió sobre un cuadro de Monet.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 325,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Leonardo da Vinci no fue el creador de la Mona Lisa.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 326,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Pablo Picasso pintó el mural \"Guernica\".",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 327,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Pablo Picasso era de nacionalidad francesa.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 328,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Edvard Munch pintó \"El grito\".",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 329,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Salvador Dalí diseñó el logotipo de Chupa Chups.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 330,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Miguel Ángel pintó la bóveda de la Capilla Sixtina.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 331,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"La joven de la perla\" es obra de Johannes Vermeer.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 332,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Andy Warhol llamaba a su estudio \"The Factory\".",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 333,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "La Mona Lisa y \"La Gioconda\" son la misma obra.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 334,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El cuadro \"American Gothic\" fue pintado por Pablo Picasso.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 335,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "El \"Guernica\" se pintó como reacción a la Primera Guerra Mundial.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 336,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Piet Mondrian perteneció al movimiento neoplasticista.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 337,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Paul Gauguin se mudó a Tahití en 1895.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 338,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "Edvard Munch realizó una única versión de \"El grito\".",
+    "type": "true_false"
+  },
+  {
+    "answer": "Falso",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 339,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "La Estatua de la Libertad fue diseñada por Auguste Rodin.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Verdadero",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 340,
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "source": "Open Trivia Database",
+    "text": "\"La persistencia de la memoria\" de Salvador Dalí se terminó en 1931.",
+    "type": "true_false"
+  },
+  {
+    "answer": "Picasso",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 341,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del pintor español que pintó el \"Guernica\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Van Gogh",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 342,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del pintor neerlandés que pintó \"La noche estrellada\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Munch",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 343,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del pintor noruego que pintó \"El grito\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Dalí",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 344,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del pintor de \"La persistencia de la memoria\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Cubismo",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 345,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Qué movimiento artístico cofundó Pablo Picasso?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Louvre",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 346,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿En qué museo de París se exhibe la Mona Lisa?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Diego Rivera",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 347,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿Qué pintor y muralista mexicano fue esposo de Frida Kahlo?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Frida Kahlo",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 348,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿Qué pintora mexicana es famosa por sus autorretratos?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "4",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 349,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuántas versiones de \"El grito\" se cree que produjo Edvard Munch?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "1931",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 350,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿En qué año terminó Salvador Dalí \"La persistencia de la memoria\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Madrid",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 351,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿En qué ciudad se encuentra el Museo del Prado?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "París",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 352,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿En qué ciudad se encuentra el Museo del Louvre?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Verde",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 353,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿Qué color se obtiene al mezclar azul y amarillo?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Gris",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 354,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Qué color se obtiene al mezclar blanco y negro?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Warhol",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 355,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del artista pop cuyo estudio se llamaba \"The Factory\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Bartholdi",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 356,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del escultor francés que diseñó la Estatua de la Libertad?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Tahití",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 357,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿A qué isla se mudó el pintor Paul Gauguin en 1895?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Wood",
+    "category": "arte",
+    "difficulty": "hard",
+    "id": 358,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del pintor de \"American Gothic\"?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "3",
+    "category": "arte",
+    "difficulty": "easy",
+    "id": 359,
+    "options": [],
+    "source": "Elaboración propia",
+    "text": "¿Cuántos colores primarios existen en la teoría tradicional del color?",
+    "type": "quick_answer"
+  },
+  {
+    "answer": "Seurat",
+    "category": "arte",
+    "difficulty": "medium",
+    "id": 360,
+    "options": [],
+    "source": "Open Trivia Database",
+    "text": "¿Cuál es el apellido del artista puntillista que pintaba con puntos de colores?",
+    "type": "quick_answer"
+  }
+]
