@@ -28,7 +28,8 @@ defmodule TriviaCrackQuizWeb.Router do
   scope "/", TriviaCrackQuizWeb do
     pipe_through :browser
 
-    live "/", GameLive, :index
+    live "/", LobbyLive, :index
+    live "/sala/:room_id", GameLive, :index
   end
 
   # Aqui se podrian agregar otras rutas, por ejemplo una API JSON.
