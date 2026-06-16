@@ -92,18 +92,65 @@ defmodule TriviaCrackQuizWeb.GameLive do
   def handle_info({:game_state, state}, socket) do
     {:noreply,
      socket
+     |> maybe_play_phase_sound(state)
      |> assign(:state, state)
      |> assign_time_left()}
   end
 
   def handle_info(:tick, socket) do
-    {:noreply, assign_time_left(socket)}
+    {:noreply, maybe_play_tick(socket)}
+  end
+
+  # Reproduce un sonido cuando la fase cambia, segun el resultado de ESTE
+  # jugador: ding si acerto, buzz si fallo, fanfarria al ganar la partida.
+  defp maybe_play_phase_sound(socket, new_state) do
+    old_phase = socket.assigns.state.phase
+    player_id = socket.assigns.player_id
+
+    cond do
+      new_state.phase == :round_results and old_phase != :round_results ->
+        sound = round_result_sound(new_state, player_id)
+        if sound, do: push_event(socket, "play_sound", %{name: sound}), else: socket
+
+      new_state.phase == :finished and old_phase != :finished ->
+        push_event(socket, "play_sound", %{name: "fanfare"})
+
+      true ->
+        socket
+    end
+  end
+
+  defp round_result_sound(_state, nil), do: nil
+
+  defp round_result_sound(state, player_id) do
+    case get_in(state, [:round_results, :results, player_id]) do
+      %{correct?: true} -> "ding"
+      %{correct?: false} -> "buzz"
+      _ -> nil
+    end
+  end
+
+  # Tic de audio en los ultimos 3 segundos de la ronda, una vez por segundo.
+  defp maybe_play_tick(socket) do
+    socket = assign_time_left(socket)
+    time_left = socket.assigns.time_left
+
+    if socket.assigns.state.phase == :playing and is_integer(time_left) and
+         time_left in 1..3 do
+      push_event(socket, "play_sound", %{name: "tick"})
+    else
+      socket
+    end
   end
 
   @impl true
   def render(assigns) do
     ~H"""
-    <main class="min-h-screen bg-gradient-to-b from-indigo-600 via-purple-600 to-fuchsia-600 text-slate-800">
+    <main
+      id="game-root"
+      phx-hook="PlaysSound"
+      class="min-h-screen bg-gradient-to-b from-indigo-600 via-purple-600 to-fuchsia-600 text-slate-800"
+    >
       <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-3">
@@ -183,8 +230,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
                     |> Enum.sort_by(fn {_id, player} -> -player.score end)
                     |> Enum.with_index(1)
                 }
+                id={"score-#{id}"}
                 class={[
-                  "rounded-2xl border-2 px-3 py-2.5",
+                  "rounded-2xl border-2 px-3 py-2.5 transition-all duration-500",
                   (id == @player_id && "border-indigo-300 bg-indigo-50") ||
                     "border-slate-100 bg-slate-50"
                 ]}
@@ -286,6 +334,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
       |> assign(:answered?, Map.has_key?(assigns.state.answers, assigns.player_id))
       |> assign(:style, category_style(question.category))
       |> assign(:time_percent, round((assigns.time_left || 0) / total_seconds * 100))
+      |> assign(:bar_color, time_bar_color(assigns.time_left, total_seconds))
 
     ~H"""
     <div class="space-y-5">
@@ -310,13 +359,24 @@ defmodule TriviaCrackQuizWeb.GameLive do
         </div>
         <div class="mt-1 h-3 w-full overflow-hidden rounded-full bg-slate-100">
           <div
-            class={[
-              "h-full rounded-full transition-all duration-1000 ease-linear",
-              (@time_left <= 3 && "bg-rose-500") || "bg-gradient-to-r from-indigo-500 to-purple-500"
-            ]}
+            class={["h-full rounded-full transition-all duration-1000 ease-linear", @bar_color]}
             style={"width: #{@time_percent}%"}
           />
         </div>
+      </div>
+
+      <%!-- Cuenta regresiva dramatica: numero grande que late en los ultimos 3s.
+            La key fuerza a re-disparar la animacion cada segundo. --%>
+      <div
+        :if={is_integer(@time_left) and @time_left <= 3 and @time_left > 0 and not @answered?}
+        class="pointer-events-none flex justify-center"
+      >
+        <span
+          id={"countdown-#{@time_left}"}
+          class="animate-count-pulse text-7xl font-black text-rose-500 drop-shadow-lg"
+        >
+          {@time_left}
+        </span>
       </div>
 
       <h2 class="text-center text-2xl font-black leading-snug text-slate-800 sm:text-3xl">
@@ -387,10 +447,28 @@ defmodule TriviaCrackQuizWeb.GameLive do
         </p>
       </div>
 
-      <div class="rounded-2xl bg-slate-50 px-5 py-4 text-center">
+      <div class={[
+        "rounded-2xl px-5 py-4 text-center transition",
+        (@my_result && @my_result.correct? && "animate-pop-in bg-emerald-50 ring-2 ring-emerald-300") ||
+          (@my_result && not @my_result.correct? &&
+             "animate-shake bg-rose-50 ring-2 ring-rose-300") ||
+          "bg-slate-50"
+      ]}>
         <p :if={@my_result && @my_result.correct?} class="text-5xl">🎉</p>
         <p :if={@my_result && not @my_result.correct?} class="text-5xl">😅</p>
         <p :if={is_nil(@my_result)} class="text-5xl">⏰</p>
+        <p
+          :if={@my_result && @my_result.correct?}
+          class="mt-1 text-lg font-black text-emerald-600"
+        >
+          ¡Correcto! +{@my_result.points}
+        </p>
+        <p
+          :if={@my_result && not @my_result.correct?}
+          class="mt-1 text-lg font-black text-rose-500"
+        >
+          ¡Fallaste!
+        </p>
         <h2 class="mt-2 text-xl font-bold text-slate-700">
           {@state.round_results.question.text}
         </h2>
@@ -402,7 +480,10 @@ defmodule TriviaCrackQuizWeb.GameLive do
       <div class="space-y-2">
         <div
           :for={{id, player} <- Enum.sort_by(@state.players, fn {_id, p} -> -p.score end)}
-          class="flex items-center gap-3 rounded-2xl border-2 border-slate-100 bg-white px-4 py-2.5"
+          class={[
+            "relative flex items-center gap-3 rounded-2xl border-2 px-4 py-2.5",
+            (id == @player_id && "border-indigo-300 bg-indigo-50") || "border-slate-100 bg-white"
+          ]}
         >
           <span class={[
             "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black text-white",
@@ -414,6 +495,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
             {player.name}
             <span :if={id == @player_id} class="text-xs font-semibold text-indigo-500">(tú)</span>
           </p>
+          <span
+            :if={(r = @state.round_results.results[id]) && r.correct?}
+            class="pointer-events-none absolute right-4 -top-1 animate-float-up text-sm font-black text-emerald-500"
+          >
+            +{r.points}
+          </span>
           <p :if={result = @state.round_results.results[id]} class="shrink-0 text-sm font-bold">
             <span :if={result.correct?} class="text-emerald-600">
               ✓ {result.answer} <span class="text-emerald-500">+{result.points}</span>
@@ -442,11 +529,26 @@ defmodule TriviaCrackQuizWeb.GameLive do
       |> Enum.sort_by(fn {_id, player} -> -player.score end)
       |> Enum.with_index(1)
 
-    assigns = assign(assigns, :ranking, ranking)
+    # El podio reordena el top 3 visualmente como 2-1-3 (plata, oro, bronce)
+    # para que el campeon quede al centro y mas alto.
+    podium = Enum.take(ranking, 3)
+
+    assigns =
+      assigns
+      |> assign(:ranking, ranking)
+      |> assign(:podium, podium_layout(podium))
+      |> assign(:rest, Enum.drop(ranking, 3))
 
     ~H"""
+    <div
+      :if={@state.winner}
+      id="confetti"
+      phx-hook="Confetti"
+      class="pointer-events-none fixed inset-0 z-50"
+    />
+
     <div class="flex min-h-80 flex-col items-center justify-center py-8 text-center">
-      <p class="text-6xl">🏆</p>
+      <p class="animate-bounce text-6xl">🏆</p>
       <p class="mt-3 text-sm font-black uppercase tracking-wide text-indigo-500">
         Partida finalizada
       </p>
@@ -454,16 +556,35 @@ defmodule TriviaCrackQuizWeb.GameLive do
         {if @state.winner, do: "¡Ganó #{@state.winner.name}!", else: "Sin ganador"}
       </h2>
 
-      <div class="mt-8 w-full max-w-md space-y-2 text-left">
+      <%!-- Podio: 2do a la izquierda, 1ro al centro (mas alto), 3ro a la derecha. --%>
+      <div :if={@podium != []} class="mt-8 flex items-end justify-center gap-3 sm:gap-5">
         <div
-          :for={{{id, player}, position} <- @ranking}
-          class={[
-            "flex items-center gap-3 rounded-2xl border-2 px-4 py-3",
-            (position == 1 && "border-amber-300 bg-amber-50") ||
-              "border-slate-100 bg-slate-50"
-          ]}
+          :for={{{id, player}, position} <- @podium}
+          class="animate-pop-in flex w-24 flex-col items-center sm:w-28"
+          style={"animation-delay: #{podium_delay(position)}ms"}
         >
-          <span class="w-8 text-center text-2xl">{medal(position)}</span>
+          <span class="text-3xl">{medal(position)}</span>
+          <span class={[
+            "mt-1 flex h-12 w-12 items-center justify-center rounded-full text-base font-black text-white shadow-lg",
+            avatar_color(id)
+          ]}>
+            {avatar_initial(player.name)}
+          </span>
+          <p class="mt-1 w-full truncate text-sm font-bold text-slate-800">{player.name}</p>
+          <p class="text-xs font-black text-indigo-600">{player.score} pts</p>
+          <div class={[
+            "mt-2 w-full rounded-t-xl",
+            podium_bar(position)
+          ]} />
+        </div>
+      </div>
+
+      <div :if={@rest != []} class="mt-6 w-full max-w-md space-y-2 text-left">
+        <div
+          :for={{{id, player}, position} <- @rest}
+          class="flex items-center gap-3 rounded-2xl border-2 border-slate-100 bg-slate-50 px-4 py-3"
+        >
+          <span class="w-8 text-center font-black text-slate-400">{position}º</span>
           <span class={[
             "flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-black text-white",
             avatar_color(id)
@@ -484,6 +605,38 @@ defmodule TriviaCrackQuizWeb.GameLive do
     </div>
     """
   end
+
+  # Reordena el top 3 como [2do, 1ro, 3ro] para el podio centrado. Con menos de
+  # 3 jugadores conserva el orden disponible.
+  defp podium_layout([first, second, third]), do: [second, first, third]
+  defp podium_layout(podium), do: podium
+
+  # Alturas del bloque del podio segun el puesto.
+  defp podium_bar(1), do: "h-16 bg-gradient-to-b from-amber-300 to-amber-500"
+  defp podium_bar(2), do: "h-12 bg-gradient-to-b from-slate-200 to-slate-400"
+  defp podium_bar(3), do: "h-8 bg-gradient-to-b from-orange-300 to-orange-500"
+  defp podium_bar(_), do: "h-6 bg-slate-200"
+
+  # Entrada escalonada: primero el campeon, luego plata y bronce.
+  defp podium_delay(1), do: 0
+  defp podium_delay(2), do: 150
+  defp podium_delay(3), do: 300
+  defp podium_delay(_), do: 0
+
+  # Color de la barra de tiempo segun cuanto queda: verde (>60%), ambar
+  # (30-60%) y rojo (<30%), para subir la tension al acercarse el final.
+  defp time_bar_color(time_left, total_seconds)
+       when is_integer(time_left) and total_seconds > 0 do
+    ratio = time_left / total_seconds
+
+    cond do
+      ratio > 0.6 -> "bg-gradient-to-r from-emerald-400 to-teal-500"
+      ratio > 0.3 -> "bg-gradient-to-r from-amber-400 to-orange-500"
+      true -> "bg-rose-500"
+    end
+  end
+
+  defp time_bar_color(_time_left, _total), do: "bg-gradient-to-r from-indigo-500 to-purple-500"
 
   # Identidad visual de cada categoria, inspirada en Preguntados.
   # Las clases van como cadenas completas para que Tailwind las detecte.

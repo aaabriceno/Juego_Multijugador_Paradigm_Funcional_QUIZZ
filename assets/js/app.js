@@ -24,12 +24,43 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import {hooks as colocatedHooks} from "phoenix-colocated/trivia_crack_quiz"
 import topbar from "../vendor/topbar"
+import confetti from "../vendor/confetti"
+import {playSound, unlockAudio} from "./sounds"
+
+// Hooks del juego.
+//
+// PlaysSound: el servidor envia `push_event(socket, "play_sound", %{name: ...})`
+// y el cliente reproduce el tono correspondiente. Tambien desbloquea el audio
+// con el primer click dentro del elemento (requisito de los navegadores).
+//
+// Confetti: dispara una rafaga al montarse (pantalla de ganador).
+const Hooks = {
+  PlaysSound: {
+    mounted() {
+      this.handleEvent("play_sound", ({name}) => playSound(name))
+      // Cualquier click en la pagina desbloquea el AudioContext.
+      window.addEventListener("click", unlockAudio, {once: true})
+    },
+  },
+  Confetti: {
+    mounted() {
+      this.burst()
+    },
+    burst() {
+      const shoot = (origin) =>
+        confetti({particleCount: 90, spread: 70, startVelocity: 45, origin})
+      shoot({x: 0.2, y: 0.6})
+      shoot({x: 0.8, y: 0.6})
+      setTimeout(() => confetti({particleCount: 120, spread: 100, origin: {y: 0.5}}), 250)
+    },
+  },
+}
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
-  hooks: {...colocatedHooks},
+  hooks: {...colocatedHooks, ...Hooks},
 })
 
 // Show progress bar on live navigation and form submits
