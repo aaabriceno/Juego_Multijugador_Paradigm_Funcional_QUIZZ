@@ -13,7 +13,11 @@ defmodule TriviaCrackQuiz.Application do
       TriviaCrackQuizWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:trivia_crack_quiz, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: TriviaCrackQuiz.PubSub},
-      TriviaCrackQuiz.GameServer,
+      # Mapea cada room_id a su proceso GameServer. Permite encontrar la sala
+      # por nombre sin pasar el pid a mano.
+      {Registry, keys: :unique, name: TriviaCrackQuiz.RoomRegistry},
+      # Crea y supervisa una partida (GameServer) por cada sala bajo demanda.
+      {DynamicSupervisor, strategy: :one_for_one, name: TriviaCrackQuiz.RoomSupervisor},
       TriviaCrackQuizWeb.Endpoint
     ]
 
