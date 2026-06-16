@@ -4,11 +4,15 @@ defmodule TriviaCrackQuizWeb.GameLive do
   alias TriviaCrackQuiz.GameServer
 
   @impl true
-  def mount(_params, session, socket) do
+  def mount(%{"room_id" => room_id}, session, socket) do
+    # Garantiza que la sala exista antes de entrar por URL (enlace compartido o
+    # refresco tras reinicio del servidor). Si ya existe, no la duplica.
+    TriviaCrackQuiz.Rooms.ensure(room_id)
+
     session_player_id = session["player_id"] || new_player_id()
 
     if connected?(socket) do
-      GameServer.subscribe()
+      GameServer.subscribe(room_id)
       # Tic local de cada cliente para refrescar la cuenta regresiva.
       :timer.send_interval(1000, :tick)
     end
@@ -17,15 +21,16 @@ defmodule TriviaCrackQuizWeb.GameLive do
     # reengancha automaticamente conservando nombre y puntaje.
     state =
       if connected?(socket) do
-        GameServer.reconnect(session_player_id)
+        GameServer.reconnect(room_id, session_player_id)
       else
-        GameServer.state()
+        GameServer.state(room_id)
       end
 
     joined? = Map.has_key?(state.players, session_player_id)
 
     socket =
       socket
+      |> assign(:room_id, room_id)
       |> assign(:state, state)
       |> assign(:session_player_id, session_player_id)
       |> assign(:player_id, if(joined?, do: session_player_id))
@@ -40,7 +45,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   @impl true
   def handle_event("join", %{"player" => %{"name" => name}}, socket) do
     player_id = socket.assigns.session_player_id
-    state = GameServer.join(player_id, String.trim(name))
+    state = GameServer.join(socket.assigns.room_id, player_id, String.trim(name))
 
     {:noreply,
      socket
@@ -51,7 +56,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   def handle_event("start", _params, socket) do
-    case GameServer.start_game() do
+    case GameServer.start_game(socket.assigns.room_id) do
       {:ok, state} ->
         {:noreply, assign(socket, :state, state)}
 
@@ -64,7 +69,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   def handle_event("answer", %{"answer" => answer}, socket) do
-    state = GameServer.answer(socket.assigns.player_id, answer)
+    state = GameServer.answer(socket.assigns.room_id, socket.assigns.player_id, answer)
 
     {:noreply,
      socket
@@ -74,7 +79,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   def handle_event("reset", _params, socket) do
-    state = GameServer.reset()
+    state = GameServer.reset(socket.assigns.room_id)
 
     {:noreply,
      socket
@@ -102,12 +107,19 @@ defmodule TriviaCrackQuizWeb.GameLive do
       <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-3">
+            <.link
+              navigate={~p"/"}
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-xl text-white backdrop-blur transition hover:scale-105"
+              title="Volver al lobby"
+            >
+              ←
+            </.link>
             <span class="text-5xl drop-shadow">🧠</span>
             <div>
               <h1 class="text-3xl font-black tracking-tight text-white drop-shadow sm:text-4xl">
                 Preguntados
               </h1>
-              <p class="text-sm font-semibold text-white/80">Trivia Crack Quiz Multiplayer</p>
+              <p class="text-sm font-semibold text-white/80">🎯 {@room_id}</p>
             </div>
           </div>
           <div class="grid grid-cols-3 gap-2 text-center text-sm">
