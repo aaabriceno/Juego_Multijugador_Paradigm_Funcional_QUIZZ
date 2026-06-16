@@ -6,6 +6,8 @@ defmodule TriviaCrackQuiz.GameServer do
   su `room_id` y registrado en `TriviaCrackQuiz.RoomRegistry`. Mantiene un
   unico estado coherente y recibe eventos de jugadores mediante paso de
   mensajes. Varias salas conviven en paralelo sin compartir estado.
+
+  Autor: Anthony Briceño
   """
 
   use GenServer

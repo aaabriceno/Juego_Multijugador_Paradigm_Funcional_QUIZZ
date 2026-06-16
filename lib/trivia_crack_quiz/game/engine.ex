@@ -1,6 +1,8 @@
 defmodule TriviaCrackQuiz.Game do
   @moduledoc """
   Funciones puras para transformar el estado de una partida de trivia.
+
+  Autor: Anthony Briceño
   """
 
   @min_players 3

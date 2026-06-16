@@ -6,6 +6,8 @@ defmodule TriviaCrackQuiz.Rooms do
   registrado en `RoomRegistry`. Este modulo es la unica puerta para crear o
   consultar salas; el resto del sistema no habla con los supervisores
   directamente.
+
+  Autor: Anthony Briceño
   """
 
   alias TriviaCrackQuiz.GameServer

@@ -1,6 +1,7 @@
 defmodule TriviaCrackQuiz.Application do
   # Este modulo arranca la aplicacion OTP del juego.
   # Aqui se define que procesos se inician y quedan supervisados.
+  # Autor: Anthony Briceño
   @moduledoc false
 
   use Application
