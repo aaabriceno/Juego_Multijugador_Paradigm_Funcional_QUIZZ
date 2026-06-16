@@ -1,51 +1,59 @@
 defmodule TriviaCrackQuiz.GameServer do
   @moduledoc """
-  Actor principal de la partida.
+  Actor de una partida (una sala).
 
-  Mantiene un unico estado coherente y recibe eventos de jugadores mediante
-  paso de mensajes.
+  Cada sala corre como un proceso `GameServer` independiente, identificado por
+  su `room_id` y registrado en `TriviaCrackQuiz.RoomRegistry`. Mantiene un
+  unico estado coherente y recibe eventos de jugadores mediante paso de
+  mensajes. Varias salas conviven en paralelo sin compartir estado.
   """
 
   use GenServer
 
   alias TriviaCrackQuiz.Game
 
-  @topic "game:lobby"
+  # El topic de PubSub depende de la sala: cada sala difunde su estado solo a
+  # los LiveView suscritos a ella, sin filtrarse a otras salas.
+  defp topic(room_id), do: "game:room:#{room_id}"
 
-  def start_link(_opts) do
-    GenServer.start_link(__MODULE__, Game.new_state(), name: __MODULE__)
+  # Localiza el proceso de la sala por su room_id usando el Registry.
+  defp via(room_id), do: {:via, Registry, {TriviaCrackQuiz.RoomRegistry, room_id}}
+
+  def start_link(room_id) do
+    state = Game.new_state() |> Map.put(:room_id, room_id)
+    GenServer.start_link(__MODULE__, state, name: via(room_id))
   end
 
-  def subscribe do
-    Phoenix.PubSub.subscribe(TriviaCrackQuiz.PubSub, @topic)
+  def subscribe(room_id) do
+    Phoenix.PubSub.subscribe(TriviaCrackQuiz.PubSub, topic(room_id))
   end
 
-  def join(player_id, name) do
-    GenServer.call(__MODULE__, {:join, player_id, name})
+  def join(room_id, player_id, name) do
+    GenServer.call(via(room_id), {:join, player_id, name})
   end
 
-  def reconnect(player_id) do
-    GenServer.call(__MODULE__, {:reconnect, player_id})
+  def reconnect(room_id, player_id) do
+    GenServer.call(via(room_id), {:reconnect, player_id})
   end
 
-  def start_game do
-    GenServer.call(__MODULE__, :start_game)
+  def start_game(room_id) do
+    GenServer.call(via(room_id), :start_game)
   end
 
-  def answer(player_id, submitted_answer) do
-    GenServer.call(__MODULE__, {:answer, player_id, submitted_answer})
+  def answer(room_id, player_id, submitted_answer) do
+    GenServer.call(via(room_id), {:answer, player_id, submitted_answer})
   end
 
-  def next_round do
-    GenServer.call(__MODULE__, :next_round)
+  def next_round(room_id) do
+    GenServer.call(via(room_id), :next_round)
   end
 
-  def reset do
-    GenServer.call(__MODULE__, :reset)
+  def reset(room_id) do
+    GenServer.call(via(room_id), :reset)
   end
 
-  def state do
-    GenServer.call(__MODULE__, :state)
+  def state(room_id) do
+    GenServer.call(via(room_id), :state)
   end
 
   @impl true
@@ -125,6 +133,7 @@ defmodule TriviaCrackQuiz.GameServer do
       state
       |> Game.reset()
       |> Map.put(:monitors, Map.get(state, :monitors, %{}))
+      |> Map.put(:room_id, state.room_id)
 
     broadcast_state(new_state)
     {:reply, Game.visible_state(new_state), new_state}
@@ -223,7 +232,7 @@ defmodule TriviaCrackQuiz.GameServer do
   defp broadcast_state(state) do
     Phoenix.PubSub.broadcast(
       TriviaCrackQuiz.PubSub,
-      @topic,
+      topic(state.room_id),
       {:game_state, Game.visible_state(state)}
     )
   end
