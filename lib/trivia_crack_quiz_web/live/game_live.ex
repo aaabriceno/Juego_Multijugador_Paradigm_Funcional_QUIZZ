@@ -88,6 +88,16 @@ defmodule TriviaCrackQuizWeb.GameLive do
      |> assign_time_left()}
   end
 
+  # Salida definitiva: borra al jugador de la sala (el conteo baja para todos)
+  # y vuelve al lobby. El boton pide confirmacion en el navegador antes.
+  def handle_event("leave", _params, socket) do
+    if socket.assigns.player_id do
+      GameServer.leave(socket.assigns.room_id, socket.assigns.player_id)
+    end
+
+    {:noreply, push_navigate(socket, to: ~p"/")}
+  end
+
   @impl true
   def handle_info({:game_state, state}, socket) do
     {:noreply,
@@ -154,7 +164,19 @@ defmodule TriviaCrackQuizWeb.GameLive do
       <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-3">
+            <%!-- Si el jugador esta dentro, salir requiere confirmacion y lo
+                  borra de la sala (baja el conteo). Si solo mira, vuelve directo. --%>
+            <button
+              :if={@player_id}
+              phx-click="leave"
+              data-confirm="¿Seguro que quieres salir de la partida? Perderás tu lugar y tu puntaje."
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-xl text-white backdrop-blur transition hover:scale-105"
+              title="Salir de la partida"
+            >
+              ←
+            </button>
             <.link
+              :if={is_nil(@player_id)}
               navigate={~p"/"}
               class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-xl text-white backdrop-blur transition hover:scale-105"
               title="Volver al lobby"
@@ -180,7 +202,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
             </div>
             <div class="rounded-2xl bg-white/15 px-4 py-2 backdrop-blur">
               <p class="text-xs font-semibold uppercase text-white/70">Jugadores</p>
-              <p class="font-bold text-white">{map_size(@state.players)}</p>
+              <p class="font-bold text-white">{TriviaCrackQuiz.Game.connected_count(@state)}</p>
             </div>
           </div>
         </header>
@@ -304,7 +326,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
         La partida inicia cuando existan al menos 3 jugadores registrados.
       </p>
       <p class="mt-6 text-6xl font-black text-indigo-600">
-        {map_size(@state.players)}<span class="text-3xl text-slate-300">/3</span>
+        {TriviaCrackQuiz.Game.connected_count(@state)}<span class="text-3xl text-slate-300">/3</span>
       </p>
 
       <div class="mt-10">

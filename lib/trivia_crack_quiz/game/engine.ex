@@ -58,6 +58,21 @@ defmodule TriviaCrackQuiz.Game do
 
   def join(state, player_id, name), do: add_player(state, player_id, name)
 
+  # Cuenta solo los jugadores conectados. El conteo visible (lobby, marcador)
+  # usa esto para no mostrar "fantasmas" que cerraron la pestana.
+  def connected_count(state) do
+    Enum.count(state.players, fn {_id, player} -> player.connected? end)
+  end
+
+  # Saca al jugador de la partida de forma definitiva (boton "Salir"), a
+  # diferencia de set_connected que solo lo marca desconectado. Tambien limpia
+  # su respuesta pendiente de la ronda actual para no dejar rastros.
+  def remove_player(state, player_id) do
+    state
+    |> Map.update!(:players, &Map.delete(&1, player_id))
+    |> Map.update!(:answers, &Map.delete(&1, player_id))
+  end
+
   def ready_to_start?(state) do
     map_size(state.players) >= @min_players
   end

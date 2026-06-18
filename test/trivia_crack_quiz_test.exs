@@ -232,6 +232,33 @@ defmodule TriviaCrackQuizTest do
     assert Enum.all?(reset_state.players, fn {_id, player} -> player.score == 0 end)
   end
 
+  test "remove_player deletes the player and their pending answer" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Game.answer("p1", "Marte")
+      |> Game.remove_player("p1")
+
+    refute Map.has_key?(state.players, "p1")
+    refute Map.has_key?(state.answers, "p1")
+    assert map_size(state.players) == 2
+  end
+
+  test "connected_count ignores disconnected players" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.set_connected("p3", false)
+
+    assert map_size(state.players) == 3
+    assert Game.connected_count(state) == 2
+  end
+
   defp test_questions do
     [
       %{

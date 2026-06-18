@@ -18,8 +18,9 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
   end
 
   @impl true
-  def handle_event("create", _params, socket) do
-    room_id = Rooms.create_random()
+  # Crear sala con nombre escrito por el usuario (opcional). Vacio -> aleatorio.
+  def handle_event("create_named", %{"room" => %{"name" => name}}, socket) do
+    room_id = Rooms.create_named(name)
     {:noreply, push_navigate(socket, to: ~p"/sala/#{room_id}")}
   end
 
@@ -92,14 +93,25 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
         </section>
 
         <section class="grid gap-3 sm:grid-cols-2">
-          <button
-            phx-click="create"
-            class="rounded-3xl bg-white px-5 py-6 text-center shadow-2xl transition hover:scale-105"
+          <.form
+            for={%{}}
+            as={:room}
+            phx-submit="create_named"
+            class="flex flex-col rounded-3xl bg-white px-5 py-6 text-center shadow-2xl"
           >
             <span class="block text-4xl">➕</span>
             <span class="mt-2 block text-base font-black text-slate-800">Crear sala</span>
-            <span class="block text-xs font-semibold text-slate-500">Tú abres una nueva partida</span>
-          </button>
+            <input
+              name="room[name]"
+              type="text"
+              maxlength="30"
+              placeholder="Nombre (opcional)"
+              class="mt-3 w-full rounded-xl border-2 border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
+            />
+            <button class="mt-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-black text-white shadow transition hover:scale-105">
+              Crear y entrar
+            </button>
+          </.form>
 
           <button
             phx-click="random"

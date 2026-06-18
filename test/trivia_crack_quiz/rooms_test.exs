@@ -81,4 +81,45 @@ defmodule TriviaCrackQuiz.RoomsTest do
     assert Rooms.exists?(chosen)
     assert length(Rooms.list()) == before + 1
   end
+
+  test "GameServer.leave removes the player and the count drops" do
+    id = unique_id()
+    Rooms.create(id)
+    GameServer.join(id, "p1", "Ana")
+    GameServer.join(id, "p2", "Luis")
+    GameServer.join(id, "p3", "Mia")
+
+    GameServer.leave(id, "p2")
+
+    state = GameServer.state(id)
+    refute Map.has_key?(state.players, "p2")
+    assert map_size(state.players) == 2
+
+    summary = Enum.find(Rooms.list(), &(&1.id == id))
+    assert summary.players == 2
+  end
+
+  test "create_named turns the name into a url-safe slug" do
+    name = "Sala de Águilas!! 2026"
+    id = Rooms.create_named(name)
+
+    assert id == "sala-de-aguilas-2026"
+    assert Rooms.exists?(id)
+  end
+
+  test "create_named falls back to random when name is blank" do
+    id = Rooms.create_named("   ")
+    assert String.starts_with?(id, "sala-")
+    assert Rooms.exists?(id)
+  end
+
+  test "create_named avoids clobbering an existing room" do
+    Rooms.create_named("duplicada")
+    id2 = Rooms.create_named("duplicada")
+
+    # El segundo no debe reusar el id ya tomado.
+    refute id2 == "duplicada"
+    assert Rooms.exists?("duplicada")
+    assert Rooms.exists?(id2)
+  end
 end

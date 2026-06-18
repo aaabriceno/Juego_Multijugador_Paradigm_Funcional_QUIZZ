@@ -38,6 +38,10 @@ defmodule TriviaCrackQuiz.GameServer do
     GenServer.call(via(room_id), {:reconnect, player_id})
   end
 
+  def leave(room_id, player_id) do
+    GenServer.call(via(room_id), {:leave, player_id})
+  end
+
   def start_game(room_id) do
     GenServer.call(via(room_id), :start_game)
   end
@@ -86,6 +90,27 @@ defmodule TriviaCrackQuiz.GameServer do
     else
       {:reply, Game.visible_state(state), state}
     end
+  end
+
+  # Salida definitiva (boton "Salir"): borra al jugador, deja de monitorear su
+  # proceso y, si la partida esta en juego y los que quedan ya respondieron,
+  # cierra la ronda para no quedar esperando a quien se fue.
+  def handle_call({:leave, player_id}, _from, state) do
+    new_state =
+      state
+      |> Game.remove_player(player_id)
+      |> drop_player_monitors(player_id)
+
+    new_state =
+      if new_state.phase == :playing and map_size(new_state.players) > 0 and
+           Game.all_players_answered?(new_state) do
+        close_round(new_state)
+      else
+        new_state
+      end
+
+    broadcast_state(new_state)
+    {:reply, Game.visible_state(new_state), new_state}
   end
 
   def handle_call(:start_game, _from, state) do
@@ -190,6 +215,20 @@ defmodule TriviaCrackQuiz.GameServer do
       %{ref => player_id},
       &Map.put(&1, ref, player_id)
     )
+  end
+
+  # Deja de monitorear todos los procesos LiveView del jugador que se va, para
+  # no procesar un {:DOWN} suyo despues de haberlo borrado.
+  defp drop_player_monitors(state, player_id) do
+    kept =
+      state
+      |> Map.get(:monitors, %{})
+      |> Enum.reject(fn {ref, id} ->
+        id == player_id and Process.demonitor(ref, [:flush])
+      end)
+      |> Map.new()
+
+    Map.put(state, :monitors, kept)
   end
 
   # Cierra la ronda actual: evalua respuestas, pasa a la fase de resultados y
