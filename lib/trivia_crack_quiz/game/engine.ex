@@ -28,16 +28,33 @@ defmodule TriviaCrackQuiz.Game do
     }
   end
 
+  @max_name_length 20
+
   # Si el jugador ya existia (por ejemplo tras refrescar la pagina), conserva
-  # su puntaje y solo actualiza nombre y estado de conexion.
+  # su puntaje y solo actualiza nombre y estado de conexion. El nombre se
+  # saneca aqui (en el servidor) para no depender de la validacion del
+  # navegador: sin espacios sobrantes, con tope de largo y un valor por
+  # defecto si llega vacio.
   def add_player(state, player_id, name) do
+    clean_name = sanitize_name(name)
+
     player =
       case state.players[player_id] do
-        nil -> %{name: name, score: 0, connected?: true, last_action: :joined}
-        existing -> %{existing | name: name, connected?: true, last_action: :joined}
+        nil -> %{name: clean_name, score: 0, connected?: true, last_action: :joined}
+        existing -> %{existing | name: clean_name, connected?: true, last_action: :joined}
       end
 
     put_in(state, [:players, player_id], player)
+  end
+
+  defp sanitize_name(name) do
+    cleaned =
+      name
+      |> to_string()
+      |> String.trim()
+      |> String.slice(0, @max_name_length)
+
+    if cleaned == "", do: "Jugador", else: cleaned
   end
 
   def set_connected(state, player_id, connected?) do
@@ -258,6 +275,31 @@ defmodule TriviaCrackQuiz.Game do
       nil -> nil
       {player_id, player} -> Map.put(player, :id, player_id)
     end
+  end
+
+  @doc """
+  True si la partida termino en empate: dos o mas jugadores comparten el
+  puntaje mas alto y ese puntaje es mayor que cero (si todos quedaron en 0
+  nadie compitio, no se considera empate de campeones).
+  """
+  def tie?(state) do
+    case top_scorers(state) do
+      [] -> false
+      [_single] -> false
+      [{_id, player} | _] = leaders -> length(leaders) > 1 and player.score > 0
+    end
+  end
+
+  # Jugadores que comparten el puntaje mas alto.
+  defp top_scorers(state) when map_size(state.players) == 0, do: []
+
+  defp top_scorers(state) do
+    max_score =
+      state.players
+      |> Enum.map(fn {_id, player} -> player.score end)
+      |> Enum.max()
+
+    Enum.filter(state.players, fn {_id, player} -> player.score == max_score end)
   end
 
   # Compara respuestas sin distinguir mayusculas, espacios sobrantes ni tildes:

@@ -232,6 +232,51 @@ defmodule TriviaCrackQuizTest do
     assert Enum.all?(reset_state.players, fn {_id, player} -> player.score == 0 end)
   end
 
+  test "add_player sanitizes the name: trims, caps length and falls back when blank" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "   ")
+      |> Game.join("p2", "  Ana María  ")
+      |> Game.join("p3", String.duplicate("x", 50))
+
+    assert state.players["p1"].name == "Jugador"
+    assert state.players["p2"].name == "Ana María"
+    assert String.length(state.players["p3"].name) == 20
+  end
+
+  test "tie? is true when two players share the top score above zero" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> put_in([:players, "p1", :score], 200)
+      |> put_in([:players, "p2", :score], 200)
+      |> put_in([:players, "p3", :score], 100)
+
+    assert Game.tie?(state)
+  end
+
+  test "tie? is false with a single leader" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> put_in([:players, "p1", :score], 300)
+      |> put_in([:players, "p2", :score], 100)
+
+    refute Game.tie?(state)
+  end
+
+  test "tie? is false when everyone is tied at zero" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+
+    refute Game.tie?(state)
+  end
+
   test "remove_player deletes the player and their pending answer" do
     state =
       Game.new_state(test_questions())

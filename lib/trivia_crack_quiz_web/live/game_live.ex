@@ -602,6 +602,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
       |> assign(:ranking, ranking)
       |> assign(:podium, podium_layout(podium))
       |> assign(:rest, Enum.drop(ranking, 3))
+      |> assign(:tie?, TriviaCrackQuiz.Game.tie?(assigns.state))
 
     ~H"""
     <div
@@ -617,7 +618,14 @@ defmodule TriviaCrackQuizWeb.GameLive do
         Partida finalizada
       </p>
       <h2 class="mt-1 text-3xl font-black text-slate-800">
-        {if @state.winner, do: "¡Ganó #{@state.winner.name}!", else: "Sin ganador"}
+        <%= cond do %>
+          <% @tie? -> %>
+            ¡Empate! 🤝
+          <% @state.winner -> %>
+            ¡Ganó {@state.winner.name}!
+          <% true -> %>
+            Sin ganador
+        <% end %>
       </h2>
 
       <%!-- Podio: 2do a la izquierda, 1ro al centro (mas alto), 3ro a la derecha. --%>
