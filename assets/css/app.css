@@ -104,6 +104,63 @@
 
 /* This file is for your main application CSS */
 
+/* --- Tokens del juego Preguntados --- */
+:root {
+  --game-bg-from: #4f46e5;
+  --game-bg-via: #7c3aed;
+  --game-bg-to: #c026d3;
+  --game-accent: #6366f1;
+  --game-accent-strong: #4f46e5;
+  --game-warm: #f59e0b;
+  --game-card-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.game-shell {
+  background: linear-gradient(
+    165deg,
+    var(--game-bg-from) 0%,
+    var(--game-bg-via) 45%,
+    var(--game-bg-to) 100%
+  );
+}
+
+.game-card {
+  border-radius: 1.5rem;
+  background: white;
+  box-shadow: var(--game-card-shadow);
+}
+
+.game-stat-pill {
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.game-btn-primary {
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, var(--game-accent) 0%, var(--game-accent-strong) 100%);
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 10px 25px -8px rgb(79 70 229 / 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.game-btn-warm {
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+  color: white;
+  box-shadow: var(--game-card-shadow);
+  transition: transform 0.15s ease;
+}
+
+.game-btn-warm:hover {
+  transform: scale(1.02);
+}
+
 /* --- Animaciones del juego (feedback "juicy") --- */
 
 /* Sacudida para respuesta incorrecta. */

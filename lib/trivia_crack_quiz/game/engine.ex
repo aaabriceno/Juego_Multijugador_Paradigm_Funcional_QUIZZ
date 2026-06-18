@@ -163,6 +163,19 @@ defmodule TriviaCrackQuiz.Game do
 
   def evaluate_round(state), do: state
 
+  # Tras contar puntos de una ronda: solo el ultimo jugador conectado debe
+  # abandonar la partida; con 2 o mas conectados el juego sigue.
+  def lone_player_remaining?(%{phase: :round_results} = state) do
+    connected_count(state) == 1
+  end
+
+  def lone_player_remaining?(_state), do: false
+
+  # Vuelve la sala a espera vacia para que otros puedan entrar de nuevo.
+  def reopen_room(state) do
+    new_state(state.questions)
+  end
+
   # Vuelve a la sala de espera conservando a los jugadores registrados, con
   # puntajes en cero y banco de preguntas completo otra vez disponible.
   def reset(state) do
@@ -191,7 +204,7 @@ defmodule TriviaCrackQuiz.Game do
   # visible en el WebSocket, aunque la vista no lo muestre.
   def visible_state(state) do
     state
-    |> Map.drop([:questions, :round_timer_ref, :monitors])
+    |> Map.drop([:questions, :round_timer_ref, :empty_room_timer_ref, :monitors])
     |> Map.update!(:answers, fn answers ->
       Map.new(answers, fn {player_id, _answer} -> {player_id, :answered} end)
     end)

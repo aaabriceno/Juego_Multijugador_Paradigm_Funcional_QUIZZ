@@ -99,6 +99,20 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   @impl true
+  def handle_info({:return_to_lobby, _payload}, socket) do
+    {:noreply,
+     socket
+     |> put_flash(:info, "La partida se canceló porque quedaste solo. Volviendo al lobby.")
+     |> push_navigate(to: ~p"/")}
+  end
+
+  def handle_info(:room_closed, socket) do
+    {:noreply,
+     socket
+     |> put_flash(:info, "La sala se cerró por inactividad.")
+     |> push_navigate(to: ~p"/")}
+  end
+
   def handle_info({:game_state, state}, socket) do
     {:noreply,
      socket
@@ -159,48 +173,51 @@ defmodule TriviaCrackQuizWeb.GameLive do
     <main
       id="game-root"
       phx-hook="PlaysSound"
-      class="min-h-screen bg-gradient-to-b from-indigo-600 via-purple-600 to-fuchsia-600 text-slate-800"
+      class="game-shell min-h-screen text-slate-800"
     >
+      <Layouts.flash_group flash={@flash} />
       <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-3">
-            <%!-- Si el jugador esta dentro, salir requiere confirmacion y lo
-                  borra de la sala (baja el conteo). Si solo mira, vuelve directo. --%>
             <button
               :if={@player_id}
               phx-click="leave"
               data-confirm="¿Seguro que quieres salir de la partida? Perderás tu lugar y tu puntaje."
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-xl text-white backdrop-blur transition hover:scale-105"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition hover:scale-105"
               title="Salir de la partida"
             >
-              ←
+              <.icon name="hero-arrow-left" class="h-5 w-5" />
             </button>
             <.link
               :if={is_nil(@player_id)}
               navigate={~p"/"}
-              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-xl text-white backdrop-blur transition hover:scale-105"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition hover:scale-105"
               title="Volver al lobby"
             >
-              ←
+              <.icon name="hero-arrow-left" class="h-5 w-5" />
             </.link>
-            <span class="text-5xl drop-shadow">🧠</span>
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur">
+              <.icon name="hero-puzzle-piece" class="h-7 w-7" />
+            </div>
             <div>
               <h1 class="text-3xl font-black tracking-tight text-white drop-shadow sm:text-4xl">
                 Preguntados
               </h1>
-              <p class="text-sm font-semibold text-white/80">🎯 {@room_id}</p>
+              <p class="flex items-center gap-1.5 text-sm font-semibold text-white/80">
+                <.icon name="hero-flag" class="h-4 w-4" /> {@room_id}
+              </p>
             </div>
           </div>
           <div class="grid grid-cols-3 gap-2 text-center text-sm">
-            <div class="rounded-2xl bg-white/15 px-4 py-2 backdrop-blur">
+            <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Fase</p>
               <p class="font-bold text-white">{phase_label(@state.phase)}</p>
             </div>
-            <div class="rounded-2xl bg-white/15 px-4 py-2 backdrop-blur">
+            <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Ronda</p>
               <p class="font-bold text-white">{@state.round}/{@state.max_rounds}</p>
             </div>
-            <div class="rounded-2xl bg-white/15 px-4 py-2 backdrop-blur">
+            <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Jugadores</p>
               <p class="font-bold text-white">{TriviaCrackQuiz.Game.connected_count(@state)}</p>
             </div>
@@ -209,13 +226,14 @@ defmodule TriviaCrackQuizWeb.GameLive do
 
         <section
           :if={@notice}
-          class="rounded-2xl bg-white/90 px-5 py-3 text-sm font-semibold text-indigo-700 shadow-lg"
+          class="flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-semibold text-indigo-700 shadow-lg"
         >
-          💬 {@notice}
+          <.icon name="hero-chat-bubble-left-ellipsis" class="h-5 w-5 shrink-0" />
+          {@notice}
         </section>
 
         <div class="grid flex-1 gap-5 lg:grid-cols-[minmax(0,1fr)_330px]">
-          <section class="rounded-3xl bg-white p-6 shadow-2xl">
+          <section class="game-card p-6">
             <.join_panel :if={is_nil(@player_id)} />
             <.waiting_panel :if={@state.phase == :waiting and not is_nil(@player_id)} state={@state} />
             <.question_panel
@@ -232,15 +250,17 @@ defmodule TriviaCrackQuizWeb.GameLive do
             <.finished_panel :if={@state.phase == :finished} state={@state} />
           </section>
 
-          <aside class="self-start rounded-3xl bg-white p-5 shadow-2xl">
+          <aside class="game-card self-start p-5">
             <div class="mb-4 flex items-center justify-between">
-              <h2 class="text-lg font-black text-slate-800">🏆 Marcador</h2>
+              <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
+                <.icon name="hero-trophy" class="h-5 w-5 text-amber-500" /> Marcador
+              </h2>
               <button
                 :if={@state.phase == :waiting}
                 phx-click="start"
-                class="rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:scale-105"
+                class="flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:scale-105"
               >
-                ▶ Iniciar
+                <.icon name="hero-play" class="h-4 w-4" /> Iniciar
               </button>
             </div>
 
@@ -275,7 +295,11 @@ defmodule TriviaCrackQuizWeb.GameLive do
                   </span>
                   <div class="min-w-0 flex-1">
                     <p class="truncate text-sm font-bold text-slate-800">
-                      <span :if={position == 1 and player.score > 0}>👑</span>
+                      <.icon
+                        :if={position == 1 and player.score > 0}
+                        name="hero-star"
+                        class="mr-0.5 inline h-4 w-4 text-amber-400"
+                      />
                       {player.name}
                       <span :if={id == @player_id} class="text-xs font-semibold text-indigo-500">
                         (tú)
@@ -297,10 +321,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp join_panel(assigns) do
     ~H"""
     <div class="mx-auto flex max-w-md flex-col justify-center py-12 text-center">
-      <p class="text-6xl">🎯</p>
-      <h2 class="mt-4 text-3xl font-black text-slate-800">¡Únete a la partida!</h2>
+      <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+        <.icon name="hero-user-plus" class="h-9 w-9" />
+      </span>
+      <h2 class="mt-4 text-3xl font-black text-slate-800">Únete a la partida</h2>
       <p class="mt-2 text-slate-500">Elige un nombre y compite respondiendo preguntas.</p>
-      <.form for={%{}} as={:player} phx-submit="join" class="mt-8 space-y-4">
+      <.form for={%{}} as={:player} phx-submit="join" id="join-form" class="mt-8 space-y-4">
         <input
           name="player[name]"
           type="text"
@@ -309,8 +335,8 @@ defmodule TriviaCrackQuizWeb.GameLive do
           placeholder="Tu nombre de jugador"
           class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
         />
-        <button class="w-full rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-lg font-black text-white shadow-lg transition hover:scale-[1.02]">
-          ¡Entrar! 🚀
+        <button class="game-btn-primary w-full px-5 py-4 text-lg">
+          Entrar
         </button>
       </.form>
     </div>
@@ -320,7 +346,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp waiting_panel(assigns) do
     ~H"""
     <div class="flex min-h-80 flex-col items-center justify-center py-8 text-center">
-      <p class="animate-bounce text-6xl">⏳</p>
+      <span class="flex h-16 w-16 animate-pulse items-center justify-center rounded-2xl bg-indigo-50 text-indigo-500">
+        <.icon name="hero-clock" class="h-9 w-9" />
+      </span>
       <h2 class="mt-4 text-3xl font-black text-slate-800">Esperando jugadores...</h2>
       <p class="mt-2 max-w-md text-slate-500">
         La partida inicia cuando existan al menos 3 jugadores registrados.
@@ -335,11 +363,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
           <span
             :for={category <- [:arte, :ciencia, :deportes, :historia, :tecnologia, :cultura_general]}
             class={[
-              "rounded-full px-4 py-1.5 text-sm font-bold text-white shadow",
+              "flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-bold text-white shadow",
               category_style(category).chip
             ]}
           >
-            {category_style(category).emoji} {category_style(category).label}
+            <.icon name={category_style(category).icon} class="h-4 w-4" />
+            {category_style(category).label}
           </span>
         </div>
       </div>
@@ -362,7 +391,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
     <div class="space-y-5">
       <div class={["flex items-center justify-between gap-3 rounded-2xl px-5 py-3", @style.chip]}>
         <p class="flex items-center gap-2 text-lg font-black text-white">
-          <span class="text-2xl">{@style.emoji}</span> {@style.label}
+          <.icon name={@style.icon} class="h-6 w-6" /> {@style.label}
         </p>
         <p class="rounded-full bg-white/25 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
           {type_label(@state.current_question.type)}
@@ -373,10 +402,10 @@ defmodule TriviaCrackQuizWeb.GameLive do
         <div class="flex items-center justify-between text-sm font-bold">
           <span class="text-slate-400">Tiempo restante</span>
           <span class={[
-            "tabular-nums text-lg",
+            "flex items-center gap-1 tabular-nums text-lg",
             (@time_left <= 3 && "animate-pulse text-rose-500") || "text-indigo-600"
           ]}>
-            ⏱ {@time_left}s
+            <.icon name="hero-clock" class="h-5 w-5" /> {@time_left}s
           </span>
         </div>
         <div class="mt-1 h-3 w-full overflow-hidden rounded-full bg-slate-100">
@@ -409,8 +438,8 @@ defmodule TriviaCrackQuizWeb.GameLive do
         :if={@answered?}
         class="flex min-h-40 flex-col items-center justify-center rounded-2xl bg-indigo-50 py-8 text-center"
       >
-        <p class="text-4xl">✅</p>
-        <p class="mt-2 text-xl font-black text-indigo-700">¡Respuesta enviada!</p>
+        <.icon name="hero-check-circle" class="h-12 w-12 text-indigo-600" />
+        <p class="mt-2 text-xl font-black text-indigo-700">Respuesta enviada</p>
         <p class="mt-1 font-semibold text-slate-500">
           Esperando al resto: {map_size(@state.answers)}/{map_size(@state.players)} respondieron
         </p>
@@ -443,8 +472,8 @@ defmodule TriviaCrackQuizWeb.GameLive do
             placeholder="Escribe tu respuesta..."
             class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
           />
-          <button class="mt-3 w-full rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-lg font-black text-white shadow-lg transition hover:scale-[1.01]">
-            Responder ⚡
+          <button class="game-btn-primary mt-3 w-full px-5 py-4 text-lg">
+            Responder
           </button>
         </div>
       </.form>
@@ -464,8 +493,8 @@ defmodule TriviaCrackQuizWeb.GameLive do
     ~H"""
     <div class="space-y-5">
       <div class={["rounded-2xl px-5 py-3 text-center", @style.chip]}>
-        <p class="text-sm font-black uppercase tracking-wide text-white">
-          {@style.emoji} Resultados de la ronda {@state.round}
+        <p class="flex items-center justify-center gap-2 text-sm font-black uppercase tracking-wide text-white">
+          <.icon name={@style.icon} class="h-5 w-5" /> Resultados de la ronda {@state.round}
         </p>
       </div>
 
@@ -476,9 +505,17 @@ defmodule TriviaCrackQuizWeb.GameLive do
              "animate-shake bg-rose-50 ring-2 ring-rose-300") ||
           "bg-slate-50"
       ]}>
-        <p :if={@my_result && @my_result.correct?} class="text-5xl">🎉</p>
-        <p :if={@my_result && not @my_result.correct?} class="text-5xl">😅</p>
-        <p :if={is_nil(@my_result)} class="text-5xl">⏰</p>
+        <.icon
+          :if={@my_result && @my_result.correct?}
+          name="hero-check-badge"
+          class="mx-auto h-12 w-12 text-emerald-500"
+        />
+        <.icon
+          :if={@my_result && not @my_result.correct?}
+          name="hero-x-circle"
+          class="mx-auto h-12 w-12 text-rose-500"
+        />
+        <.icon :if={is_nil(@my_result)} name="hero-clock" class="mx-auto h-12 w-12 text-slate-400" />
         <p
           :if={@my_result && @my_result.correct?}
           class="mt-1 text-lg font-black text-emerald-600"
@@ -494,8 +531,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
         <h2 class="mt-2 text-xl font-bold text-slate-700">
           {@state.round_results.question.text}
         </h2>
-        <p class="mt-3 inline-block rounded-full bg-emerald-100 px-5 py-2 text-lg font-black text-emerald-700">
-          ✓ {@state.round_results.question.answer}
+        <p class="mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-5 py-2 text-lg font-black text-emerald-700">
+          <.icon name="hero-check" class="h-5 w-5" />
+          {@state.round_results.question.answer}
         </p>
       </div>
 
@@ -524,10 +562,14 @@ defmodule TriviaCrackQuizWeb.GameLive do
             +{r.points}
           </span>
           <p :if={result = @state.round_results.results[id]} class="shrink-0 text-sm font-bold">
-            <span :if={result.correct?} class="text-emerald-600">
-              ✓ {result.answer} <span class="text-emerald-500">+{result.points}</span>
+            <span :if={result.correct?} class="inline-flex items-center gap-1 text-emerald-600">
+              <.icon name="hero-check" class="h-4 w-4" />
+              {result.answer} <span class="text-emerald-500">+{result.points}</span>
             </span>
-            <span :if={not result.correct?} class="text-rose-500">✗ {result.answer}</span>
+            <span :if={not result.correct?} class="inline-flex items-center gap-1 text-rose-500">
+              <.icon name="hero-x-mark" class="h-4 w-4" />
+              {result.answer}
+            </span>
           </p>
           <p
             :if={is_nil(@state.round_results.results[id])}
@@ -570,7 +612,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
     />
 
     <div class="flex min-h-80 flex-col items-center justify-center py-8 text-center">
-      <p class="animate-bounce text-6xl">🏆</p>
+      <.icon name="hero-trophy" class="h-16 w-16 animate-bounce text-amber-500" />
       <p class="mt-3 text-sm font-black uppercase tracking-wide text-indigo-500">
         Partida finalizada
       </p>
@@ -585,7 +627,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
           class="animate-pop-in flex w-24 flex-col items-center sm:w-28"
           style={"animation-delay: #{podium_delay(position)}ms"}
         >
-          <span class="text-3xl">{medal(position)}</span>
+          <span class={[
+            "flex h-8 w-8 items-center justify-center rounded-full text-xs font-black text-white shadow",
+            podium_medal_bg(position)
+          ]}>
+            {position}
+          </span>
           <span class={[
             "mt-1 flex h-12 w-12 items-center justify-center rounded-full text-base font-black text-white shadow-lg",
             avatar_color(id)
@@ -620,9 +667,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
 
       <button
         phx-click="reset"
-        class="mt-8 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 text-lg font-black text-white shadow-lg transition hover:scale-105"
+        class="game-btn-primary mt-8 flex items-center gap-2 px-8 py-4 text-lg"
       >
-        🔄 Jugar de nuevo
+        <.icon name="hero-arrow-path" class="h-5 w-5" /> Jugar de nuevo
       </button>
     </div>
     """
@@ -663,12 +710,17 @@ defmodule TriviaCrackQuizWeb.GameLive do
   # Identidad visual de cada categoria, inspirada en Preguntados.
   # Las clases van como cadenas completas para que Tailwind las detecte.
   defp category_style(:arte),
-    do: %{label: "Arte", emoji: "🎨", chip: "bg-rose-500", option_hover: "hover:border-rose-400"}
+    do: %{
+      label: "Arte",
+      icon: "hero-paint-brush",
+      chip: "bg-rose-500",
+      option_hover: "hover:border-rose-400"
+    }
 
   defp category_style(:ciencia),
     do: %{
       label: "Ciencia",
-      emoji: "🔬",
+      icon: "hero-beaker",
       chip: "bg-emerald-500",
       option_hover: "hover:border-emerald-400"
     }
@@ -676,7 +728,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp category_style(:deportes),
     do: %{
       label: "Deportes",
-      emoji: "⚽",
+      icon: "hero-trophy",
       chip: "bg-orange-500",
       option_hover: "hover:border-orange-400"
     }
@@ -684,7 +736,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp category_style(:historia),
     do: %{
       label: "Historia",
-      emoji: "🏛️",
+      icon: "hero-building-library",
       chip: "bg-amber-500",
       option_hover: "hover:border-amber-400"
     }
@@ -692,7 +744,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp category_style(:tecnologia),
     do: %{
       label: "Tecnología",
-      emoji: "💻",
+      icon: "hero-cpu-chip",
       chip: "bg-sky-500",
       option_hover: "hover:border-sky-400"
     }
@@ -700,7 +752,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp category_style(:cultura_general),
     do: %{
       label: "Cultura General",
-      emoji: "🌎",
+      icon: "hero-globe-americas",
       chip: "bg-violet-500",
       option_hover: "hover:border-violet-400"
     }
@@ -708,7 +760,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
   defp category_style(other),
     do: %{
       label: to_string(other),
-      emoji: "❓",
+      icon: "hero-question-mark-circle",
       chip: "bg-slate-500",
       option_hover: "hover:border-slate-400"
     }
@@ -726,8 +778,8 @@ defmodule TriviaCrackQuizWeb.GameLive do
 
   defp action_label(:joined), do: "se unió"
   defp action_label(:answered), do: "respondió"
-  defp action_label(:correct), do: "acertó ✓"
-  defp action_label(:incorrect), do: "falló ✗"
+  defp action_label(:correct), do: "acertó"
+  defp action_label(:incorrect), do: "falló"
   defp action_label(:disconnected), do: "desconectado"
   defp action_label(:reconnected), do: "reconectado"
   defp action_label(other), do: to_string(other)
@@ -749,10 +801,10 @@ defmodule TriviaCrackQuizWeb.GameLive do
     Enum.at(@avatar_colors, :erlang.phash2(player_id, length(@avatar_colors)))
   end
 
-  defp medal(1), do: "🥇"
-  defp medal(2), do: "🥈"
-  defp medal(3), do: "🥉"
-  defp medal(_position), do: "·"
+  defp podium_medal_bg(1), do: "bg-gradient-to-br from-amber-400 to-amber-600"
+  defp podium_medal_bg(2), do: "bg-gradient-to-br from-slate-300 to-slate-500"
+  defp podium_medal_bg(3), do: "bg-gradient-to-br from-orange-400 to-orange-600"
+  defp podium_medal_bg(_), do: "bg-slate-400"
 
   defp assign_time_left(socket) do
     assign(socket, :time_left, time_left(socket.assigns.state))

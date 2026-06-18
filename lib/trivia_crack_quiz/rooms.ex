@@ -138,9 +138,35 @@ defmodule TriviaCrackQuiz.Rooms do
     end
   end
 
-  defp broadcast_change do
+  @doc "Avisa al lobby que la lista de salas cambio (alta, baja o reinicio)."
+  def notify_changed do
     Phoenix.PubSub.broadcast(TriviaCrackQuiz.PubSub, @lobby_topic, :rooms_changed)
   end
+
+  @doc """
+  Termina el proceso de una sala. Devuelve `:ok` si existia o si ya estaba
+  cerrada.
+  """
+  def close(room_id) do
+    case Registry.lookup(TriviaCrackQuiz.RoomRegistry, room_id) do
+      [{pid, _}] ->
+        case DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid) do
+          :ok ->
+            notify_changed()
+            :ok
+
+          {:error, :not_found} ->
+            GenServer.stop(pid, :normal)
+            notify_changed()
+            :ok
+        end
+
+      [] ->
+        :ok
+    end
+  end
+
+  defp broadcast_change, do: notify_changed()
 
   # Id corto, legible y unico para mostrar en URLs y en el lobby.
   defp generate_id do

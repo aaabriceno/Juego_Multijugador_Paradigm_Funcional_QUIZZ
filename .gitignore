@@ -35,3 +35,6 @@ trivia_crack_quiz-*.tar
 npm-debug.log
 /assets/node_modules/
 
+.agents/
+
+skills-lock.json

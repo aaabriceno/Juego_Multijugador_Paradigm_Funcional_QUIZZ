@@ -13,6 +13,9 @@ defmodule TriviaCrackQuiz.GameServer do
   use GenServer
 
   alias TriviaCrackQuiz.Game
+  alias TriviaCrackQuiz.Rooms
+
+  @empty_room_timeout_ms 15_000
 
   # El topic de PubSub depende de la sala: cada sala difunde su estado solo a
   # los LiveView suscritos a ella, sin filtrarse a otras salas.
@@ -24,6 +27,14 @@ defmodule TriviaCrackQuiz.GameServer do
   def start_link(room_id) do
     state = Game.new_state() |> Map.put(:room_id, room_id)
     GenServer.start_link(__MODULE__, state, name: via(room_id))
+  end
+
+  def child_spec(room_id) do
+    %{
+      id: room_id,
+      start: {__MODULE__, :start_link, [room_id]},
+      restart: :temporary
+    }
   end
 
   def subscribe(room_id) do
@@ -71,8 +82,10 @@ defmodule TriviaCrackQuiz.GameServer do
       state
       |> Game.add_player(player_id, name)
       |> monitor_player(caller_pid, player_id)
+      |> sync_empty_room_timer()
 
     broadcast_state(new_state)
+    Rooms.notify_changed()
     {:reply, Game.visible_state(new_state), new_state}
   end
 
@@ -84,8 +97,10 @@ defmodule TriviaCrackQuiz.GameServer do
         state
         |> Game.set_connected(player_id, true)
         |> monitor_player(caller_pid, player_id)
+        |> sync_empty_room_timer()
 
       broadcast_state(new_state)
+      Rooms.notify_changed()
       {:reply, Game.visible_state(new_state), new_state}
     else
       {:reply, Game.visible_state(state), state}
@@ -109,7 +124,9 @@ defmodule TriviaCrackQuiz.GameServer do
         new_state
       end
 
+    new_state = sync_empty_room_timer(new_state)
     broadcast_state(new_state)
+    Rooms.notify_changed()
     {:reply, Game.visible_state(new_state), new_state}
   end
 
@@ -161,6 +178,7 @@ defmodule TriviaCrackQuiz.GameServer do
       |> Game.reset()
       |> Map.put(:monitors, Map.get(state, :monitors, %{}))
       |> Map.put(:room_id, state.room_id)
+      |> sync_empty_room_timer()
 
     broadcast_state(new_state)
     {:reply, Game.visible_state(new_state), new_state}
@@ -181,15 +199,27 @@ defmodule TriviaCrackQuiz.GameServer do
 
   def handle_info(:results_timeout, %{phase: :round_results} = state) do
     new_state =
-      state
-      |> Game.next_question()
-      |> schedule_round_timeout()
+      if Game.lone_player_remaining?(state) do
+        abandon_lone_player_match(state)
+      else
+        state
+        |> Game.next_question()
+        |> schedule_round_timeout()
+      end
 
     broadcast_state(new_state)
     {:noreply, new_state}
   end
 
   def handle_info(:results_timeout, state), do: {:noreply, state}
+
+  def handle_info(:empty_room_timeout, state) do
+    if Game.connected_count(state) == 0 do
+      {:stop, :normal, state}
+    else
+      {:noreply, cancel_empty_room_timeout(state)}
+    end
+  end
 
   # Un proceso LiveView monitoreado murio (pestana cerrada, refresco, caida).
   # Si el jugador no tiene otra pestana abierta, se marca como desconectado.
@@ -198,12 +228,24 @@ defmodule TriviaCrackQuiz.GameServer do
     state = Map.put(state, :monitors, monitors)
 
     if player_id != nil and player_id not in Map.values(monitors) do
-      new_state = Game.set_connected(state, player_id, false)
+      new_state =
+        state
+        |> Game.set_connected(player_id, false)
+        |> sync_empty_room_timer()
+
       broadcast_state(new_state)
+      Rooms.notify_changed()
       {:noreply, new_state}
     else
       {:noreply, state}
     end
+  end
+
+  @impl true
+  def terminate(_reason, %{room_id: room_id}) do
+    Phoenix.PubSub.broadcast(TriviaCrackQuiz.PubSub, topic(room_id), :room_closed)
+    Rooms.notify_changed()
+    :ok
   end
 
   defp monitor_player(state, caller_pid, player_id) do
@@ -239,6 +281,45 @@ defmodule TriviaCrackQuiz.GameServer do
     |> schedule_results_timeout()
   end
 
+  defp abandon_lone_player_match(state) do
+    cancel_round_timeout(state)
+
+    Phoenix.PubSub.broadcast(
+      TriviaCrackQuiz.PubSub,
+      topic(state.room_id),
+      {:return_to_lobby, %{reason: :lone_player}}
+    )
+
+    state
+    |> Game.reopen_room()
+    |> Map.put(:monitors, %{})
+    |> Map.put(:room_id, state.room_id)
+    |> sync_empty_room_timer()
+    |> tap(fn _ -> Rooms.notify_changed() end)
+  end
+
+  defp sync_empty_room_timer(state) do
+    if Game.connected_count(state) == 0 do
+      schedule_empty_room_timeout(state)
+    else
+      cancel_empty_room_timeout(state)
+    end
+  end
+
+  defp schedule_empty_room_timeout(state) do
+    cancel_empty_room_timeout(state)
+    timer_ref = Process.send_after(self(), :empty_room_timeout, @empty_room_timeout_ms)
+    Map.put(state, :empty_room_timer_ref, timer_ref)
+  end
+
+  defp cancel_empty_room_timeout(%{empty_room_timer_ref: timer_ref} = state)
+       when is_reference(timer_ref) do
+    Process.cancel_timer(timer_ref)
+    Map.put(state, :empty_room_timer_ref, nil)
+  end
+
+  defp cancel_empty_room_timeout(state), do: Map.put(state, :empty_room_timer_ref, nil)
+
   # Cancela el temporizador pendiente antes de programar uno nuevo; sin esto,
   # al cerrar una ronda anticipadamente el temporizador viejo seguiria vivo y
   # cortaria la ronda siguiente antes de tiempo.
@@ -253,7 +334,9 @@ defmodule TriviaCrackQuiz.GameServer do
     Map.put(state, :round_timer_ref, nil)
   end
 
-  defp schedule_results_timeout(%{phase: :round_results, results_time_ms: results_time_ms} = state) do
+  defp schedule_results_timeout(
+         %{phase: :round_results, results_time_ms: results_time_ms} = state
+       ) do
     cancel_round_timeout(state)
     timer_ref = Process.send_after(self(), :results_timeout, results_time_ms)
     Map.put(state, :round_timer_ref, timer_ref)

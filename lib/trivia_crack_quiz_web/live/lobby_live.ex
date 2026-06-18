@@ -5,12 +5,8 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    # El lobby se refresca solo cuando se crean salas o cambian de tamano.
-    # Suscribirse aqui (y no en cada GameServer) mantiene la vista en vivo.
     if connected?(socket) do
       Rooms.subscribe_lobby()
-      # Tic periodico para reflejar cambios de fase/jugadores dentro de salas
-      # ya existentes (uniones/salidas no siempre emiten evento de lobby).
       :timer.send_interval(2000, :refresh)
     end
 
@@ -18,7 +14,6 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
   end
 
   @impl true
-  # Crear sala con nombre escrito por el usuario (opcional). Vacio -> aleatorio.
   def handle_event("create_named", %{"room" => %{"name" => name}}, socket) do
     room_id = Rooms.create_named(name)
     {:noreply, push_navigate(socket, to: ~p"/sala/#{room_id}")}
@@ -41,36 +36,45 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <main class="min-h-screen bg-gradient-to-b from-indigo-600 via-purple-600 to-fuchsia-600 text-slate-800">
+    <main class="game-shell min-h-screen text-slate-800">
+      <Layouts.flash_group flash={@flash} />
       <div class="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-6 px-4 py-10 sm:px-6">
         <header class="flex flex-col items-center gap-3 text-center">
-          <span class="text-6xl drop-shadow">🧠</span>
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-white shadow-lg backdrop-blur">
+            <.icon name="hero-puzzle-piece" class="h-9 w-9" />
+          </div>
           <h1 class="text-4xl font-black tracking-tight text-white drop-shadow">Preguntados</h1>
           <p class="text-sm font-semibold text-white/80">Trivia Crack Quiz Multiplayer</p>
         </header>
 
-        <section class="rounded-3xl bg-white p-6 shadow-2xl">
-          <div class="mb-4 flex items-center justify-between">
-            <h2 class="text-lg font-black text-slate-800">🚪 Salas activas</h2>
+        <section class="game-card p-6">
+          <div class="mb-4 flex items-center justify-between gap-3">
+            <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
+              <.icon name="hero-home-modern" class="h-5 w-5 text-indigo-500" /> Salas activas
+            </h2>
             <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-700">
-              {length(@rooms)} en juego
+              {length(@rooms)} {if length(@rooms) == 1, do: "sala", else: "salas"}
             </span>
           </div>
 
           <p
             :if={@rooms == []}
-            class="rounded-2xl border-2 border-dashed border-slate-200 px-4 py-8 text-center text-sm font-semibold text-slate-400"
+            class="flex flex-col items-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 px-4 py-10 text-center text-sm font-semibold text-slate-400"
           >
-            No hay salas todavía. ¡Crea la primera! 🎉
+            <.icon name="hero-sparkles" class="h-8 w-8 text-indigo-300" />
+            No hay salas todavía. Crea la primera.
           </p>
 
           <ul :if={@rooms != []} class="space-y-2">
             <li
               :for={room <- @rooms}
-              class="flex items-center justify-between rounded-2xl border-2 border-slate-100 bg-slate-50 px-4 py-3"
+              class="flex items-center justify-between gap-3 rounded-2xl border-2 border-slate-100 bg-slate-50 px-4 py-3"
             >
               <div class="min-w-0">
-                <p class="truncate text-sm font-black text-slate-800">🎯 {room.id}</p>
+                <p class="flex items-center gap-2 truncate text-sm font-black text-slate-800">
+                  <.icon name="hero-flag" class="h-4 w-4 shrink-0 text-indigo-500" />
+                  {room.id}
+                </p>
                 <p class="text-xs font-semibold text-slate-500">
                   {phase_label(room.phase)} · {room.players}/{room.max_players} jugadores
                 </p>
@@ -78,15 +82,15 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
               <.link
                 :if={joinable?(room)}
                 navigate={~p"/sala/#{room.id}"}
-                class="rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:scale-105"
+                class="game-btn-primary shrink-0 px-4 py-2 text-sm"
               >
                 Entrar
               </.link>
               <span
                 :if={not joinable?(room)}
-                class="rounded-full bg-slate-200 px-4 py-2 text-sm font-bold text-slate-500"
+                class="shrink-0 rounded-full bg-slate-200 px-4 py-2 text-sm font-bold text-slate-500"
               >
-                {full_label(room)}
+                {status_label(room)}
               </span>
             </li>
           </ul>
@@ -97,10 +101,13 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
             for={%{}}
             as={:room}
             phx-submit="create_named"
-            class="flex flex-col rounded-3xl bg-white px-5 py-6 text-center shadow-2xl"
+            id="create-room-form"
+            class="game-card flex flex-col px-5 py-6 text-center"
           >
-            <span class="block text-4xl">➕</span>
-            <span class="mt-2 block text-base font-black text-slate-800">Crear sala</span>
+            <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <.icon name="hero-plus-circle" class="h-7 w-7" />
+            </span>
+            <span class="mt-3 block text-base font-black text-slate-800">Crear sala</span>
             <input
               name="room[name]"
               type="text"
@@ -108,18 +115,21 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
               placeholder="Nombre (opcional)"
               class="mt-3 w-full rounded-xl border-2 border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
             />
-            <button class="mt-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-black text-white shadow transition hover:scale-105">
+            <button class="game-btn-primary mt-3 px-4 py-2.5 text-sm">
               Crear y entrar
             </button>
           </.form>
 
           <button
+            id="random-join-btn"
             phx-click="random"
-            class="rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 px-5 py-6 text-center text-white shadow-2xl transition hover:scale-105"
+            class="game-btn-warm flex flex-col items-center justify-center px-5 py-6 text-center"
           >
-            <span class="block text-4xl">🎲</span>
+            <.icon name="hero-arrow-path-rounded-square" class="h-10 w-10" />
             <span class="mt-2 block text-base font-black">Unirse aleatorio</span>
-            <span class="block text-xs font-semibold text-white/80">Te metemos en una sala libre</span>
+            <span class="block text-xs font-semibold text-white/85">
+              Te metemos en una sala libre
+            </span>
           </button>
         </section>
       </div>
@@ -127,12 +137,11 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
     """
   end
 
-  # Solo se puede entrar si la sala espera jugadores y tiene cupo. Las partidas
-  # en curso o llenas no aceptan nuevos jugadores desde el lobby.
   defp joinable?(room), do: room.phase == :waiting and room.players < room.max_players
 
-  defp full_label(%{players: players, max_players: max}) when players >= max, do: "Llena"
-  defp full_label(_room), do: "En juego"
+  defp status_label(%{players: players, max_players: max}) when players >= max, do: "Llena"
+  defp status_label(%{phase: :waiting}), do: "Esperando"
+  defp status_label(_room), do: "En juego"
 
   defp phase_label(:waiting), do: "Esperando"
   defp phase_label(:playing), do: "Jugando"

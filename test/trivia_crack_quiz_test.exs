@@ -259,6 +259,46 @@ defmodule TriviaCrackQuizTest do
     assert Game.connected_count(state) == 2
   end
 
+  test "lone_player_remaining? is true only with one connected player in round_results" do
+    lone =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Game.set_connected("p2", false)
+      |> Game.set_connected("p3", false)
+      |> Game.evaluate_round()
+
+    assert Game.lone_player_remaining?(lone)
+
+    duo =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.start()
+      |> Game.evaluate_round()
+
+    refute Game.lone_player_remaining?(duo)
+  end
+
+  test "reopen_room resets to empty waiting state" do
+    state =
+      Game.new_state(test_questions())
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Game.evaluate_round()
+
+    reopened = Game.reopen_room(state)
+
+    assert reopened.phase == :waiting
+    assert reopened.players == %{}
+    assert reopened.round == 0
+    assert reopened.round_results == nil
+  end
+
   defp test_questions do
     [
       %{

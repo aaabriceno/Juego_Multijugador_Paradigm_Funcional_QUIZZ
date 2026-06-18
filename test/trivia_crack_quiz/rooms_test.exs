@@ -1,7 +1,7 @@
 defmodule TriviaCrackQuiz.RoomsTest do
   use ExUnit.Case, async: false
 
-  alias TriviaCrackQuiz.{GameServer, Rooms}
+  alias TriviaCrackQuiz.{Game, GameServer, Rooms}
 
   # Cada test usa ids unicos y limpia sus salas al terminar para no contaminar
   # el Registry compartido entre tests.
@@ -121,5 +121,84 @@ defmodule TriviaCrackQuiz.RoomsTest do
     refute id2 == "duplicada"
     assert Rooms.exists?("duplicada")
     assert Rooms.exists?(id2)
+  end
+
+  test "close removes the room from the registry and list" do
+    id = unique_id()
+    Rooms.create(id)
+    assert Rooms.exists?(id)
+
+    [{pid, _}] = Registry.lookup(TriviaCrackQuiz.RoomRegistry, id)
+    ref = Process.monitor(pid)
+
+    assert :ok = Rooms.close(id)
+    assert_receive {:DOWN, ^ref, :process, ^pid, _}
+    refute Rooms.exists?(id)
+    refute Enum.any?(Rooms.list(), &(&1.id == id))
+  end
+
+  test "empty room timeout stops the process when nobody is connected" do
+    id = unique_id()
+    Rooms.create(id)
+    GameServer.join(id, "p1", "Ana")
+    GameServer.leave(id, "p1")
+
+    [{pid, _}] = Registry.lookup(TriviaCrackQuiz.RoomRegistry, id)
+    ref = Process.monitor(pid)
+    send(pid, :empty_room_timeout)
+
+    assert_receive {:DOWN, ^ref, :process, ^pid, :normal}
+    refute Rooms.exists?(id)
+  end
+
+  test "reopens room when only one player remains after round results" do
+    id = unique_id()
+    Rooms.create(id)
+    GameServer.join(id, "p1", "Ana")
+    GameServer.join(id, "p2", "Luis")
+    GameServer.join(id, "p3", "Mia")
+    {:ok, _} = GameServer.start_game(id)
+
+    GameServer.answer(id, "p1", "Marte")
+    GameServer.leave(id, "p2")
+    GameServer.leave(id, "p3")
+
+    assert GameServer.state(id).phase == :round_results
+    assert Game.connected_count(GameServer.state(id)) == 1
+
+    [{pid, _}] = Registry.lookup(TriviaCrackQuiz.RoomRegistry, id)
+    send(pid, :results_timeout)
+    _ = :sys.get_state(pid)
+
+    state = GameServer.state(id)
+    assert state.phase == :waiting
+    assert state.players == %{}
+    assert Rooms.exists?(id)
+  end
+
+  test "continues match when two players remain after round results" do
+    id = unique_id()
+    Rooms.create(id)
+    GameServer.join(id, "p1", "Ana")
+    GameServer.join(id, "p2", "Luis")
+    GameServer.join(id, "p3", "Mia")
+    {:ok, _} = GameServer.start_game(id)
+
+    GameServer.leave(id, "p3")
+
+    [{pid, _}] = Registry.lookup(TriviaCrackQuiz.RoomRegistry, id)
+    send(pid, :round_timeout)
+    _ = :sys.get_state(pid)
+
+    assert GameServer.state(id).phase == :round_results
+    assert Game.connected_count(GameServer.state(id)) == 2
+
+    send(pid, :results_timeout)
+    _ = :sys.get_state(pid)
+
+    state = GameServer.state(id)
+    assert state.phase == :playing
+    assert state.round == 2
+    assert map_size(state.players) == 2
   end
 end
