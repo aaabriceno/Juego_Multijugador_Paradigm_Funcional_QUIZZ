@@ -74,7 +74,12 @@ defmodule TriviaCrackQuiz.GameServer do
   end
 
   @impl true
-  def init(state), do: {:ok, state}
+  def init(state) do
+    # La sala nace vacia: arranca de una el temporizador de sala vacia para que
+    # se cierre sola si nadie llega a registrarse (p. ej. el creador entra,
+    # nunca pone su nombre y se va). Sin esto la sala quedaria viva para siempre.
+    {:ok, sync_empty_room_timer(state)}
+  end
 
   @impl true
   def handle_call({:join, player_id, name}, {caller_pid, _tag}, state) do

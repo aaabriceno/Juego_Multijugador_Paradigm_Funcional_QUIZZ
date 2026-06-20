@@ -17,6 +17,45 @@ defmodule TriviaCrackQuiz.RoomsTest do
 
   defp unique_id, do: "test-" <> Integer.to_string(System.unique_integer([:positive]))
 
+  # Localiza el pid del proceso de una sala por su id.
+  defp room_pid(room_id) do
+    [{pid, _}] = Registry.lookup(TriviaCrackQuiz.RoomRegistry, room_id)
+    pid
+  end
+
+  test "a freshly created empty room (random or named) auto-closes when nobody joins" do
+    # Reproduce el bug reportado: el creador entra a una sala (aleatoria o con
+    # nombre), nunca se registra y se va -> la sala quedaba viva para siempre.
+    # Ahora el temporizador de sala vacia arranca desde init.
+    id = unique_id()
+    Rooms.create(id)
+
+    pid = room_pid(id)
+    ref = Process.monitor(pid)
+
+    # Nadie hizo join: la sala esta vacia. Disparamos el timeout que init
+    # ya dejo programado (en vez de esperar los 15s reales).
+    send(pid, :empty_room_timeout)
+
+    # El proceso se detiene solo. El Registry limpia su entrada de forma
+    # asincrona, por eso esperamos la baja del proceso (no exists? de inmediato).
+    assert_receive {:DOWN, ^ref, :process, ^pid, :normal}, 1000
+    refute Process.alive?(pid)
+  end
+
+  test "an empty room does NOT close while a connected player is present" do
+    id = unique_id()
+    Rooms.create(id)
+    GameServer.join(id, "p1", "Ana")
+
+    pid = room_pid(id)
+    send(pid, :empty_room_timeout)
+
+    # Sigue vivo: hay un jugador conectado.
+    assert Process.alive?(pid)
+    assert Rooms.exists?(id)
+  end
+
   test "create starts a room process and exists?/list see it" do
     id = unique_id()
 
