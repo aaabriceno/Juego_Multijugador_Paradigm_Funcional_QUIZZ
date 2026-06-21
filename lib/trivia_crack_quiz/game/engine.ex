@@ -8,6 +8,16 @@ defmodule TriviaCrackQuiz.Game do
   @min_players 3
   @round_time_ms 10_000
   @results_time_ms 5_000
+  # Las preguntas de respuesta por teclado (quick_answer) son mas dificiles de
+  # contestar a tiempo, asi que reciben segundos extra sobre el tiempo base.
+  @quick_answer_extra_ms 4_000
+
+  @doc """
+  Tiempo (ms) que dura una ronda segun el tipo de pregunta. Las de respuesta
+  abierta (`:quick_answer`) reciben tiempo extra; el resto usa el tiempo base.
+  """
+  def question_time_ms(%{type: :quick_answer}), do: @round_time_ms + @quick_answer_extra_ms
+  def question_time_ms(_question), do: @round_time_ms
 
   def new_state(questions \\ TriviaCrackQuiz.QuestionBank.load_questions()) do
     %{
@@ -115,6 +125,7 @@ defmodule TriviaCrackQuiz.Game do
       | phase: :playing,
         round: state.round + 1,
         round_started_at: now,
+        round_time_ms: question_time_ms(question),
         current_question: question,
         used_question_ids: MapSet.put(state.used_question_ids, question.id),
         last_category: question.category,
@@ -154,7 +165,7 @@ defmodule TriviaCrackQuiz.Game do
       when not is_nil(question) do
     results =
       Map.new(state.answers, fn {player_id, answer} ->
-        correct? = normalize(answer.answer) == normalize(question.answer)
+        correct? = correct_answer?(question, answer.answer)
 
         points =
           if correct?, do: score_answer(state.round_started_at, answer.answered_at), else: 0
@@ -231,7 +242,9 @@ defmodule TriviaCrackQuiz.Game do
   defp hide_current_answer(%{current_question: nil} = state), do: state
 
   defp hide_current_answer(%{current_question: question} = state) do
-    %{state | current_question: Map.delete(question, :answer)}
+    # No enviar al navegador la respuesta correcta ni las alternativas validas;
+    # la pista (hint) si puede viajar porque el jugador puede revelarla.
+    %{state | current_question: Map.drop(question, [:answer, :accept])}
   end
 
   defp select_question(state) do
@@ -300,6 +313,75 @@ defmodule TriviaCrackQuiz.Game do
       |> Enum.max()
 
     Enum.filter(state.players, fn {_id, player} -> player.score == max_score end)
+  end
+
+  @doc """
+  Decide si la respuesta enviada es correcta para la pregunta.
+
+  Acepta la respuesta oficial (`answer`) y cualquier variante listada en
+  `accept`. En preguntas de tipo `:quick_answer` (respuesta por teclado) ademas
+  tolera errores de tipeo pequenos: si el texto difiere en a lo mas un caracter
+  de alguna respuesta valida, se da por correcto. Los tipos de opcion (clic) se
+  comparan de forma exacta normalizada, sin tolerancia, porque no se tipean.
+  """
+  def correct_answer?(question, submitted) do
+    submitted_norm = normalize(submitted)
+    valid = accepted_answers(question)
+
+    cond do
+      Enum.any?(valid, &(&1 == submitted_norm)) ->
+        true
+
+      question.type == :quick_answer ->
+        # Solo respuestas tipeadas toleran un error de tipeo. Se evita en
+        # respuestas muy cortas (1-2 letras) para no aceptar cosas erroneas.
+        Enum.any?(valid, fn answer ->
+          String.length(answer) >= 3 and levenshtein(answer, submitted_norm) <= 1
+        end)
+
+      true ->
+        false
+    end
+  end
+
+  # Lista normalizada de respuestas validas: la oficial mas las alternativas.
+  defp accepted_answers(question) do
+    extra = Map.get(question, :accept) || []
+
+    [question.answer | extra]
+    |> Enum.map(&normalize/1)
+    |> Enum.reject(&(&1 == ""))
+    |> Enum.uniq()
+  end
+
+  # Distancia de edicion (Levenshtein): minimo de inserciones, borrados o
+  # sustituciones de un caracter para convertir una cadena en otra. Se usa para
+  # tolerar un error de tipeo. Implementacion clasica por programacion dinamica,
+  # calculando la matriz fila por fila.
+  defp levenshtein(a, b) do
+    b_chars = String.graphemes(b)
+    # Fila 0: costo de transformar "" en cada prefijo de b (puros insertados).
+    first_row = Enum.to_list(0..length(b_chars))
+
+    a
+    |> String.graphemes()
+    |> Enum.with_index(1)
+    |> Enum.reduce(first_row, fn {char_a, i}, prev_row ->
+      build_row(char_a, b_chars, prev_row, i)
+    end)
+    |> List.last()
+  end
+
+  # Calcula una fila de la matriz de Levenshtein a partir de la fila anterior.
+  defp build_row(char_a, b_chars, prev_row, row_index) do
+    b_chars
+    |> Enum.zip(Enum.zip(prev_row, tl(prev_row)))
+    |> Enum.reduce([row_index], fn {char_b, {diag, up}}, [left | _] = acc ->
+      cost = if char_a == char_b, do: 0, else: 1
+      value = Enum.min([left + 1, up + 1, diag + cost])
+      [value | acc]
+    end)
+    |> Enum.reverse()
   end
 
   # Compara respuestas sin distinguir mayusculas, espacios sobrantes ni tildes:

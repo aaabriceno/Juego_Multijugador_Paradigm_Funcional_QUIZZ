@@ -153,7 +153,7 @@ defmodule TriviaCrackQuizTest do
       |> Game.start()
       |> Game.answer("p1", "dali")
       |> Game.answer("p2", "  DALÍ ")
-      |> Game.answer("p3", "Dalo")
+      |> Game.answer("p3", "Picasso")
       |> Game.evaluate_round()
 
     assert state.round_results.results["p1"].correct?
@@ -230,6 +230,88 @@ defmodule TriviaCrackQuizTest do
     assert reset_state.used_question_ids == MapSet.new()
     assert Map.keys(reset_state.players) |> Enum.sort() == ["p1", "p2", "p3"]
     assert Enum.all?(reset_state.players, fn {_id, player} -> player.score == 0 end)
+  end
+
+  test "correct_answer? accepts the official answer and listed alternatives" do
+    question = %{type: :quick_answer, answer: "38", accept: ["treinta y ocho"]}
+
+    assert Game.correct_answer?(question, "38")
+    assert Game.correct_answer?(question, "  Treinta y Ocho ")
+    refute Game.correct_answer?(question, "39")
+  end
+
+  test "correct_answer? tolerates a single typo only for quick_answer" do
+    quick = %{type: :quick_answer, answer: "Elixir"}
+    multiple = %{type: :multiple_choice, answer: "Marte"}
+
+    assert Game.correct_answer?(quick, "elixr")
+    assert Game.correct_answer?(quick, "elexir")
+    refute Game.correct_answer?(quick, "python")
+
+    # En opcion multiple (se elige con clic) no se tolera el typo.
+    refute Game.correct_answer?(multiple, "mart")
+    assert Game.correct_answer?(multiple, "marte")
+  end
+
+  test "quick_answer questions get extra time over the base" do
+    quick = %{type: :quick_answer}
+    multiple = %{type: :multiple_choice}
+
+    assert Game.question_time_ms(quick) > Game.question_time_ms(multiple)
+    assert Game.question_time_ms(quick) - Game.question_time_ms(multiple) == 4_000
+  end
+
+  test "evaluate_round uses flexible matching for typed answers" do
+    questions = [
+      %{
+        id: 1,
+        type: :quick_answer,
+        category: :tecnologia,
+        text: "Lenguaje funcional sobre la BEAM",
+        options: [],
+        answer: "Elixir"
+      }
+    ]
+
+    state =
+      Game.new_state(questions)
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Game.answer("p1", "elixr")
+      |> Game.answer("p2", "Elixir")
+      |> Game.answer("p3", "java")
+      |> Game.evaluate_round()
+
+    assert state.round_results.results["p1"].correct?
+    assert state.round_results.results["p2"].correct?
+    refute state.round_results.results["p3"].correct?
+  end
+
+  test "visible_state never leaks answer nor accept variants of the current question" do
+    questions = [
+      %{
+        id: 1,
+        type: :quick_answer,
+        category: :tecnologia,
+        text: "Pregunta abierta",
+        options: [],
+        answer: "Elixir",
+        accept: ["elixir lang"]
+      }
+    ]
+
+    visible =
+      Game.new_state(questions)
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Game.visible_state()
+
+    refute Map.has_key?(visible.current_question, :answer)
+    refute Map.has_key?(visible.current_question, :accept)
   end
 
   test "add_player sanitizes the name: trims, caps length and falls back when blank" do

@@ -94,6 +94,11 @@ defmodule TriviaCrackQuiz.QuestionBank do
       text: question["text"] || question["question"],
       options: question["options"] || [],
       answer: question["answer"],
+      # Respuestas alternativas aceptadas (ademas de "answer"), util en
+      # preguntas de respuesta abierta. Opcional en el JSON.
+      accept: question["accept"] || [],
+      # Pista opcional que el jugador puede revelar con un boton.
+      hint: question["hint"],
       difficulty: question["difficulty"],
       source: question["source"]
     }

@@ -37,6 +37,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
       |> assign(:player_name, if(joined?, do: state.players[session_player_id].name, else: ""))
       |> assign(:answer, "")
       |> assign(:notice, nil)
+      |> assign(:show_hint, false)
       |> assign_time_left()
 
     {:ok, socket}
@@ -88,6 +89,11 @@ defmodule TriviaCrackQuizWeb.GameLive do
      |> assign_time_left()}
   end
 
+  # Revela la pista de la pregunta actual (solo afecta la vista de este jugador).
+  def handle_event("show_hint", _params, socket) do
+    {:noreply, assign(socket, :show_hint, true)}
+  end
+
   # Salida definitiva: borra al jugador de la sala (el conteo baja para todos)
   # y vuelve al lobby. El boton pide confirmacion en el navegador antes.
   def handle_event("leave", _params, socket) do
@@ -114,10 +120,14 @@ defmodule TriviaCrackQuizWeb.GameLive do
   end
 
   def handle_info({:game_state, state}, socket) do
+    # Al cambiar de pregunta, se oculta de nuevo la pista para la siguiente.
+    show_hint = socket.assigns.show_hint and same_question?(socket.assigns.state, state)
+
     {:noreply,
      socket
      |> maybe_play_phase_sound(state)
      |> assign(:state, state)
+     |> assign(:show_hint, show_hint)
      |> assign_time_left()}
   end
 
@@ -166,6 +176,15 @@ defmodule TriviaCrackQuizWeb.GameLive do
       socket
     end
   end
+
+  # True si ambos estados muestran la misma pregunta (mismo id). Sirve para
+  # decidir si conservar la pista revelada o resetearla al cambiar de ronda.
+  defp same_question?(old_state, new_state) do
+    question_id(old_state) == question_id(new_state)
+  end
+
+  defp question_id(%{current_question: %{id: id}}), do: id
+  defp question_id(_state), do: nil
 
   @impl true
   def render(assigns) do
@@ -472,6 +491,26 @@ defmodule TriviaCrackQuizWeb.GameLive do
             placeholder="Escribe tu respuesta..."
             class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
           />
+
+          <%!-- Pista opcional: solo si la pregunta trae hint. Se revela con el
+                boton; mientras tanto solo se ofrece la ayuda. --%>
+          <div :if={@state.current_question[:hint]} class="mt-3 text-center">
+            <button
+              :if={not @show_hint}
+              type="button"
+              phx-click="show_hint"
+              class="rounded-full border-2 border-amber-300 bg-amber-50 px-4 py-1.5 text-sm font-bold text-amber-700 transition hover:scale-105"
+            >
+              💡 Ver pista
+            </button>
+            <p
+              :if={@show_hint}
+              class="rounded-2xl bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-800"
+            >
+              💡 {@state.current_question.hint}
+            </p>
+          </div>
+
           <button class="game-btn-primary mt-3 w-full px-5 py-4 text-lg">
             Responder
           </button>
