@@ -242,4 +242,31 @@ defmodule TriviaCrackQuiz.RoomsTest do
     assert state.round == 2
     assert map_size(state.players) == 2
   end
+
+  test "a room created with a category reports it in the listing" do
+    id = unique_id()
+    Rooms.create(id, :ciencia)
+
+    summary = Enum.find(Rooms.list(), &(&1.id == id))
+    assert summary.category == :ciencia
+  end
+
+  test "random_open with a category reuses a matching open room" do
+    sci = unique_id()
+    his = unique_id()
+    Rooms.create(sci, :ciencia)
+    Rooms.create(his, :historia)
+
+    # Pide aleatorio de ciencia: debe reusar la sala de ciencia, no la de historia.
+    assert Rooms.random_open(:ciencia) == sci
+  end
+
+  test "random_open with a category creates a new room when none match" do
+    Rooms.create(unique_id(), :historia)
+
+    chosen = Rooms.random_open(:ciencia)
+    summary = Enum.find(Rooms.list(), &(&1.id == chosen))
+
+    assert summary.category == :ciencia
+  end
 end

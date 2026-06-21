@@ -24,18 +24,27 @@ defmodule TriviaCrackQuiz.GameServer do
   # Localiza el proceso de la sala por su room_id usando el Registry.
   defp via(room_id), do: {:via, Registry, {TriviaCrackQuiz.RoomRegistry, room_id}}
 
-  def start_link(room_id) do
-    state = Game.new_state() |> Map.put(:room_id, room_id)
+  # Acepta `room_id` o `{room_id, category}`. La categoria limita el banco de
+  # preguntas de la sala (`:all` = todas).
+  def start_link({room_id, category}) do
+    state =
+      Game.new_state(TriviaCrackQuiz.QuestionBank.load_questions(), category)
+      |> Map.put(:room_id, room_id)
+
     GenServer.start_link(__MODULE__, state, name: via(room_id))
   end
 
-  def child_spec(room_id) do
+  def start_link(room_id), do: start_link({room_id, :all})
+
+  def child_spec({room_id, category}) do
     %{
       id: room_id,
-      start: {__MODULE__, :start_link, [room_id]},
+      start: {__MODULE__, :start_link, [{room_id, category}]},
       restart: :temporary
     }
   end
+
+  def child_spec(room_id), do: child_spec({room_id, :all})
 
   def subscribe(room_id) do
     Phoenix.PubSub.subscribe(TriviaCrackQuiz.PubSub, topic(room_id))

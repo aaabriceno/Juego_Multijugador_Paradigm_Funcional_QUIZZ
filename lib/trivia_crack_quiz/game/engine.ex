@@ -19,7 +19,15 @@ defmodule TriviaCrackQuiz.Game do
   def question_time_ms(%{type: :quick_answer}), do: @round_time_ms + @quick_answer_extra_ms
   def question_time_ms(_question), do: @round_time_ms
 
-  def new_state(questions \\ TriviaCrackQuiz.QuestionBank.load_questions()) do
+  @doc """
+  Crea el estado inicial de una partida. `category` limita el banco a una sola
+  categoria (atom) o `:all` para usar todas. Guarda la categoria elegida para
+  poder reabrir/reiniciar la sala con el mismo filtro.
+  """
+  def new_state(
+        questions \\ TriviaCrackQuiz.QuestionBank.load_questions(),
+        category \\ :all
+      ) do
     %{
       phase: :waiting,
       players: %{},
@@ -29,13 +37,34 @@ defmodule TriviaCrackQuiz.Game do
       round_time_ms: @round_time_ms,
       results_time_ms: @results_time_ms,
       round_results: nil,
-      questions: questions,
+      category: category,
+      all_questions: questions,
+      questions: filter_by_category(questions, category),
       current_question: nil,
       used_question_ids: MapSet.new(),
       last_category: nil,
       answers: %{},
       winner: nil
     }
+  end
+
+  @doc "Lista de categorias disponibles en el banco de preguntas dado."
+  def available_categories(questions) do
+    questions
+    |> Enum.map(& &1.category)
+    |> Enum.uniq()
+    |> Enum.sort()
+  end
+
+  # Filtra el banco por categoria. `:all` (o categoria sin preguntas) deja el
+  # banco completo, para no quedarse sin preguntas por un filtro vacio.
+  defp filter_by_category(questions, :all), do: questions
+
+  defp filter_by_category(questions, category) do
+    case Enum.filter(questions, &(&1.category == category)) do
+      [] -> questions
+      filtered -> filtered
+    end
   end
 
   @max_name_length 20
@@ -199,21 +228,28 @@ defmodule TriviaCrackQuiz.Game do
 
   def lone_player_remaining?(_state), do: false
 
-  # Vuelve la sala a espera vacia para que otros puedan entrar de nuevo.
+  # Vuelve la sala a espera vacia para que otros puedan entrar de nuevo,
+  # conservando la categoria elegida al crearla.
   def reopen_room(state) do
-    new_state(state.questions)
+    new_state(all_questions(state), category(state))
   end
 
   # Vuelve a la sala de espera conservando a los jugadores registrados, con
-  # puntajes en cero y banco de preguntas completo otra vez disponible.
+  # puntajes en cero, el banco completo de su categoria otra vez disponible y
+  # el mismo filtro de categoria.
   def reset(state) do
     players =
       Map.new(state.players, fn {player_id, player} ->
         {player_id, %{player | score: 0, last_action: :joined}}
       end)
 
-    %{new_state(state.questions) | players: players}
+    %{new_state(all_questions(state), category(state)) | players: players}
   end
+
+  # Banco completo original (sin filtrar) y categoria de la sala. Tienen valores
+  # por defecto para tolerar estados viejos que no traian estos campos.
+  defp all_questions(state), do: Map.get(state, :all_questions) || state.questions
+  defp category(state), do: Map.get(state, :category, :all)
 
   def finish(state) do
     %{
@@ -232,7 +268,7 @@ defmodule TriviaCrackQuiz.Game do
   # visible en el WebSocket, aunque la vista no lo muestre.
   def visible_state(state) do
     state
-    |> Map.drop([:questions, :round_timer_ref, :empty_room_timer_ref, :monitors])
+    |> Map.drop([:questions, :all_questions, :round_timer_ref, :empty_room_timer_ref, :monitors])
     |> Map.update!(:answers, fn answers ->
       Map.new(answers, fn {player_id, _answer} -> {player_id, :answered} end)
     end)

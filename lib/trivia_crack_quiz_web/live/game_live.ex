@@ -177,6 +177,15 @@ defmodule TriviaCrackQuizWeb.GameLive do
     end
   end
 
+  # Etiqueta de la categoria de la sala para el encabezado. `:all`/nil = todas.
+  defp room_category_label(nil), do: "🎲 Todas"
+  defp room_category_label(:all), do: "🎲 Todas"
+
+  defp room_category_label(category) do
+    style = category_style(category)
+    "#{style.emoji} #{style.label}"
+  end
+
   # True si ambos estados muestran la misma pregunta (mismo id). Sirve para
   # decidir si conservar la pista revelada o resetearla al cambiar de ronda.
   defp same_question?(old_state, new_state) do
@@ -224,6 +233,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
               </h1>
               <p class="flex items-center gap-1.5 text-sm font-semibold text-white/80">
                 <.icon name="hero-flag" class="h-4 w-4" /> {@room_id}
+                <span class="rounded-full bg-white/20 px-2 py-0.5 text-xs">
+                  {room_category_label(@state[:category])}
+                </span>
               </p>
             </div>
           </div>

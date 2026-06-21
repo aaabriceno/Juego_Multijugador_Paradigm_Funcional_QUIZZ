@@ -232,6 +232,42 @@ defmodule TriviaCrackQuizTest do
     assert Enum.all?(reset_state.players, fn {_id, player} -> player.score == 0 end)
   end
 
+  test "new_state with a category keeps only questions of that category" do
+    state = Game.new_state(mixed_questions(), :history)
+
+    assert state.category == :history
+    assert Enum.all?(state.questions, &(&1.category == :history))
+    # El banco completo se conserva para poder reabrir/reiniciar.
+    assert length(state.all_questions) == length(mixed_questions())
+  end
+
+  test "new_state with :all keeps every question" do
+    state = Game.new_state(mixed_questions(), :all)
+
+    assert state.category == :all
+    assert length(state.questions) == length(mixed_questions())
+  end
+
+  test "new_state falls back to all questions when the category has none" do
+    state = Game.new_state(mixed_questions(), :inexistente)
+
+    assert state.questions == mixed_questions()
+  end
+
+  test "reset and reopen_room keep the room category" do
+    state =
+      Game.new_state(mixed_questions(), :science)
+      |> Game.join("p1", "Ana")
+
+    assert Game.reset(state).category == :science
+    assert Game.reopen_room(state).category == :science
+    assert Enum.all?(Game.reset(state).questions, &(&1.category == :science))
+  end
+
+  test "available_categories lists the categories in the bank" do
+    assert Game.available_categories(mixed_questions()) == [:history, :science]
+  end
+
   test "correct_answer? accepts the official answer and listed alternatives" do
     question = %{type: :quick_answer, answer: "38", accept: ["treinta y ocho"]}
 

@@ -33,8 +33,8 @@ defmodule TriviaCrackQuiz.Rooms do
   devuelve `{:ok, room_id}` igual (idempotente) para no romper enlaces
   compartidos.
   """
-  def create(room_id) do
-    spec = {GameServer, room_id}
+  def create(room_id, category \\ :all) do
+    spec = {GameServer, {room_id, category}}
 
     case DynamicSupervisor.start_child(TriviaCrackQuiz.RoomSupervisor, spec) do
       {:ok, _pid} ->
@@ -50,23 +50,24 @@ defmodule TriviaCrackQuiz.Rooms do
   end
 
   @doc "Crea una sala con un id aleatorio legible y devuelve su id."
-  def create_random do
-    {:ok, room_id} = create(generate_id())
+  def create_random(category \\ :all) do
+    {:ok, room_id} = create(generate_id(), category)
     room_id
   end
 
   @doc """
   Crea una sala a partir de un nombre escrito por el usuario. El nombre se
   convierte en un id apto para URL (slug). Si queda vacio o ya existe ese id,
-  cae a un id aleatorio para no pisar otra sala.
+  cae a un id aleatorio para no pisar otra sala. `category` limita las
+  preguntas (`:all` = todas).
   """
-  def create_named(name) do
+  def create_named(name, category \\ :all) do
     slug = slugify(name)
 
     cond do
-      slug == "" -> create_random()
-      exists?(slug) -> create_random()
-      true -> elem(create(slug), 1)
+      slug == "" -> create_random(category)
+      exists?(slug) -> create_random(category)
+      true -> elem(create(slug, category), 1)
     end
   end
 
@@ -96,19 +97,24 @@ defmodule TriviaCrackQuiz.Rooms do
 
   @doc """
   Devuelve el id de una sala abierta (en espera y con cupo) para union
-  aleatoria. Si no hay ninguna, crea una nueva.
+  aleatoria. Con `category` distinta de `:all`, busca solo salas de esa
+  categoria. Si no hay ninguna, crea una nueva con esa categoria.
   """
-  def random_open do
-    case Enum.find(list(), &open?/1) do
-      nil -> create_random()
+  def random_open(category \\ :all) do
+    case Enum.find(list(), &open?(&1, category)) do
+      nil -> create_random(category)
       room -> room.id
     end
   end
 
   # --- internos ---
 
-  # Una sala admite union aleatoria si esta esperando jugadores y no esta llena.
-  defp open?(room), do: room.phase == :waiting and room.players < @max_players
+  # Una sala admite union aleatoria si esta esperando, con cupo y (si se pide
+  # una categoria) coincide con ella.
+  defp open?(room, category) do
+    room.phase == :waiting and room.players < @max_players and
+      (category == :all or room.category == category)
+  end
 
   defp summarize(pid) do
     case room_id_of(pid) do
@@ -123,7 +129,8 @@ defmodule TriviaCrackQuiz.Rooms do
             id: room_id,
             players: TriviaCrackQuiz.Game.connected_count(state),
             max_players: @max_players,
-            phase: state.phase
+            phase: state.phase,
+            category: Map.get(state, :category, :all)
           }
         ]
     end
