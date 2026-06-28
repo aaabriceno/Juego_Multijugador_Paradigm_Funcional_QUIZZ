@@ -1,17 +1,30 @@
 defmodule TriviaCrackQuizWeb.CrearSalaLiveTest do
-  use TriviaCrackQuizWeb.ConnCase
+  # async: false: comparten el Registry/Supervisor global de salas.
+  use TriviaCrackQuizWeb.ConnCase, async: false
   import Phoenix.LiveViewTest
 
   alias TriviaCrackQuiz.Rooms
 
-  # Cierra cualquier sala creada en estos tests para no contaminar a otros
-  # (el Registry/Supervisor de salas es global entre tests).
+  # Cierra (de forma sincrona) las salas creadas para no contaminar a otros
+  # tests; el Registry/Supervisor de salas es global entre tests.
   setup do
-    on_exit(fn ->
-      for {_, pid, _, _} <- DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor) do
-        DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+    cleanup_rooms()
+    on_exit(&cleanup_rooms/0)
+    :ok
+  end
+
+  defp cleanup_rooms do
+    for {_, pid, _, _} <- DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor),
+        is_pid(pid) do
+      ref = Process.monitor(pid)
+      DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+
+      receive do
+        {:DOWN, ^ref, :process, ^pid, _} -> :ok
+      after
+        500 -> :ok
       end
-    end)
+    end
 
     :ok
   end

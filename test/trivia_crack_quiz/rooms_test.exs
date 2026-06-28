@@ -3,14 +3,26 @@ defmodule TriviaCrackQuiz.RoomsTest do
 
   alias TriviaCrackQuiz.{Game, GameServer, Rooms}
 
-  # Cada test usa ids unicos y limpia sus salas al terminar para no contaminar
-  # el Registry compartido entre tests.
+  # Cada test usa ids unicos y limpia sus salas (de forma sincrona) para no
+  # contaminar el Registry compartido entre tests.
   setup do
-    on_exit(fn ->
-      for {_, pid, _, _} <- DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor) do
-        DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+    cleanup_rooms()
+    on_exit(&cleanup_rooms/0)
+    :ok
+  end
+
+  defp cleanup_rooms do
+    for {_, pid, _, _} <- DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor),
+        is_pid(pid) do
+      ref = Process.monitor(pid)
+      DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+
+      receive do
+        {:DOWN, ^ref, :process, ^pid, _} -> :ok
+      after
+        500 -> :ok
       end
-    end)
+    end
 
     :ok
   end

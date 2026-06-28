@@ -1,20 +1,34 @@
 defmodule TriviaCrackQuizWeb.TableroLiveTest do
-  use TriviaCrackQuizWeb.ConnCase
+  # async: false porque comparten el Registry/Supervisor global de salas; no
+  # deben correr en paralelo con otros tests que crean salas.
+  use TriviaCrackQuizWeb.ConnCase, async: false
   import Phoenix.LiveViewTest
 
   alias TriviaCrackQuiz.{GameServer, Rooms}
 
   setup do
-    # Limpia salas que hayan dejado otros tests, para que el tablero parta
-    # vacio sin importar el orden de ejecucion.
-    terminate_all = fn ->
-      for {_, pid, _, _} <- DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor) do
-        DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+    # Limpia salas que hayan dejado otros tests y espera a que sus procesos
+    # mueran de verdad (terminate es async), para partir de un estado conocido
+    # sin importar el orden de ejecucion.
+    cleanup_rooms()
+    on_exit(&cleanup_rooms/0)
+    :ok
+  end
+
+  defp cleanup_rooms do
+    children = DynamicSupervisor.which_children(TriviaCrackQuiz.RoomSupervisor)
+
+    for {_, pid, _, _} <- children, is_pid(pid) do
+      ref = Process.monitor(pid)
+      DynamicSupervisor.terminate_child(TriviaCrackQuiz.RoomSupervisor, pid)
+
+      receive do
+        {:DOWN, ^ref, :process, ^pid, _} -> :ok
+      after
+        500 -> :ok
       end
     end
 
-    terminate_all.()
-    on_exit(terminate_all)
     :ok
   end
 
