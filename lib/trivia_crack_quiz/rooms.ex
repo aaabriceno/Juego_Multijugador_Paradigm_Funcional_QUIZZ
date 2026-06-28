@@ -33,8 +33,8 @@ defmodule TriviaCrackQuiz.Rooms do
   devuelve `{:ok, room_id}` igual (idempotente) para no romper enlaces
   compartidos.
   """
-  def create(room_id, category \\ :all) do
-    spec = {GameServer, {room_id, category}}
+  def create(room_id, filters \\ :all) do
+    spec = {GameServer, {room_id, filters}}
 
     case DynamicSupervisor.start_child(TriviaCrackQuiz.RoomSupervisor, spec) do
       {:ok, _pid} ->
@@ -50,24 +50,24 @@ defmodule TriviaCrackQuiz.Rooms do
   end
 
   @doc "Crea una sala con un id aleatorio legible y devuelve su id."
-  def create_random(category \\ :all) do
-    {:ok, room_id} = create(generate_id(), category)
+  def create_random(filters \\ :all) do
+    {:ok, room_id} = create(generate_id(), filters)
     room_id
   end
 
   @doc """
   Crea una sala a partir de un nombre escrito por el usuario. El nombre se
   convierte en un id apto para URL (slug). Si queda vacio o ya existe ese id,
-  cae a un id aleatorio para no pisar otra sala. `category` limita las
-  preguntas (`:all` = todas).
+  cae a un id aleatorio para no pisar otra sala. `filters` limita las preguntas
+  por categorias y/o tipos (`:all` = todas).
   """
-  def create_named(name, category \\ :all) do
+  def create_named(name, filters \\ :all) do
     slug = slugify(name)
 
     cond do
-      slug == "" -> create_random(category)
-      exists?(slug) -> create_random(category)
-      true -> elem(create(slug, category), 1)
+      slug == "" -> create_random(filters)
+      exists?(slug) -> create_random(filters)
+      true -> elem(create(slug, filters), 1)
     end
   end
 
@@ -97,24 +97,42 @@ defmodule TriviaCrackQuiz.Rooms do
 
   @doc """
   Devuelve el id de una sala abierta (en espera y con cupo) para union
-  aleatoria. Con `category` distinta de `:all`, busca solo salas de esa
-  categoria. Si no hay ninguna, crea una nueva con esa categoria.
+  aleatoria. Con `filters` distinto de `:all`, busca solo salas cuyos filtros
+  coincidan. Si no hay ninguna, crea una nueva con esos filtros.
   """
-  def random_open(category \\ :all) do
-    case Enum.find(list(), &open?(&1, category)) do
-      nil -> create_random(category)
+  def random_open(filters \\ :all) do
+    wanted = normalize_filters(filters)
+
+    case Enum.find(list(), &open?(&1, wanted)) do
+      nil -> create_random(filters)
       room -> room.id
     end
   end
 
   # --- internos ---
 
-  # Una sala admite union aleatoria si esta esperando, con cupo y (si se pide
-  # una categoria) coincide con ella.
-  defp open?(room, category) do
+  # Una sala admite union aleatoria si esta esperando, con cupo y sus filtros
+  # coinciden con los pedidos.
+  defp open?(room, wanted_filters) do
     room.phase == :waiting and room.players < @max_players and
-      (category == :all or room.category == category)
+      room.filters == wanted_filters
   end
+
+  # Normaliza filtros al mismo formato que guarda el estado, para poder
+  # comparar por igualdad. Acepta `:all`, un atom de categoria o un mapa.
+  defp normalize_filters(:all), do: %{categories: [], types: [], surprise: false}
+  defp normalize_filters(nil), do: %{categories: [], types: [], surprise: false}
+
+  defp normalize_filters(%{} = filters) do
+    %{
+      categories: List.wrap(Map.get(filters, :categories, [])),
+      types: List.wrap(Map.get(filters, :types, [])),
+      surprise: Map.get(filters, :surprise, false) == true
+    }
+  end
+
+  defp normalize_filters(category) when is_atom(category),
+    do: %{categories: [category], types: [], surprise: false}
 
   defp summarize(pid) do
     case room_id_of(pid) do
@@ -130,10 +148,23 @@ defmodule TriviaCrackQuiz.Rooms do
             players: TriviaCrackQuiz.Game.connected_count(state),
             max_players: @max_players,
             phase: state.phase,
-            category: Map.get(state, :category, :all)
+            round: Map.get(state, :round, 0),
+            max_rounds: Map.get(state, :max_rounds, 0),
+            filters: Map.get(state, :filters, %{categories: [], types: [], surprise: false}),
+            roster: roster(state)
           }
         ]
     end
+  end
+
+  # Lista de jugadores de una sala ordenada por puntaje (desc), para el tablero
+  # espectador. Cada entrada trae nombre, puntaje y si esta conectado.
+  defp roster(state) do
+    state.players
+    |> Enum.map(fn {_id, player} ->
+      %{name: player.name, score: player.score, connected?: player.connected?}
+    end)
+    |> Enum.sort_by(& &1.score, :desc)
   end
 
   # El Registry guarda la clave (room_id) por pid; lo recuperamos para no
