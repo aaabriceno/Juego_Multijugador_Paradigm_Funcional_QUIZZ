@@ -243,30 +243,30 @@ defmodule TriviaCrackQuiz.RoomsTest do
     assert map_size(state.players) == 2
   end
 
-  test "a room created with a category reports it in the listing" do
+  test "a room created with filters reports them in the listing" do
     id = unique_id()
-    Rooms.create(id, :ciencia)
+    Rooms.create(id, %{categories: [:ciencia], types: [:multiple_choice]})
 
     summary = Enum.find(Rooms.list(), &(&1.id == id))
-    assert summary.category == :ciencia
+    assert summary.filters == %{categories: [:ciencia], types: [:multiple_choice], surprise: false}
   end
 
-  test "random_open with a category reuses a matching open room" do
+  test "random_open with filters reuses a room with the same filters" do
     sci = unique_id()
     his = unique_id()
-    Rooms.create(sci, :ciencia)
-    Rooms.create(his, :historia)
+    Rooms.create(sci, %{categories: [:ciencia], types: []})
+    Rooms.create(his, %{categories: [:historia], types: []})
 
     # Pide aleatorio de ciencia: debe reusar la sala de ciencia, no la de historia.
-    assert Rooms.random_open(:ciencia) == sci
+    assert Rooms.random_open(%{categories: [:ciencia], types: []}) == sci
   end
 
-  test "random_open with a category creates a new room when none match" do
-    Rooms.create(unique_id(), :historia)
+  test "random_open with filters creates a new room when none match" do
+    Rooms.create(unique_id(), %{categories: [:historia], types: []})
 
-    chosen = Rooms.random_open(:ciencia)
+    chosen = Rooms.random_open(%{categories: [:ciencia], types: []})
     summary = Enum.find(Rooms.list(), &(&1.id == chosen))
 
-    assert summary.category == :ciencia
+    assert summary.filters == %{categories: [:ciencia], types: [], surprise: false}
   end
 end

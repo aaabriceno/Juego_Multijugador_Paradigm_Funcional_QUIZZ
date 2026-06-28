@@ -232,40 +232,162 @@ defmodule TriviaCrackQuizTest do
     assert Enum.all?(reset_state.players, fn {_id, player} -> player.score == 0 end)
   end
 
-  test "new_state with a category keeps only questions of that category" do
-    state = Game.new_state(mixed_questions(), :history)
+  test "filter by a single category keeps only that category" do
+    state = Game.new_state(mixed_questions(), %{categories: [:history]})
 
-    assert state.category == :history
+    assert state.filters == %{categories: [:history], types: [], surprise: false}
     assert Enum.all?(state.questions, &(&1.category == :history))
     # El banco completo se conserva para poder reabrir/reiniciar.
     assert length(state.all_questions) == length(mixed_questions())
   end
 
-  test "new_state with :all keeps every question" do
-    state = Game.new_state(mixed_questions(), :all)
+  test "filter by several categories keeps all of them" do
+    state = Game.new_state(mixed_questions(), %{categories: [:history, :science]})
 
-    assert state.category == :all
+    assert Enum.all?(state.questions, &(&1.category in [:history, :science]))
     assert length(state.questions) == length(mixed_questions())
   end
 
-  test "new_state falls back to all questions when the category has none" do
-    state = Game.new_state(mixed_questions(), :inexistente)
+  test "empty filters keep every question" do
+    state = Game.new_state(mixed_questions(), %{})
 
-    assert state.questions == mixed_questions()
+    assert state.filters == %{categories: [], types: [], surprise: false}
+    assert length(state.questions) == length(mixed_questions())
   end
 
-  test "reset and reopen_room keep the room category" do
+  test "legacy :all and single-atom category still work" do
+    assert Game.new_state(mixed_questions(), :all).filters ==
+             %{categories: [], types: [], surprise: false}
+
+    single = Game.new_state(mixed_questions(), :history)
+    assert single.filters == %{categories: [:history], types: [], surprise: false}
+    assert Enum.all?(single.questions, &(&1.category == :history))
+  end
+
+  test "filter by question type keeps only that type" do
+    questions = typed_questions()
+    state = Game.new_state(questions, %{types: [:true_false]})
+
+    assert Enum.all?(state.questions, &(&1.type == :true_false))
+    assert state.questions != []
+  end
+
+  test "filter by several types keeps all of them" do
+    questions = typed_questions()
+    state = Game.new_state(questions, %{types: [:true_false, :quick_answer]})
+
+    assert Enum.all?(state.questions, &(&1.type in [:true_false, :quick_answer]))
+  end
+
+  test "combined category and type filter applies both" do
+    questions = typed_questions()
+    state = Game.new_state(questions, %{categories: [:science], types: [:multiple_choice]})
+
+    assert Enum.all?(state.questions, &(&1.category == :science and &1.type == :multiple_choice))
+    assert state.questions != []
+  end
+
+  test "filters with no matching question fall back to the whole bank" do
+    questions = typed_questions()
+    # Combinacion inexistente: historia + escribir.
+    state = Game.new_state(questions, %{categories: [:history], types: [:quick_answer]})
+
+    assert length(state.questions) == length(questions)
+  end
+
+  test "reset and reopen_room keep the room filters" do
     state =
-      Game.new_state(mixed_questions(), :science)
+      Game.new_state(mixed_questions(), %{categories: [:science]})
       |> Game.join("p1", "Ana")
 
-    assert Game.reset(state).category == :science
-    assert Game.reopen_room(state).category == :science
+    assert Game.reset(state).filters == %{categories: [:science], types: [], surprise: false}
+    assert Game.reopen_room(state).filters == %{categories: [:science], types: [], surprise: false}
     assert Enum.all?(Game.reset(state).questions, &(&1.category == :science))
   end
 
-  test "available_categories lists the categories in the bank" do
+  test "available_categories and available_types list what is in the bank" do
     assert Game.available_categories(mixed_questions()) == [:history, :science]
+    assert Game.available_types(typed_questions()) ==
+             [:multiple_choice, :quick_answer, :true_false]
+  end
+
+  test "surprise enabled reserves exactly one surprise round within range" do
+    state = Game.new_state(mixed_questions(), %{surprise: true})
+
+    assert state.filters.surprise == true
+    assert state.surprise_round in 1..state.max_rounds
+  end
+
+  test "surprise disabled has no surprise round" do
+    state = Game.new_state(mixed_questions(), %{categories: [:science]})
+    assert state.surprise_round == nil
+  end
+
+  test "only the surprise round question is flagged as surprise" do
+    # Fuerza la sorpresa en la ronda 1 para una verificacion determinista.
+    state =
+      Game.new_state(mixed_questions(), %{surprise: true})
+      |> Map.put(:surprise_round, 1)
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+
+    assert state.current_question.surprise == true
+
+    next = Game.next_question(Game.evaluate_round(state))
+    assert next.current_question.surprise == false
+  end
+
+  test "surprise question can come from any category, ignoring the category filter" do
+    # Sala filtrada a ciencia, pero la ronda sorpresa usa todo el banco.
+    questions = typed_questions()
+
+    categories =
+      for _ <- 1..40 do
+        Game.new_state(questions, %{categories: [:ciencia], surprise: true})
+        |> Map.put(:surprise_round, 1)
+        |> Game.join("p1", "A")
+        |> Game.join("p2", "B")
+        |> Game.join("p3", "C")
+        |> Game.start()
+        |> Map.fetch!(:current_question)
+        |> Map.fetch!(:category)
+      end
+      |> Enum.uniq()
+
+    # Con 40 intentos sobre un banco con varias categorias, debe aparecer al
+    # menos una categoria distinta de :ciencia (la sorpresa ignora el filtro).
+    assert Enum.any?(categories, &(&1 != :ciencia))
+  end
+
+  test "a correct surprise answer scores exactly 20% more than a normal one" do
+    base_question = [
+      %{id: 1, type: :multiple_choice, category: :ciencia, text: "q", options: ["A", "B"], answer: "A"}
+    ]
+
+    # Anula el bonus de rapidez en ambos casos colocando el inicio de ronda
+    # muy en el pasado: asi la base es fija (100) y la comparacion es exacta.
+    long_ago = System.monotonic_time(:millisecond) - 1_000_000
+
+    score = fn extra ->
+      Game.new_state(base_question, extra)
+      |> Map.put(:surprise_round, if(extra == %{surprise: true}, do: 1, else: nil))
+      |> Game.join("p1", "Ana")
+      |> Game.join("p2", "Luis")
+      |> Game.join("p3", "Mia")
+      |> Game.start()
+      |> Map.put(:round_started_at, long_ago)
+      |> Game.answer("p1", "A")
+      |> Game.evaluate_round()
+      |> get_in([:round_results, :results, "p1", :points])
+    end
+
+    normal_pts = score.(%{})
+    surprise_pts = score.(%{surprise: true})
+
+    assert normal_pts == 100
+    assert surprise_pts == 120
   end
 
   test "correct_answer? accepts the official answer and listed alternatives" do
@@ -501,6 +623,17 @@ defmodule TriviaCrackQuizTest do
         options: ["A", "B", "C", "D"],
         answer: "A"
       }
+    ]
+  end
+
+  # Banco variado en categorias y tipos para probar los filtros combinados.
+  defp typed_questions do
+    [
+      %{id: 1, type: :multiple_choice, category: :science, text: "c1", options: ["A"], answer: "A"},
+      %{id: 2, type: :true_false, category: :science, text: "c2", options: ["V", "F"], answer: "V"},
+      %{id: 3, type: :quick_answer, category: :science, text: "c3", options: [], answer: "x"},
+      %{id: 4, type: :multiple_choice, category: :history, text: "h1", options: ["A"], answer: "A"},
+      %{id: 5, type: :true_false, category: :history, text: "h2", options: ["V", "F"], answer: "F"}
     ]
   end
 end
