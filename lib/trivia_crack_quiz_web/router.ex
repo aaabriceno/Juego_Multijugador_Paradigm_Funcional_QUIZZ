@@ -29,6 +29,8 @@ defmodule TriviaCrackQuizWeb.Router do
     pipe_through :browser
 
     live "/", LobbyLive, :index
+    live "/crear", CrearSalaLive, :index
+    live "/tablero", TableroLive, :index
     live "/sala/:room_id", GameLive, :index
   end
 

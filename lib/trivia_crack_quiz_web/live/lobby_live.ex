@@ -3,16 +3,21 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
 
   alias TriviaCrackQuiz.Rooms
 
-  # Categorias ofrecidas al crear sala. ":all" usa todas. Las demas deben
-  # coincidir con las categorias del banco de preguntas.
+  # Solo para mostrar las etiquetas de los filtros en la lista de salas. La
+  # eleccion de filtros vive en CrearSalaLive.
   @categories [
-    {:all, "🎲 Todas"},
     {:arte, "🎨 Arte"},
     {:ciencia, "🔬 Ciencia"},
     {:deportes, "⚽ Deportes"},
     {:historia, "🏛️ Historia"},
     {:tecnologia, "💻 Tecnología"},
     {:cultura_general, "🌎 Cultura General"}
+  ]
+
+  @types [
+    {:multiple_choice, "🔘 Opción múltiple"},
+    {:true_false, "✅ Verdadero/Falso"},
+    {:quick_answer, "⌨️ Escribir"}
   ]
 
   @impl true
@@ -22,35 +27,15 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
       :timer.send_interval(2000, :refresh)
     end
 
-    {:ok,
-     socket
-     |> assign(:rooms, Rooms.list())
-     |> assign(:categories, @categories)}
+    {:ok, assign(socket, :rooms, Rooms.list())}
   end
 
+  # Union aleatoria: cualquier sala libre, sin filtros. Para elegir por
+  # caracteristicas, el jugador mira "Salas activas".
   @impl true
-  def handle_event("create_named", %{"room" => %{"name" => name} = params}, socket) do
-    category = parse_category(params["category"])
-    room_id = Rooms.create_named(name, category)
-    {:noreply, push_navigate(socket, to: ~p"/sala/#{room_id}")}
-  end
-
-  def handle_event("random", %{"category" => category}, socket) do
-    room_id = Rooms.random_open(parse_category(category))
-    {:noreply, push_navigate(socket, to: ~p"/sala/#{room_id}")}
-  end
-
   def handle_event("random", _params, socket) do
     room_id = Rooms.random_open()
     {:noreply, push_navigate(socket, to: ~p"/sala/#{room_id}")}
-  end
-
-  # Convierte el valor del formulario en un atom de categoria valido. Cualquier
-  # cosa rara cae a :all, para no crear salas con categorias inexistentes.
-  defp parse_category(value) do
-    valid = Enum.map(@categories, fn {cat, _label} -> Atom.to_string(cat) end)
-
-    if value in valid, do: String.to_existing_atom(value), else: :all
   end
 
   @impl true
@@ -74,6 +59,12 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
           </div>
           <h1 class="text-4xl font-black tracking-tight text-white drop-shadow">Preguntados</h1>
           <p class="text-sm font-semibold text-white/80">Trivia Crack Quiz Multiplayer</p>
+          <.link
+            navigate={~p"/tablero"}
+            class="mt-1 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-1.5 text-sm font-bold text-white backdrop-blur transition hover:scale-105"
+          >
+            <.icon name="hero-tv" class="h-4 w-4" /> Ver tablero en vivo
+          </.link>
         </header>
 
         <section class="game-card p-6">
@@ -105,7 +96,10 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
                   {room.id}
                 </p>
                 <p class="text-xs font-semibold text-slate-500">
-                  {category_label(room.category)} · {phase_label(room.phase)} · {room.players}/{room.max_players} jugadores
+                  {filters_label(room.filters)}
+                </p>
+                <p class="text-xs font-semibold text-slate-400">
+                  {phase_label(room.phase)} · {room.players}/{room.max_players} jugadores
                 </p>
               </div>
               <.link
@@ -126,68 +120,56 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
         </section>
 
         <section class="grid gap-3 sm:grid-cols-2">
-          <.form
-            for={%{}}
-            as={:room}
-            phx-submit="create_named"
-            id="create-room-form"
-            class="game-card flex flex-col px-5 py-6 text-center"
+          <%!-- Crear sala lleva a la pantalla de configuracion (nombre + filtros). --%>
+          <.link
+            navigate={~p"/crear"}
+            class="game-card flex flex-col items-center justify-center px-5 py-6 text-center transition hover:scale-[1.02]"
           >
-            <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <.icon name="hero-plus-circle" class="h-7 w-7" />
             </span>
             <span class="mt-3 block text-base font-black text-slate-800">Crear sala</span>
-            <input
-              name="room[name]"
-              type="text"
-              maxlength="30"
-              placeholder="Nombre (opcional)"
-              class="mt-3 w-full rounded-xl border-2 border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
-            />
-            <select
-              name="room[category]"
-              class="mt-2 w-full rounded-xl border-2 border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
-            >
-              <option :for={{value, label} <- @categories} value={value}>{label}</option>
-            </select>
-            <button class="game-btn-primary mt-3 px-4 py-2.5 text-sm">
-              Crear y entrar
-            </button>
-          </.form>
+            <span class="block text-xs font-semibold text-slate-500">
+              Elige nombre, categorías y tipos
+            </span>
+          </.link>
 
-          <.form
-            for={%{}}
-            phx-submit="random"
-            id="random-join-form"
+          <%!-- Aleatorio: entra a cualquier sala libre, sin filtros. --%>
+          <button
+            type="button"
+            phx-click="random"
+            id="random-join-btn"
             class="game-btn-warm flex flex-col items-center justify-center px-5 py-6 text-center"
           >
             <.icon name="hero-arrow-path-rounded-square" class="h-10 w-10" />
             <span class="mt-2 block text-base font-black">Unirse aleatorio</span>
             <span class="block text-xs font-semibold text-white/85">
-              Sala libre de la categoría elegida
+              Te metemos en cualquier sala libre
             </span>
-            <select
-              name="category"
-              class="mt-3 w-full rounded-xl border-2 border-white/30 bg-white/90 px-3 py-2 text-center text-sm font-semibold text-slate-800 outline-none"
-            >
-              <option :for={{value, label} <- @categories} value={value}>{label}</option>
-            </select>
-            <button class="mt-3 w-full rounded-xl bg-white/90 px-4 py-2.5 text-sm font-black text-orange-600 transition hover:scale-105">
-              Jugar ahora
-            </button>
-          </.form>
+          </button>
         </section>
       </div>
     </main>
     """
   end
 
-  # Etiqueta legible de una categoria, reutilizando las del selector.
-  defp category_label(category) do
-    case List.keyfind(@categories, category, 0) do
-      {_cat, label} -> label
-      nil -> "🎲 Todas"
-    end
+  # Etiqueta de los filtros de una sala para la lista de salas activas.
+  defp filters_label(%{categories: [], types: []}), do: "🎲 Todas las categorías y tipos"
+
+  defp filters_label(%{categories: categories, types: types}) do
+    [labels_for(categories, @categories), labels_for(types, @types)]
+    |> Enum.reject(&(&1 == ""))
+    |> Enum.join(" · ")
+  end
+
+  defp filters_label(_), do: "🎲 Todas las categorías y tipos"
+
+  defp labels_for([], _options), do: ""
+
+  defp labels_for(values, options) do
+    options
+    |> Enum.filter(fn {atom, _label} -> atom in values end)
+    |> Enum.map_join(", ", fn {_atom, label} -> label end)
   end
 
   defp joinable?(room), do: room.phase == :waiting and room.players < room.max_players

@@ -177,14 +177,43 @@ defmodule TriviaCrackQuizWeb.GameLive do
     end
   end
 
-  # Etiqueta de la categoria de la sala para el encabezado. `:all`/nil = todas.
-  defp room_category_label(nil), do: "🎲 Todas"
-  defp room_category_label(:all), do: "🎲 Todas"
+  # Etiqueta de los filtros de la sala (categorias + tipos) para el encabezado.
+  # Sin filtros = todas las preguntas.
+  @all_categories [:arte, :ciencia, :deportes, :historia, :tecnologia, :cultura_general]
 
-  defp room_category_label(category) do
-    style = category_style(category)
-    "#{style.emoji} #{style.label}"
+  # Categorias realmente en juego en la sala: las filtradas, o todas si no se
+  # filtro ninguna.
+  defp categories_in_play(state) do
+    case state[:filters] do
+      %{categories: [_ | _] = categories} -> categories
+      _ -> @all_categories
+    end
   end
+
+  # Tipos filtrados de la sala (vacio = todos, no se muestra chip de tipo).
+  defp types_in_play(state) do
+    case state[:filters] do
+      %{types: types} -> types
+      _ -> []
+    end
+  end
+
+  defp room_filters_label(%{categories: [], types: []}), do: "🎲 Todas"
+
+  defp room_filters_label(%{categories: categories, types: types}) do
+    cat_part = Enum.map_join(categories, ", ", &category_style(&1).label)
+    type_part = Enum.map_join(types, ", ", &type_label/1)
+
+    [cat_part, type_part]
+    |> Enum.reject(&(&1 == ""))
+    |> Enum.join(" · ")
+    |> case do
+      "" -> "🎲 Todas"
+      label -> label
+    end
+  end
+
+  defp room_filters_label(_), do: "🎲 Todas"
 
   # True si ambos estados muestran la misma pregunta (mismo id). Sirve para
   # decidir si conservar la pista revelada o resetearla al cambiar de ronda.
@@ -234,7 +263,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
               <p class="flex items-center gap-1.5 text-sm font-semibold text-white/80">
                 <.icon name="hero-flag" class="h-4 w-4" /> {@room_id}
                 <span class="rounded-full bg-white/20 px-2 py-0.5 text-xs">
-                  {room_category_label(@state[:category])}
+                  {room_filters_label(@state[:filters])}
                 </span>
               </p>
             </div>
@@ -392,7 +421,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
         <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Categorías en juego</p>
         <div class="mt-3 flex flex-wrap justify-center gap-2">
           <span
-            :for={category <- [:arte, :ciencia, :deportes, :historia, :tecnologia, :cultura_general]}
+            :for={category <- categories_in_play(@state)}
             class={[
               "flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-bold text-white shadow",
               category_style(category).chip
@@ -401,6 +430,18 @@ defmodule TriviaCrackQuizWeb.GameLive do
             <.icon name={category_style(category).icon} class="h-4 w-4" />
             {category_style(category).label}
           </span>
+        </div>
+
+        <div :if={types_in_play(@state) != []} class="mt-5">
+          <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Tipos en juego</p>
+          <div class="mt-3 flex flex-wrap justify-center gap-2">
+            <span
+              :for={type <- types_in_play(@state)}
+              class="rounded-full bg-slate-100 px-4 py-1.5 text-sm font-bold text-slate-600"
+            >
+              {type_label(type)}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -420,6 +461,13 @@ defmodule TriviaCrackQuizWeb.GameLive do
 
     ~H"""
     <div class="space-y-5">
+      <div
+        :if={@state.current_question[:surprise]}
+        class="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-fuchsia-500 to-amber-400 px-5 py-2 text-center text-sm font-black uppercase tracking-wide text-white shadow"
+      >
+        🎁 ¡Pregunta sorpresa! +20% de puntos
+      </div>
+
       <div class={["flex items-center justify-between gap-3 rounded-2xl px-5 py-3", @style.chip]}>
         <p class="flex items-center gap-2 text-lg font-black text-white">
           <.icon name={@style.icon} class="h-6 w-6" /> {@style.label}
@@ -724,12 +772,20 @@ defmodule TriviaCrackQuizWeb.GameLive do
         </div>
       </div>
 
-      <button
-        phx-click="reset"
-        class="game-btn-primary mt-8 flex items-center gap-2 px-8 py-4 text-lg"
-      >
-        <.icon name="hero-arrow-path" class="h-5 w-5" /> Jugar de nuevo
-      </button>
+      <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+        <button
+          phx-click="reset"
+          class="game-btn-primary flex items-center gap-2 px-8 py-4 text-lg"
+        >
+          <.icon name="hero-arrow-path" class="h-5 w-5" /> Jugar de nuevo
+        </button>
+        <button
+          phx-click="leave"
+          class="flex items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-slate-600 transition hover:border-indigo-300 hover:bg-slate-50"
+        >
+          <.icon name="hero-home" class="h-5 w-5" /> Volver al lobby
+        </button>
+      </div>
     </div>
     """
   end
