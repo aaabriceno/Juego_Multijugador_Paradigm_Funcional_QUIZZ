@@ -20,26 +20,43 @@ defmodule TriviaCrackQuiz.Game do
   def question_time_ms(_question), do: @round_time_ms
 
   @doc """
-  Crea el estado inicial de una partida. `category` limita el banco a una sola
-  categoria (atom) o `:all` para usar todas. Guarda la categoria elegida para
-  poder reabrir/reiniciar la sala con el mismo filtro.
+  Crea el estado inicial de una partida.
+
+  `filters` limita el banco de preguntas con dos listas opcionales:
+
+    * `:categories` - solo preguntas de esas categorias (lista de atoms)
+    * `:types` - solo preguntas de esos tipos (lista de atoms)
+
+  Una lista vacia no restringe (cuenta como "todas"). Si la combinacion de
+  filtros deja el banco sin preguntas, se usa el banco completo para no quedar
+  sin nada que preguntar. Se aceptan tambien las formas antiguas: un atom de
+  categoria o `:all`.
   """
+  @max_rounds 10
+  # Una respuesta sorpresa correcta da 20% mas de puntos que una normal.
+  @surprise_bonus 1.2
+
   def new_state(
         questions \\ TriviaCrackQuiz.QuestionBank.load_questions(),
-        category \\ :all
+        filters \\ %{}
       ) do
+    filters = normalize_filters(filters)
+
     %{
       phase: :waiting,
       players: %{},
       round: 0,
-      max_rounds: 10,
+      max_rounds: @max_rounds,
       round_started_at: nil,
       round_time_ms: @round_time_ms,
       results_time_ms: @results_time_ms,
       round_results: nil,
-      category: category,
+      filters: filters,
+      # Si la sala activo "sorpresa", se reserva una ronda al azar para una
+      # pregunta de categoria aleatoria (ignora el filtro de categorias).
+      surprise_round: surprise_round(filters[:surprise], @max_rounds),
       all_questions: questions,
-      questions: filter_by_category(questions, category),
+      questions: filter_questions(questions, filters),
       current_question: nil,
       used_question_ids: MapSet.new(),
       last_category: nil,
@@ -47,6 +64,10 @@ defmodule TriviaCrackQuiz.Game do
       winner: nil
     }
   end
+
+  # Elige en que ronda caera la unica pregunta sorpresa, o nil si no hay.
+  defp surprise_round(true, max_rounds), do: Enum.random(1..max_rounds)
+  defp surprise_round(_other, _max_rounds), do: nil
 
   @doc "Lista de categorias disponibles en el banco de preguntas dado."
   def available_categories(questions) do
@@ -56,16 +77,46 @@ defmodule TriviaCrackQuiz.Game do
     |> Enum.sort()
   end
 
-  # Filtra el banco por categoria. `:all` (o categoria sin preguntas) deja el
-  # banco completo, para no quedarse sin preguntas por un filtro vacio.
-  defp filter_by_category(questions, :all), do: questions
-
-  defp filter_by_category(questions, category) do
-    case Enum.filter(questions, &(&1.category == category)) do
-      [] -> questions
-      filtered -> filtered
-    end
+  @doc "Lista de tipos de pregunta disponibles en el banco dado."
+  def available_types(questions) do
+    questions
+    |> Enum.map(& &1.type)
+    |> Enum.uniq()
+    |> Enum.sort()
   end
+
+  # Acepta el formato nuevo (mapa con :categories/:types) y los viejos (un atom
+  # de categoria, o :all) para no romper llamadas existentes.
+  defp normalize_filters(:all), do: %{categories: [], types: [], surprise: false}
+  defp normalize_filters(nil), do: %{categories: [], types: [], surprise: false}
+
+  defp normalize_filters(%{} = filters) do
+    %{
+      categories: List.wrap(Map.get(filters, :categories, [])),
+      types: List.wrap(Map.get(filters, :types, [])),
+      surprise: Map.get(filters, :surprise, false) == true
+    }
+  end
+
+  defp normalize_filters(category) when is_atom(category),
+    do: %{categories: [category], types: [], surprise: false}
+
+  # Filtra el banco por categorias y tipos. Cada lista vacia no restringe. Si la
+  # combinacion deja cero preguntas, devuelve el banco completo.
+  defp filter_questions(questions, %{categories: categories, types: types}) do
+    filtered =
+      Enum.filter(questions, fn q ->
+        category_ok?(q, categories) and type_ok?(q, types)
+      end)
+
+    if filtered == [], do: questions, else: filtered
+  end
+
+  defp category_ok?(_question, []), do: true
+  defp category_ok?(question, categories), do: question.category in categories
+
+  defp type_ok?(_question, []), do: true
+  defp type_ok?(question, types), do: question.type in types
 
   @max_name_length 20
 
@@ -146,13 +197,15 @@ defmodule TriviaCrackQuiz.Game do
   end
 
   def next_question(state) do
-    question = select_question(state)
+    next_round_number = state.round + 1
+    surprise? = next_round_number == Map.get(state, :surprise_round)
+    question = select_question(state, surprise?) |> Map.put(:surprise, surprise?)
     now = System.monotonic_time(:millisecond)
 
     %{
       state
       | phase: :playing,
-        round: state.round + 1,
+        round: next_round_number,
         round_started_at: now,
         round_time_ms: question_time_ms(question),
         current_question: question,
@@ -192,12 +245,19 @@ defmodule TriviaCrackQuiz.Game do
 
   def evaluate_round(%{phase: :playing, current_question: question} = state)
       when not is_nil(question) do
+    surprise? = Map.get(question, :surprise, false)
+
     results =
       Map.new(state.answers, fn {player_id, answer} ->
         correct? = correct_answer?(question, answer.answer)
 
         points =
-          if correct?, do: score_answer(state.round_started_at, answer.answered_at), else: 0
+          if correct? do
+            base = score_answer(state.round_started_at, answer.answered_at)
+            if surprise?, do: round(base * @surprise_bonus), else: base
+          else
+            0
+          end
 
         {player_id, %{answer: answer.answer, correct?: correct?, points: points}}
       end)
@@ -231,7 +291,7 @@ defmodule TriviaCrackQuiz.Game do
   # Vuelve la sala a espera vacia para que otros puedan entrar de nuevo,
   # conservando la categoria elegida al crearla.
   def reopen_room(state) do
-    new_state(all_questions(state), category(state))
+    new_state(all_questions(state), filters(state))
   end
 
   # Vuelve a la sala de espera conservando a los jugadores registrados, con
@@ -243,13 +303,13 @@ defmodule TriviaCrackQuiz.Game do
         {player_id, %{player | score: 0, last_action: :joined}}
       end)
 
-    %{new_state(all_questions(state), category(state)) | players: players}
+    %{new_state(all_questions(state), filters(state)) | players: players}
   end
 
   # Banco completo original (sin filtrar) y categoria de la sala. Tienen valores
   # por defecto para tolerar estados viejos que no traian estos campos.
   defp all_questions(state), do: Map.get(state, :all_questions) || state.questions
-  defp category(state), do: Map.get(state, :category, :all)
+  defp filters(state), do: Map.get(state, :filters, %{categories: [], types: []})
 
   def finish(state) do
     %{
@@ -283,20 +343,37 @@ defmodule TriviaCrackQuiz.Game do
     %{state | current_question: Map.drop(question, [:answer, :accept])}
   end
 
-  defp select_question(state) do
+  # Pregunta normal: del banco ya filtrado por la sala, evitando repetir
+  # categoria consecutiva.
+  defp select_question(state, false) do
     state
-    |> available_questions()
+    |> available_questions(state.questions)
     |> avoid_last_category(state.last_category)
     |> Enum.random()
   end
 
-  defp available_questions(state) do
+  # Pregunta sorpresa: categoria aleatoria entre TODAS (ignora el filtro de
+  # categorias), pero respeta los tipos elegidos en la sala.
+  defp select_question(state, true) do
+    pool =
+      state.all_questions
+      |> Enum.filter(&type_ok?(&1, state.filters.types))
+      |> case do
+        [] -> state.all_questions
+        filtered -> filtered
+      end
+
+    available_questions(state, pool) |> Enum.random()
+  end
+
+  # Quita las preguntas ya usadas; si no queda ninguna, reusa el pool completo.
+  defp available_questions(state, pool) do
     available =
-      Enum.reject(state.questions, fn question ->
+      Enum.reject(pool, fn question ->
         MapSet.member?(state.used_question_ids, question.id)
       end)
 
-    if available == [], do: state.questions, else: available
+    if available == [], do: pool, else: available
   end
 
   defp avoid_last_category(questions, nil), do: questions

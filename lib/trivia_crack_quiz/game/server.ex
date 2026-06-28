@@ -24,11 +24,11 @@ defmodule TriviaCrackQuiz.GameServer do
   # Localiza el proceso de la sala por su room_id usando el Registry.
   defp via(room_id), do: {:via, Registry, {TriviaCrackQuiz.RoomRegistry, room_id}}
 
-  # Acepta `room_id` o `{room_id, category}`. La categoria limita el banco de
-  # preguntas de la sala (`:all` = todas).
-  def start_link({room_id, category}) do
+  # Acepta `room_id` o `{room_id, filters}`. `filters` limita el banco de la
+  # sala por categorias y/o tipos (ver `Game.new_state/2`); `:all` = sin filtro.
+  def start_link({room_id, filters}) do
     state =
-      Game.new_state(TriviaCrackQuiz.QuestionBank.load_questions(), category)
+      Game.new_state(TriviaCrackQuiz.QuestionBank.load_questions(), filters)
       |> Map.put(:room_id, room_id)
 
     GenServer.start_link(__MODULE__, state, name: via(room_id))
@@ -36,10 +36,10 @@ defmodule TriviaCrackQuiz.GameServer do
 
   def start_link(room_id), do: start_link({room_id, :all})
 
-  def child_spec({room_id, category}) do
+  def child_spec({room_id, filters}) do
     %{
       id: room_id,
-      start: {__MODULE__, :start_link, [{room_id, category}]},
+      start: {__MODULE__, :start_link, [{room_id, filters}]},
       restart: :temporary
     }
   end
