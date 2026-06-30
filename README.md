@@ -1,45 +1,100 @@
 # Trivia Crack Quiz Multiplayer
 
-Juego multijugador de preguntas desarrollado en Elixir, Phoenix LiveView y OTP.
-Cada sala es una partida independiente: corre como su propio proceso
-`GameServer`, creado bajo demanda y supervisado de forma dinamica. Los jugadores
+Juego multijugador de preguntas desarrollado en Elixir, Phoenix LiveView y OTP
+como proyecto final del curso de Lenguajes de Programacion (paradigma funcional).
+
+Cada sala es una partida independiente que corre como su propio proceso
+`GameServer`, creado bajo demanda y supervisado dinamicamente. Los jugadores
 se coordinan por paso de mensajes y el estado se publica en tiempo real con
 `Phoenix.PubSub`, sin recargar la pagina.
 
+## Integrantes
+
+- Anthony Briceño Quiroz
+- Sixto Caceres Terrones
+- Paolo Mostajo Alor
+
 ## Caracteristicas
 
-- **Multiples salas en paralelo**: crear sala (con nombre opcional) o unirse a
-  una al azar desde el lobby. Cada sala tiene hasta 10 jugadores.
+- **Multiples salas en paralelo**: crear sala (con nombre opcional y filtros) o
+  unirse a una aleatoria desde el lobby. Cada sala admite hasta 10 jugadores.
+- **Filtros al crear sala**: el creador elige categorias (arte, ciencia,
+  deportes, historia, tecnologia, cultura general) y tipos de pregunta
+  (opcion multiple, verdadero/falso, respuesta rapida). Ninguna seleccion = todas.
+- **4 tipos de pregunta**:
+  - `multiple_choice`: elegir entre 4 opciones.
+  - `true_false`: verdadero o falso.
+  - `quick_answer`: respuesta por teclado con tolerancia a errores de tipeo
+    (distancia de Levenshtein ≤ 1) y 4 segundos extra de tiempo.
+  - `sorpresa`: una pregunta por partida, categoria aleatoria (ignora el filtro
+    de categorias), aparece en una ronda al azar, vale +20% de puntos.
 - **Tiempo real**: rondas, temporizadores, respuestas y marcador se actualizan
   al instante via LiveView + PubSub.
-- **Preguntas por categoria**: arte, ciencia, deportes, historia, tecnologia y
-  cultura general, con puntaje por acierto y bono por rapidez.
-- **Salir y reconexion**: salir de la partida (con confirmacion) libera el
-  lugar y la partida sigue con los que quedan; cerrar la pestana solo marca al
-  jugador como desconectado y permite reconectar conservando el puntaje.
-- **Final con podio**: detecta empates y muestra un podio con los tres
-  primeros, animaciones, sonidos y confeti.
+- **Tablero espectador** (`/tablero`): vista publica con todas las salas activas
+  y el ranking en vivo de cada una. Ideal para proyectar en pantalla.
+- **Puntaje por rapidez**: respuesta correcta = 100 pts base + hasta 50 pts
+  extra segun que tan rapido se respondio.
+- **Reconexion**: cerrar la pestana solo marca al jugador como desconectado;
+  al volver conserva su puntaje. Salir con el boton lo elimina definitivamente.
+- **Auto-cierre de salas vacias**: una sala sin jugadores conectados se cierra
+  sola despues de 15 segundos.
+- **Final con podio**: detecta empates, muestra podio con los tres primeros,
+  animaciones, sonidos y confeti. Boton para volver al lobby o jugar de nuevo.
 
-## Estructura principal
+## Pantallas
 
-- `lib/trivia_crack_quiz/game/`: dominio del juego. Funciones puras (`Game`),
-  el actor de cada sala (`GameServer`) y el banco de preguntas.
-- `lib/trivia_crack_quiz/rooms.ex`: gestor de salas (crear, listar, unirse).
-- `lib/trivia_crack_quiz_web/live/`: interfaz en Phoenix LiveView
-  (`LobbyLive` y `GameLive`).
-- `docs/`: avances, diagramas y documentos del proyecto.
-- `assets/`: estilos, JavaScript, sonidos y confeti.
+| Ruta | Descripcion |
+|---|---|
+| `/` | Lobby: lista de salas activas, union aleatoria, link a crear sala y tablero. |
+| `/crear` | Crear sala: nombre opcional + filtros por categoria/tipo/sorpresa. |
+| `/sala/:id` | Partida: sala de espera, pregunta en curso, resultados por ronda, podio final. |
+| `/tablero` | Tablero espectador: ranking en vivo de todas las salas. |
 
-## Arquitectura (resumen)
+## Estructura del proyecto
+
+```
+lib/
+  trivia_crack_quiz/
+    game/
+      engine.ex        # Logica pura del juego (funciones puras, inmutable)
+      server.ex        # Actor GenServer: un proceso por sala
+      question_bank.ex # Carga el banco de preguntas desde priv/data/
+    rooms.ex           # Gestor de salas (crear, listar, unirse, cerrar)
+    application.ex     # Arbol de supervision OTP
+
+  trivia_crack_quiz_web/
+    live/
+      lobby_live.ex       # Pantalla principal
+      crear_sala_live.ex  # Pantalla de creacion con filtros
+      game_live.ex        # Pantalla de partida
+      tablero_live.ex     # Tablero espectador
+    router.ex             # Rutas de la aplicacion
+
+priv/data/questions/     # Banco de preguntas en JSON por categoria
+docs/                    # Documentacion adicional
+```
+
+## Arquitectura
 
 El arbol OTP arranca, ademas del endpoint web y `Phoenix.PubSub`:
 
-- `TriviaCrackQuiz.RoomRegistry` (`Registry`): mapea cada `room_id` a su proceso.
-- `TriviaCrackQuiz.RoomSupervisor` (`DynamicSupervisor`): crea y supervisa un
-  `GameServer` por sala bajo demanda.
+- `RoomRegistry` (`Registry`): mapea cada `room_id` a su proceso `GameServer`.
+- `RoomSupervisor` (`DynamicSupervisor`): crea y supervisa un `GameServer` por
+  sala bajo demanda. Sin limite artificial de salas simultaneas.
 
-Detalle completo en
-[docs/arquitectura_phoenix_otp.md](docs/arquitectura_phoenix_otp.md).
+Flujo de un evento (ejemplo: jugador responde):
+
+```
+Navegador → WebSocket → GameLive → GameServer.answer/3
+  → Game.register_answer/3  (funcion pura)
+  → Game.evaluate_round/1   (si todos respondieron)
+  → PubSub.broadcast        (nuevo estado a todos los LiveView de la sala)
+  → LiveView re-renderiza   (solo el diff HTML)
+```
+
+La logica del juego (`Game`) es un modulo de funciones puras: recibe estado,
+devuelve estado nuevo. Nunca lanza procesos ni hace IO. Esto la hace 100%
+testeable sin mocks ni efectos.
 
 ## Documentacion tecnica
 
@@ -59,14 +114,14 @@ El informe incluye:
 
 ## Instalacion
 
-Guia detallada para los integrantes:
-
-- [docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
+Requisitos: Erlang/OTP 26+, Elixir 1.15+.
 
 ```bash
 mix deps.get
 mix setup
 ```
+
+Guia detallada por sistema operativo: [docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
 
 Si necesitas regenerar el PDF de la documentacion tecnica:
 
@@ -80,18 +135,28 @@ Si necesitas regenerar el PDF de la documentacion tecnica:
 mix phx.server
 ```
 
-Luego abrir:
+Abrir en el navegador:
 
-```text
+```
 http://localhost:4000
 ```
 
-Al iniciar, la consola imprime tambien una URL con la IP de la red local
-(`http://IP_DEL_HOST:4000`) para que otros dispositivos de la misma red (por
-ejemplo un celular) entren a jugar.
+Al iniciar, la consola imprime la URL de red local (`http://IP:4000`) para que
+otros dispositivos de la misma red puedan unirse a jugar.
 
-## Verificacion
+Para probar multijugador local, abrir la misma URL en tres pestanas o
+navegadores distintos y registrar un jugador en cada una.
+
+## Pruebas
 
 ```bash
 mix test
 ```
+
+Resultado esperado: **72 tests, 0 failures**.
+
+## Banco de preguntas
+
+Las preguntas viven en `priv/data/questions/` (un archivo JSON por categoria).
+Ver [docs/banco_preguntas.md](docs/banco_preguntas.md) para formato y scripts
+de generacion/validacion.
