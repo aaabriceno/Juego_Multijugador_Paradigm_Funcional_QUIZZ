@@ -112,40 +112,60 @@ El informe incluye:
 - definicion de los modulos y funciones principales
 - decisiones funcionales de diseno y flujo operativo de una partida
 
-## Instalacion
+## Instalacion y ejecucion
 
-Requisitos: Erlang/OTP 26+, Elixir 1.15+.
+### Requisitos previos
+
+Tener instalado en la maquina:
+
+- **Erlang/OTP 26** o superior
+- **Elixir 1.15** o superior
+
+Verificar con:
+
+```bash
+elixir --version
+mix --version
+```
+
+Si no estan instalados, seguir la guia por sistema operativo:
+[docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
+
+### Pasos para correr el juego
+
+**1. Descomprimir o clonar el proyecto** (si viene como zip, extraerlo; si viene del repositorio):
+
+```bash
+git clone https://github.com/aaabriceno/Juego_Multijugador_Paradigm_Funcional_QUIZZ.git
+cd Juego_Multijugador_Paradigm_Funcional_QUIZZ
+```
+
+**2. Instalar dependencias:**
 
 ```bash
 mix deps.get
 mix setup
 ```
 
-Guia detallada por sistema operativo: [docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
+**3. Iniciar el servidor:**
+
+```bash
+mix phx.server
+```
+
+**4. Abrir en el navegador:**
+
+```
+http://localhost:4000
+```
+
+**Para multijugador local:** abrir la misma URL en tres pestanas o navegadores distintos y registrar un jugador distinto en cada una. Al iniciar, la consola tambien imprime la IP de red local (`http://192.168.x.x:4000`) para que otros dispositivos de la misma red WiFi puedan unirse.
 
 Si necesitas regenerar el PDF de la documentacion tecnica:
 
 ```powershell
 .\scripts\build_technical_docs.ps1
 ```
-
-## Ejecucion
-
-```bash
-mix phx.server
-```
-
-Abrir en el navegador:
-
-```
-http://localhost:4000
-```
-
-Al iniciar, la consola imprime la URL de red local (`http://IP:4000`) para que
-otros dispositivos de la misma red puedan unirse a jugar.
-
-Para probar multijugador local, abrir la misma URL en tres pestanas o
-navegadores distintos y registrar un jugador en cada una.
 
 ## Pruebas
 
