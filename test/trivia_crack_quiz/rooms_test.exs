@@ -260,7 +260,12 @@ defmodule TriviaCrackQuiz.RoomsTest do
     Rooms.create(id, %{categories: [:ciencia], types: [:multiple_choice]})
 
     summary = Enum.find(Rooms.list(), &(&1.id == id))
-    assert summary.filters == %{categories: [:ciencia], types: [:multiple_choice], surprise: false}
+
+    assert summary.filters == %{
+             categories: [:ciencia],
+             types: [:multiple_choice],
+             surprise: false
+           }
   end
 
   test "random_open with filters reuses a room with the same filters" do

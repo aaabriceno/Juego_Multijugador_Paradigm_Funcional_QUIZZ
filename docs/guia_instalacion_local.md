@@ -1,7 +1,8 @@
 # Guia de instalacion local
 
 Esta guia explica que debe instalar cada integrante para ejecutar el proyecto
-Trivia Crack Quiz Multiplayer en su computadora.
+Trivia Crack Quiz Multiplayer en su computadora, correr las pruebas del repo y,
+si hace falta, regenerar la documentacion tecnica en PDF.
 
 ## Recomendacion por sistema operativo
 
@@ -95,7 +96,7 @@ Recomendado:
 
 ```bash
 cd ~
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/aaabriceno/Juego_Multijugador_Paradigm_Funcional_QUIZZ.git
 cd Juego_Multijugador_Paradigm_Funcional_QUIZZ
 ```
 
@@ -165,7 +166,7 @@ Erlang y Elixir ya estan instalados.
 Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/aaabriceno/Juego_Multijugador_Paradigm_Funcional_QUIZZ.git
 cd Juego_Multijugador_Paradigm_Funcional_QUIZZ
 ```
 
@@ -182,6 +183,16 @@ mix setup
 - instalacion local de Tailwind si falta
 - instalacion local de esbuild si falta
 - compilacion de assets
+
+El repositorio tambien incluye el alias:
+
+```bash
+mix precommit
+```
+
+Este comando compila con warnings como errores, desbloquea dependencias no
+usadas, formatea el codigo y corre la suite de pruebas. Es la validacion
+recomendada antes de entregar cambios.
 
 ## Ejecutar el juego
 
@@ -200,6 +211,16 @@ http://localhost:4000
 Para probar el modo multijugador local, abrir la misma URL en tres ventanas o
 tres navegadores distintos. Cada ventana puede registrar un jugador diferente.
 
+Cuando el servidor arranca, la aplicacion tambien intenta detectar la IP LAN de
+la maquina y escribe en consola una URL como:
+
+```text
+http://192.168.x.x:4000
+```
+
+Esa direccion permite que otros dispositivos de la misma red local entren a la
+partida desde su navegador.
+
 ## Ejecutar pruebas
 
 ```bash
@@ -210,6 +231,12 @@ Resultado esperado actualmente:
 
 ```text
 72 tests, 0 failures
+```
+
+Validacion completa recomendada antes de cerrar una tarea:
+
+```bash
+mix precommit
 ```
 
 ## Comandos utiles
@@ -237,6 +264,37 @@ Ejecutar servidor con consola interactiva:
 ```bash
 iex -S mix phx.server
 ```
+
+## Generar la documentacion tecnica
+
+El proyecto incluye una documentacion tecnica principal en:
+
+```text
+docs/documentacion_tecnica.tex
+```
+
+Y su PDF compilado en:
+
+```text
+docs/documentacion_tecnica.pdf
+```
+
+Para regenerar diagramas y recompilar el PDF en Windows PowerShell:
+
+```powershell
+.\scripts\build_technical_docs.ps1
+```
+
+Ese script:
+
+- renderiza los diagramas Mermaid de `docs/figures/*.mmd`
+- recompila `docs/documentacion_tecnica.tex`
+- deja el PDF final dentro de `docs/`
+
+Las herramientas usadas en este flujo son:
+
+- Mermaid CLI para renderizar diagramas
+- Tectonic como compilador LaTeX
 
 ## Problemas comunes
 
@@ -277,6 +335,25 @@ sudo apt install -y inotify-tools
 Esta advertencia no impide ejecutar el juego; solo afecta la recarga automatica
 del navegador durante desarrollo.
 
+### Advertencia de symlinks en Windows
+
+Algunas maquinas Windows muestran una advertencia de Phoenix LiveView similar a:
+
+```text
+Failed to symlink node_modules folder for Phoenix.LiveView.ColocatedJS: :eperm
+```
+
+o:
+
+```text
+Phoenix is unable to create symlinks
+```
+
+La aplicacion puede seguir funcionando, pero la recarga de codigo y algunos
+assets pueden comportarse peor. La solucion mas estable es usar WSL con Ubuntu
+o abrir al menos una vez la terminal como administrador para habilitar mejor el
+soporte de symlinks.
+
 ### Puerto 4000 ocupado
 
 Si Phoenix indica que el puerto 4000 esta ocupado, cerrar el otro proceso o usar
@@ -303,7 +380,7 @@ $env:PORT=4001; mix phx.server
 Para alguien que ya tiene Git, Erlang y Elixir instalados:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/aaabriceno/Juego_Multijugador_Paradigm_Funcional_QUIZZ.git
 cd Juego_Multijugador_Paradigm_Funcional_QUIZZ
 mix setup
 mix test

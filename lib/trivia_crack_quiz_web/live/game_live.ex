@@ -256,10 +256,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
             <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur">
               <.icon name="hero-puzzle-piece" class="h-7 w-7" />
             </div>
+            
             <div>
               <h1 class="text-3xl font-black tracking-tight text-white drop-shadow sm:text-4xl">
                 Preguntados
               </h1>
+              
               <p class="flex items-center gap-1.5 text-sm font-semibold text-white/80">
                 <.icon name="hero-flag" class="h-4 w-4" /> {@room_id}
                 <span class="rounded-full bg-white/20 px-2 py-0.5 text-xs">
@@ -268,30 +270,35 @@ defmodule TriviaCrackQuizWeb.GameLive do
               </p>
             </div>
           </div>
+          
           <div class="grid grid-cols-3 gap-2 text-center text-sm">
             <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Fase</p>
+              
               <p class="font-bold text-white">{phase_label(@state.phase)}</p>
             </div>
+            
             <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Ronda</p>
+              
               <p class="font-bold text-white">{@state.round}/{@state.max_rounds}</p>
             </div>
+            
             <div class="game-stat-pill px-4 py-2">
               <p class="text-xs font-semibold uppercase text-white/70">Jugadores</p>
+              
               <p class="font-bold text-white">{TriviaCrackQuiz.Game.connected_count(@state)}</p>
             </div>
           </div>
         </header>
-
+        
         <section
           :if={@notice}
           class="flex items-center gap-2 rounded-2xl bg-white/90 px-5 py-3 text-sm font-semibold text-indigo-700 shadow-lg"
         >
-          <.icon name="hero-chat-bubble-left-ellipsis" class="h-5 w-5 shrink-0" />
-          {@notice}
+          <.icon name="hero-chat-bubble-left-ellipsis" class="h-5 w-5 shrink-0" /> {@notice}
         </section>
-
+        
         <div class="grid flex-1 gap-5 lg:grid-cols-[minmax(0,1fr)_330px]">
           <section class="game-card p-6">
             <.join_panel :if={is_nil(@player_id)} />
@@ -306,15 +313,15 @@ defmodule TriviaCrackQuizWeb.GameLive do
               :if={@state.phase == :round_results}
               state={@state}
               player_id={@player_id}
-            />
-            <.finished_panel :if={@state.phase == :finished} state={@state} />
+            /> <.finished_panel :if={@state.phase == :finished} state={@state} />
           </section>
-
+          
           <aside class="game-card self-start p-5">
             <div class="mb-4 flex items-center justify-between">
               <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
                 <.icon name="hero-trophy" class="h-5 w-5 text-amber-500" /> Marcador
               </h2>
+              
               <button
                 :if={@state.phase == :waiting}
                 phx-click="start"
@@ -323,7 +330,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
                 <.icon name="hero-play" class="h-4 w-4" /> Iniciar
               </button>
             </div>
-
+            
             <div class="space-y-2">
               <div
                 :for={
@@ -359,14 +366,15 @@ defmodule TriviaCrackQuizWeb.GameLive do
                         :if={position == 1 and player.score > 0}
                         name="hero-star"
                         class="mr-0.5 inline h-4 w-4 text-amber-400"
-                      />
-                      {player.name}
+                      /> {player.name}
                       <span :if={id == @player_id} class="text-xs font-semibold text-indigo-500">
                         (tú)
                       </span>
                     </p>
+                    
                     <p class="text-xs text-slate-400">{action_label(player.last_action)}</p>
                   </div>
+                  
                   <p class="shrink-0 text-sm font-black text-indigo-600">{player.score}</p>
                 </div>
               </div>
@@ -385,7 +393,9 @@ defmodule TriviaCrackQuizWeb.GameLive do
         <.icon name="hero-user-plus" class="h-9 w-9" />
       </span>
       <h2 class="mt-4 text-3xl font-black text-slate-800">Únete a la partida</h2>
+      
       <p class="mt-2 text-slate-500">Elige un nombre y compite respondiendo preguntas.</p>
+      
       <.form for={%{}} as={:player} phx-submit="join" id="join-form" class="mt-8 space-y-4">
         <input
           name="player[name]"
@@ -394,10 +404,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
           maxlength="20"
           placeholder="Tu nombre de jugador"
           class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
-        />
-        <button class="game-btn-primary w-full px-5 py-4 text-lg">
-          Entrar
-        </button>
+        /> <button class="game-btn-primary w-full px-5 py-4 text-lg">Entrar</button>
       </.form>
     </div>
     """
@@ -410,15 +417,18 @@ defmodule TriviaCrackQuizWeb.GameLive do
         <.icon name="hero-clock" class="h-9 w-9" />
       </span>
       <h2 class="mt-4 text-3xl font-black text-slate-800">Esperando jugadores...</h2>
+      
       <p class="mt-2 max-w-md text-slate-500">
         La partida inicia cuando existan al menos 3 jugadores registrados.
       </p>
+      
       <p class="mt-6 text-6xl font-black text-indigo-600">
         {TriviaCrackQuiz.Game.connected_count(@state)}<span class="text-3xl text-slate-300">/3</span>
       </p>
-
+      
       <div class="mt-10">
         <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Categorías en juego</p>
+        
         <div class="mt-3 flex flex-wrap justify-center gap-2">
           <span
             :for={category <- categories_in_play(@state)}
@@ -427,13 +437,13 @@ defmodule TriviaCrackQuizWeb.GameLive do
               category_style(category).chip
             ]}
           >
-            <.icon name={category_style(category).icon} class="h-4 w-4" />
-            {category_style(category).label}
+            <.icon name={category_style(category).icon} class="h-4 w-4" /> {category_style(category).label}
           </span>
         </div>
-
+        
         <div :if={types_in_play(@state) != []} class="mt-5">
           <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Tipos en juego</p>
+          
           <div class="mt-3 flex flex-wrap justify-center gap-2">
             <span
               :for={type <- types_in_play(@state)}
@@ -467,16 +477,17 @@ defmodule TriviaCrackQuizWeb.GameLive do
       >
         🎁 ¡Pregunta sorpresa! +20% de puntos
       </div>
-
+      
       <div class={["flex items-center justify-between gap-3 rounded-2xl px-5 py-3", @style.chip]}>
         <p class="flex items-center gap-2 text-lg font-black text-white">
           <.icon name={@style.icon} class="h-6 w-6" /> {@style.label}
         </p>
+        
         <p class="rounded-full bg-white/25 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
           {type_label(@state.current_question.type)}
         </p>
       </div>
-
+      
       <div :if={@time_left}>
         <div class="flex items-center justify-between text-sm font-bold">
           <span class="text-slate-400">Tiempo restante</span>
@@ -487,6 +498,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
             <.icon name="hero-clock" class="h-5 w-5" /> {@time_left}s
           </span>
         </div>
+        
         <div class="mt-1 h-3 w-full overflow-hidden rounded-full bg-slate-100">
           <div
             class={["h-full rounded-full transition-all duration-1000 ease-linear", @bar_color]}
@@ -494,7 +506,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
           />
         </div>
       </div>
-
+      
       <%!-- Cuenta regresiva dramatica: numero grande que late en los ultimos 3s.
             La key fuerza a re-disparar la animacion cada segundo. --%>
       <div
@@ -508,22 +520,23 @@ defmodule TriviaCrackQuizWeb.GameLive do
           {@time_left}
         </span>
       </div>
-
+      
       <h2 class="text-center text-2xl font-black leading-snug text-slate-800 sm:text-3xl">
         {@state.current_question.text}
       </h2>
-
+      
       <div
         :if={@answered?}
         class="flex min-h-40 flex-col items-center justify-center rounded-2xl bg-indigo-50 py-8 text-center"
       >
         <.icon name="hero-check-circle" class="h-12 w-12 text-indigo-600" />
         <p class="mt-2 text-xl font-black text-indigo-700">Respuesta enviada</p>
+        
         <p class="mt-1 font-semibold text-slate-500">
           Esperando al resto: {map_size(@state.answers)}/{map_size(@state.players)} respondieron
         </p>
       </div>
-
+      
       <.form
         :if={not is_nil(@player_id) and not @answered?}
         for={%{}}
@@ -541,7 +554,6 @@ defmodule TriviaCrackQuizWeb.GameLive do
         >
           {option}
         </button>
-
         <div :if={@state.current_question.options == []} class="sm:col-span-2">
           <input
             name="answer"
@@ -551,7 +563,6 @@ defmodule TriviaCrackQuizWeb.GameLive do
             placeholder="Escribe tu respuesta..."
             class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
           />
-
           <%!-- Pista opcional: solo si la pregunta trae hint. Se revela con el
                 boton; mientras tanto solo se ofrece la ayuda. --%>
           <div :if={@state.current_question[:hint]} class="mt-3 text-center">
@@ -570,10 +581,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
               💡 {@state.current_question.hint}
             </p>
           </div>
-
-          <button class="game-btn-primary mt-3 w-full px-5 py-4 text-lg">
-            Responder
-          </button>
+           <button class="game-btn-primary mt-3 w-full px-5 py-4 text-lg">Responder</button>
         </div>
       </.form>
     </div>
@@ -596,7 +604,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
           <.icon name={@style.icon} class="h-5 w-5" /> Resultados de la ronda {@state.round}
         </p>
       </div>
-
+      
       <div class={[
         "rounded-2xl px-5 py-4 text-center transition",
         (@my_result && @my_result.correct? && "animate-pop-in bg-emerald-50 ring-2 ring-emerald-300") ||
@@ -621,21 +629,21 @@ defmodule TriviaCrackQuizWeb.GameLive do
         >
           ¡Correcto! +{@my_result.points}
         </p>
+        
         <p
           :if={@my_result && not @my_result.correct?}
           class="mt-1 text-lg font-black text-rose-500"
         >
           ¡Fallaste!
         </p>
-        <h2 class="mt-2 text-xl font-bold text-slate-700">
-          {@state.round_results.question.text}
-        </h2>
+        
+        <h2 class="mt-2 text-xl font-bold text-slate-700">{@state.round_results.question.text}</h2>
+        
         <p class="mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-5 py-2 text-lg font-black text-emerald-700">
-          <.icon name="hero-check" class="h-5 w-5" />
-          {@state.round_results.question.answer}
+          <.icon name="hero-check" class="h-5 w-5" /> {@state.round_results.question.answer}
         </p>
       </div>
-
+      
       <div class="space-y-2">
         <div
           :for={{id, player} <- Enum.sort_by(@state.players, fn {_id, p} -> -p.score end)}
@@ -654,6 +662,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
             {player.name}
             <span :if={id == @player_id} class="text-xs font-semibold text-indigo-500">(tú)</span>
           </p>
+          
           <span
             :if={(r = @state.round_results.results[id]) && r.correct?}
             class="pointer-events-none absolute right-4 -top-1 animate-float-up text-sm font-black text-emerald-500"
@@ -662,14 +671,14 @@ defmodule TriviaCrackQuizWeb.GameLive do
           </span>
           <p :if={result = @state.round_results.results[id]} class="shrink-0 text-sm font-bold">
             <span :if={result.correct?} class="inline-flex items-center gap-1 text-emerald-600">
-              <.icon name="hero-check" class="h-4 w-4" />
-              {result.answer} <span class="text-emerald-500">+{result.points}</span>
+              <.icon name="hero-check" class="h-4 w-4" /> {result.answer}
+              <span class="text-emerald-500">+{result.points}</span>
             </span>
             <span :if={not result.correct?} class="inline-flex items-center gap-1 text-rose-500">
-              <.icon name="hero-x-mark" class="h-4 w-4" />
-              {result.answer}
+              <.icon name="hero-x-mark" class="h-4 w-4" /> {result.answer}
             </span>
           </p>
+          
           <p
             :if={is_nil(@state.round_results.results[id])}
             class="shrink-0 text-sm font-semibold text-slate-400"
@@ -678,7 +687,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
           </p>
         </div>
       </div>
-
+      
       <p class="text-center text-sm font-semibold text-slate-400">
         La siguiente pregunta aparecerá en unos segundos...
       </p>
@@ -710,12 +719,12 @@ defmodule TriviaCrackQuizWeb.GameLive do
       phx-hook="Confetti"
       class="pointer-events-none fixed inset-0 z-50"
     />
-
     <div class="flex min-h-80 flex-col items-center justify-center py-8 text-center">
       <.icon name="hero-trophy" class="h-16 w-16 animate-bounce text-amber-500" />
       <p class="mt-3 text-sm font-black uppercase tracking-wide text-indigo-500">
         Partida finalizada
       </p>
+      
       <h2 class="mt-1 text-3xl font-black text-slate-800">
         <%= cond do %>
           <% @tie? -> %>
@@ -726,8 +735,7 @@ defmodule TriviaCrackQuizWeb.GameLive do
             Sin ganador
         <% end %>
       </h2>
-
-      <%!-- Podio: 2do a la izquierda, 1ro al centro (mas alto), 3ro a la derecha. --%>
+       <%!-- Podio: 2do a la izquierda, 1ro al centro (mas alto), 3ro a la derecha. --%>
       <div :if={@podium != []} class="mt-8 flex items-end justify-center gap-3 sm:gap-5">
         <div
           :for={{{id, player}, position} <- @podium}
@@ -747,14 +755,16 @@ defmodule TriviaCrackQuizWeb.GameLive do
             {avatar_initial(player.name)}
           </span>
           <p class="mt-1 w-full truncate text-sm font-bold text-slate-800">{player.name}</p>
+          
           <p class="text-xs font-black text-indigo-600">{player.score} pts</p>
+          
           <div class={[
             "mt-2 w-full rounded-t-xl",
             podium_bar(position)
           ]} />
         </div>
       </div>
-
+      
       <div :if={@rest != []} class="mt-6 w-full max-w-md space-y-2 text-left">
         <div
           :for={{{id, player}, position} <- @rest}
@@ -768,10 +778,11 @@ defmodule TriviaCrackQuizWeb.GameLive do
             {avatar_initial(player.name)}
           </span>
           <p class="min-w-0 flex-1 truncate font-bold text-slate-800">{player.name}</p>
+          
           <p class="shrink-0 font-black text-indigo-600">{player.score} pts</p>
         </div>
       </div>
-
+      
       <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row">
         <button
           phx-click="reset"

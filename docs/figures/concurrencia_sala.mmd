@@ -1,0 +1,29 @@
+sequenceDiagram
+  autonumber
+  participant J as Jugador
+  participant LV as GameLive
+  participant GS as GameServer
+  participant G as Game
+  participant PS as Phoenix.PubSub
+  participant O as Otros LiveView
+
+  J->>LV: join/start/answer/leave
+  LV->>GS: GenServer.call(...)
+  GS->>G: transformar estado
+  G-->>GS: nuevo estado inmutable
+
+  alt todos los conectados respondieron
+    GS->>GS: close_round()
+  else expira el temporizador
+    GS->>GS: Process.send_after(:round_timeout)
+  end
+
+  GS->>PS: broadcast {:game_state, visible_state}
+  PS-->>LV: actualizacion de la sala
+  PS-->>O: actualizacion en tiempo real
+
+  opt cierre o caida de una pestana
+    LV-x GS: termina proceso monitoreado
+    GS->>GS: handle_info({:DOWN, ref, ...})
+    GS->>PS: broadcast con jugador desconectado
+  end

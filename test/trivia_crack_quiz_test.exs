@@ -301,12 +301,19 @@ defmodule TriviaCrackQuizTest do
       |> Game.join("p1", "Ana")
 
     assert Game.reset(state).filters == %{categories: [:science], types: [], surprise: false}
-    assert Game.reopen_room(state).filters == %{categories: [:science], types: [], surprise: false}
+
+    assert Game.reopen_room(state).filters == %{
+             categories: [:science],
+             types: [],
+             surprise: false
+           }
+
     assert Enum.all?(Game.reset(state).questions, &(&1.category == :science))
   end
 
   test "available_categories and available_types list what is in the bank" do
     assert Game.available_categories(mixed_questions()) == [:history, :science]
+
     assert Game.available_types(typed_questions()) ==
              [:multiple_choice, :quick_answer, :true_false]
   end
@@ -363,7 +370,14 @@ defmodule TriviaCrackQuizTest do
 
   test "a correct surprise answer scores exactly 20% more than a normal one" do
     base_question = [
-      %{id: 1, type: :multiple_choice, category: :ciencia, text: "q", options: ["A", "B"], answer: "A"}
+      %{
+        id: 1,
+        type: :multiple_choice,
+        category: :ciencia,
+        text: "q",
+        options: ["A", "B"],
+        answer: "A"
+      }
     ]
 
     # Anula el bonus de rapidez en ambos casos colocando el inicio de ronda
@@ -629,11 +643,39 @@ defmodule TriviaCrackQuizTest do
   # Banco variado en categorias y tipos para probar los filtros combinados.
   defp typed_questions do
     [
-      %{id: 1, type: :multiple_choice, category: :science, text: "c1", options: ["A"], answer: "A"},
-      %{id: 2, type: :true_false, category: :science, text: "c2", options: ["V", "F"], answer: "V"},
+      %{
+        id: 1,
+        type: :multiple_choice,
+        category: :science,
+        text: "c1",
+        options: ["A"],
+        answer: "A"
+      },
+      %{
+        id: 2,
+        type: :true_false,
+        category: :science,
+        text: "c2",
+        options: ["V", "F"],
+        answer: "V"
+      },
       %{id: 3, type: :quick_answer, category: :science, text: "c3", options: [], answer: "x"},
-      %{id: 4, type: :multiple_choice, category: :history, text: "h1", options: ["A"], answer: "A"},
-      %{id: 5, type: :true_false, category: :history, text: "h2", options: ["V", "F"], answer: "F"}
+      %{
+        id: 4,
+        type: :multiple_choice,
+        category: :history,
+        text: "h1",
+        options: ["A"],
+        answer: "A"
+      },
+      %{
+        id: 5,
+        type: :true_false,
+        category: :history,
+        text: "h2",
+        options: ["V", "F"],
+        answer: "F"
+      }
     ]
   end
 end

@@ -4,11 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <link rel="icon" href={~p"/images/favicon.svg"} type="image/svg+xml" />
-    <.live_title default="Preguntados" suffix=" · Trivia Multiplayer" phx-no-format>{assigns[:page_title]}</.live_title>
+    <link rel="icon" href={~p"/images/favicon.svg"} type="image/svg+xml" /> <.live_title
+      default="Preguntados"
+      suffix=" · Trivia Multiplayer"
+      phx-no-format
+    >{assigns[:page_title]}</.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
     </script>
+    
     <script>
       (() => {
         const setTheme = (theme) => {
@@ -29,7 +33,6 @@
       })();
     </script>
   </head>
-  <body>
-    {@inner_content}
-  </body>
+  
+  <body>{@inner_content}</body>
 </html>

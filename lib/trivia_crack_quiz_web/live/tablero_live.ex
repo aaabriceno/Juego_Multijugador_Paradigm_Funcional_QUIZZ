@@ -42,27 +42,27 @@ defmodule TriviaCrackQuizWeb.TableroLive do
           </.link>
           <div>
             <h1 class="text-3xl font-black tracking-tight text-white drop-shadow">Tablero en vivo</h1>
+            
             <p class="text-sm font-semibold text-white/80">
               {length(@rooms)} {if length(@rooms) == 1, do: "sala activa", else: "salas activas"}
             </p>
           </div>
         </header>
-
+        
         <p
           :if={@rooms == []}
           class="game-card flex flex-col items-center gap-3 px-4 py-12 text-center text-sm font-semibold text-slate-400"
         >
-          <.icon name="hero-tv" class="h-8 w-8 text-indigo-300" />
-          No hay salas activas para mostrar.
+          <.icon name="hero-tv" class="h-8 w-8 text-indigo-300" /> No hay salas activas para mostrar.
         </p>
-
+        
         <div :if={@rooms != []} class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <section :for={room <- @rooms} class="game-card flex flex-col p-5">
             <div class="flex items-center justify-between gap-2">
               <h2 class="flex items-center gap-1.5 truncate text-base font-black text-slate-800">
-                <.icon name="hero-flag" class="h-4 w-4 shrink-0 text-indigo-500" />
-                {room.id}
+                <.icon name="hero-flag" class="h-4 w-4 shrink-0 text-indigo-500" /> {room.id}
               </h2>
+              
               <span class={[
                 "shrink-0 rounded-full px-2.5 py-1 text-xs font-bold",
                 phase_badge(room.phase)
@@ -70,11 +70,11 @@ defmodule TriviaCrackQuizWeb.TableroLive do
                 {phase_label(room.phase)}
               </span>
             </div>
-
+            
             <p class="mt-1 text-xs font-semibold text-slate-400">
               Ronda {room.round}/{room.max_rounds} · {room.players}/{room.max_players} conectados
             </p>
-
+            
             <ul class="mt-3 space-y-1.5">
               <li
                 :for={{player, idx} <- Enum.with_index(room.roster, 1)}
@@ -90,7 +90,7 @@ defmodule TriviaCrackQuizWeb.TableroLive do
                 </span>
                 <span class="shrink-0 text-sm font-black text-indigo-600">{player.score}</span>
               </li>
-
+              
               <li
                 :if={room.roster == []}
                 class="rounded-xl bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-400"

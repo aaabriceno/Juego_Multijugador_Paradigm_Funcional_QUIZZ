@@ -80,10 +80,11 @@ defmodule TriviaCrackQuizWeb.CrearSalaLive do
           </.link>
           <div>
             <h1 class="text-3xl font-black tracking-tight text-white drop-shadow">Crear sala</h1>
+            
             <p class="text-sm font-semibold text-white/80">Elige nombre, categorías y tipos</p>
           </div>
         </header>
-
+        
         <section class="game-card p-6">
           <label class="text-xs font-bold uppercase tracking-wide text-slate-400">
             Nombre de la sala (opcional)
@@ -96,16 +97,18 @@ defmodule TriviaCrackQuizWeb.CrearSalaLive do
             class="mt-2 w-full rounded-xl border-2 border-slate-200 px-3 py-2.5 text-sm font-semibold text-slate-800 outline-none transition focus:border-indigo-400"
           />
         </section>
-
+        
         <%!-- Categorias como tarjetas seleccionables (checkbox nativo oculto). El
               estilo de "seleccionada" se aplica con peer-checked del checkbox. --%>
         <section class="game-card p-6">
           <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
             <.icon name="hero-tag" class="h-5 w-5 text-indigo-500" /> Categorías
           </h2>
+          
           <p class="mt-1 text-xs font-semibold text-slate-400">
             Marca las que quieras. Si no marcas ninguna, se juega con todas.
           </p>
+          
           <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
             <label :for={{value, emoji, label} <- @categories} class="cursor-pointer">
               <input type="checkbox" name={"categories[#{value}]"} value="true" class="peer sr-only" />
@@ -119,14 +122,16 @@ defmodule TriviaCrackQuizWeb.CrearSalaLive do
             </label>
           </div>
         </section>
-
+        
         <section class="game-card p-6">
           <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
             <.icon name="hero-list-bullet" class="h-5 w-5 text-indigo-500" /> Tipos de pregunta
           </h2>
+          
           <p class="mt-1 text-xs font-semibold text-slate-400">
             Marca los que quieras. Si no marcas ninguno, se juega con todos.
           </p>
+          
           <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <label :for={{value, emoji, label} <- @types} class="cursor-pointer">
               <input type="checkbox" name={"types[#{value}]"} value="true" class="peer sr-only" />
@@ -140,13 +145,14 @@ defmodule TriviaCrackQuizWeb.CrearSalaLive do
             </label>
           </div>
         </section>
-
+        
         <%!-- Pregunta sorpresa: una sola ronda de categoria aleatoria con 20%
               extra de puntos. Es un toggle (no es un tipo mas). --%>
         <section class="game-card p-6">
           <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
             <.icon name="hero-gift" class="h-5 w-5 text-indigo-500" /> Pregunta sorpresa
           </h2>
+          
           <label class="mt-4 block cursor-pointer">
             <input type="checkbox" name="surprise" value="true" class="peer sr-only" />
             <span class={[
@@ -163,14 +169,12 @@ defmodule TriviaCrackQuizWeb.CrearSalaLive do
             </span>
           </label>
         </section>
-
+        
         <section class="game-card flex flex-col gap-3 p-6">
           <p class="rounded-xl bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700">
             Lo que no marques se incluye completo (todas las categorías / todos los tipos).
           </p>
-          <button type="submit" class="game-btn-primary px-5 py-3 text-base">
-            Crear y entrar
-          </button>
+           <button type="submit" class="game-btn-primary px-5 py-3 text-base">Crear y entrar</button>
         </section>
       </form>
     </main>

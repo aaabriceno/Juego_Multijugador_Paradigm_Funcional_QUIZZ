@@ -57,8 +57,11 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
           <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-white shadow-lg backdrop-blur">
             <.icon name="hero-puzzle-piece" class="h-9 w-9" />
           </div>
+          
           <h1 class="text-4xl font-black tracking-tight text-white drop-shadow">Preguntados</h1>
+          
           <p class="text-sm font-semibold text-white/80">Trivia Crack Quiz Multiplayer</p>
+          
           <.link
             navigate={~p"/tablero"}
             class="mt-1 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-1.5 text-sm font-bold text-white backdrop-blur transition hover:scale-105"
@@ -66,17 +69,18 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
             <.icon name="hero-tv" class="h-4 w-4" /> Ver tablero en vivo
           </.link>
         </header>
-
+        
         <section class="game-card p-6">
           <div class="mb-4 flex items-center justify-between gap-3">
             <h2 class="flex items-center gap-2 text-lg font-black text-slate-800">
               <.icon name="hero-home-modern" class="h-5 w-5 text-indigo-500" /> Salas activas
             </h2>
+            
             <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-700">
               {length(@rooms)} {if length(@rooms) == 1, do: "sala", else: "salas"}
             </span>
           </div>
-
+          
           <p
             :if={@rooms == []}
             class="flex flex-col items-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 px-4 py-10 text-center text-sm font-semibold text-slate-400"
@@ -84,7 +88,7 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
             <.icon name="hero-sparkles" class="h-8 w-8 text-indigo-300" />
             No hay salas todavía. Crea la primera.
           </p>
-
+          
           <ul :if={@rooms != []} class="space-y-2">
             <li
               :for={room <- @rooms}
@@ -92,16 +96,16 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
             >
               <div class="min-w-0">
                 <p class="flex items-center gap-2 truncate text-sm font-black text-slate-800">
-                  <.icon name="hero-flag" class="h-4 w-4 shrink-0 text-indigo-500" />
-                  {room.id}
+                  <.icon name="hero-flag" class="h-4 w-4 shrink-0 text-indigo-500" /> {room.id}
                 </p>
-                <p class="text-xs font-semibold text-slate-500">
-                  {filters_label(room.filters)}
-                </p>
+                
+                <p class="text-xs font-semibold text-slate-500">{filters_label(room.filters)}</p>
+                
                 <p class="text-xs font-semibold text-slate-400">
                   {phase_label(room.phase)} · {room.players}/{room.max_players} jugadores
                 </p>
               </div>
+              
               <.link
                 :if={joinable?(room)}
                 navigate={~p"/sala/#{room.id}"}
@@ -118,7 +122,7 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
             </li>
           </ul>
         </section>
-
+        
         <section class="grid gap-3 sm:grid-cols-2">
           <%!-- Crear sala lleva a la pantalla de configuracion (nombre + filtros). --%>
           <.link
@@ -127,14 +131,11 @@ defmodule TriviaCrackQuizWeb.LobbyLive do
           >
             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <.icon name="hero-plus-circle" class="h-7 w-7" />
-            </span>
-            <span class="mt-3 block text-base font-black text-slate-800">Crear sala</span>
+            </span> <span class="mt-3 block text-base font-black text-slate-800">Crear sala</span>
             <span class="block text-xs font-semibold text-slate-500">
               Elige nombre, categorías y tipos
             </span>
-          </.link>
-
-          <%!-- Aleatorio: entra a cualquier sala libre, sin filtros. --%>
+          </.link> <%!-- Aleatorio: entra a cualquier sala libre, sin filtros. --%>
           <button
             type="button"
             phx-click="random"

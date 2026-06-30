@@ -41,6 +41,22 @@ El arbol OTP arranca, ademas del endpoint web y `Phoenix.PubSub`:
 Detalle completo en
 [docs/arquitectura_phoenix_otp.md](docs/arquitectura_phoenix_otp.md).
 
+## Documentacion tecnica
+
+La documentacion tecnica principal del proyecto ya esta disponible en LaTeX y
+en PDF dentro de `docs/`.
+
+- Ver o descargar el informe tecnico: [docs/documentacion_tecnica.pdf](docs/documentacion_tecnica.pdf)
+- Revisar la fuente LaTeX: [docs/documentacion_tecnica.tex](docs/documentacion_tecnica.tex)
+- Consultar la guia de instalacion completa: [docs/guia_instalacion_local.md](docs/guia_instalacion_local.md)
+
+El informe incluye:
+
+- diagrama de la estructura del juego
+- explicacion de la estrategia de concurrencia con OTP
+- definicion de los modulos y funciones principales
+- decisiones funcionales de diseno y flujo operativo de una partida
+
 ## Instalacion
 
 Guia detallada para los integrantes:
@@ -50,6 +66,12 @@ Guia detallada para los integrantes:
 ```bash
 mix deps.get
 mix setup
+```
+
+Si necesitas regenerar el PDF de la documentacion tecnica:
+
+```powershell
+.\scripts\build_technical_docs.ps1
 ```
 
 ## Ejecucion

@@ -1,0 +1,47 @@
+flowchart TB
+  subgraph Clientes["Clientes y vistas LiveView"]
+    Lobby["LobbyLive<br/>/"]
+    Crear["CrearSalaLive<br/>/crear"]
+    Sala["GameLive<br/>/sala/:room_id"]
+    Tablero["TableroLive<br/>/tablero"]
+  end
+
+  subgraph Web["Capa web Phoenix"]
+    Router["Router + Endpoint"]
+    PubSub["Phoenix.PubSub"]
+  end
+
+  subgraph Dominio["Dominio del juego"]
+    Rooms["TriviaCrackQuiz.Rooms"]
+    GameServer["TriviaCrackQuiz.GameServer<br/>1 proceso por sala"]
+    Game["TriviaCrackQuiz.Game<br/>funciones puras"]
+    Bank["QuestionBank<br/>JSON en priv/data/questions"]
+  end
+
+  subgraph OTP["Infraestructura OTP"]
+    App["TriviaCrackQuiz.Application"]
+    Registry["RoomRegistry"]
+    Supervisor["RoomSupervisor<br/>DynamicSupervisor"]
+  end
+
+  Lobby --> Router
+  Crear --> Router
+  Sala --> Router
+  Tablero --> Router
+
+  Router --> Rooms
+  Router --> GameServer
+  Sala --> PubSub
+  Lobby --> PubSub
+  Tablero --> PubSub
+
+  Rooms --> Supervisor
+  Rooms --> Registry
+  Supervisor --> GameServer
+  Registry --> GameServer
+  GameServer --> Game
+  Game --> Bank
+  GameServer --> PubSub
+  App --> Supervisor
+  App --> Registry
+  App --> PubSub
