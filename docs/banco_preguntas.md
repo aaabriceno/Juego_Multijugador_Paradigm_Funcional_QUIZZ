@@ -9,6 +9,7 @@ priv/data/questions/
 Estructura recomendada:
 
 ```text
+priv/data/questions/arte.json
 priv/data/questions/tecnologia.json
 priv/data/questions/ciencia.json
 priv/data/questions/historia.json
@@ -42,8 +43,9 @@ Ejecutar:
 mix run scripts/fetch_opentdb_questions.exs
 ```
 
-El script descarga 300 preguntas:
+El script descarga 360 preguntas:
 
+- 60 de arte
 - 60 de tecnologia
 - 60 de ciencia
 - 60 de historia

@@ -209,10 +209,8 @@ mix test
 Resultado esperado actualmente:
 
 ```text
-8 tests, 0 failures
+72 tests, 0 failures
 ```
-
-El numero de tests puede aumentar cuando el proyecto avance.
 
 ## Comandos utiles
 
